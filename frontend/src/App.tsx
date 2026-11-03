@@ -1,122 +1,85 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { checkHealth } from "@/lib/api"
+
+type ConnectionState = "idle" | "checking" | "connected" | "error"
+
+export default function App() {
+  const [connection, setConnection] = useState<ConnectionState>("idle")
+  const [message, setMessage] = useState(
+    "Check the connection before starting your reading session.",
+  )
+
+  async function handleConnectionCheck() {
+    setConnection("checking")
+    setMessage("Connecting…")
+
+    try {
+      await checkHealth()
+      setConnection("connected")
+      setMessage("Connected. Your workspace is ready for the next step.")
+    } catch {
+      setConnection("error")
+      setMessage(
+        "Could not connect. Make sure the backend is running, then try again.",
+      )
+    }
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+    <main className="min-h-screen bg-background px-6 py-16 text-foreground">
+      <div className="mx-auto max-w-3xl space-y-8">
+        <header className="space-y-3">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            A Game of Thrones · Reading workspace
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+          <h1 className="text-4xl font-semibold tracking-tight">
+            Ask the chapters.
+          </h1>
+          <p className="max-w-xl text-muted-foreground">
+            Explore your selected chapters through answers linked to the
+            passages that support them.
+          </p>
+        </header>
 
-      <div className="ticks"></div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Workspace connection</CardTitle>
+            <CardDescription>
+              Confirm that the application can reach its server.
+            </CardDescription>
+          </CardHeader>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <CardContent className="space-y-5">
+            <p
+              role="status"
+              aria-live="polite"
+              className={
+                connection === "error"
+                  ? "text-sm text-destructive"
+                  : "text-sm text-muted-foreground"
+              }
+            >
+              {message}
+            </p>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+            <Button
+              onClick={handleConnectionCheck}
+              disabled={connection === "checking"}
+            >
+              {connection === "checking" ? "Checking…" : "Check connection"}
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    </main>
   )
 }
-
-export default App
