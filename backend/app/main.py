@@ -37,6 +37,7 @@ app.include_router(indexing_router)
 app.include_router(questions_router)
 
 app.include_router(words_router)
+app.include_router(evaluation_router)
 
 class HealthResponse(BaseModel):
     status: Literal["ok"]
