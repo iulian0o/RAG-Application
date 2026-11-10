@@ -1,142 +1,51 @@
-# norag-rag project
+## V2 evaluation
 
-This workspace contains Python applications to compare **NoRAG** (full-context prompting) versus **RAG** (retrieval-augmented generation) using **Google Gemini** via the **OpenAI SDK**.
+Run commands from the backend directory using the backend Python environment.
 
-For the BM25 lexical-retrieval example, see [bm25/README.md](./bm25/README.md).
-For the two-hop retrieval exercise, see the [concept graph challenge](./concepts/concept_graph_challenge_part1.md).
+Upload the corpus documents and build their indexes before evaluation.
 
-## Applications
+Question sets are kept in evaluation/datasets. Source JSONL files follow the
+provided Kestrel format. JSON adapters identify corpus documents by their
+normalized content hashes and map reference quotes for scoring.
 
-1. `ask_norag_google.py`
-- NoRAG with Google Gemini via OpenAI SDK (`gemini-3.5-flash-lite`).
-- Loads `docs/CrimeAndPunishment.txt`, injects a "needle" passage, and runs two direct large-context questions:
-	- a baseline question about Marmeladov (present in the original book)
-	- a needle question about Denis (the injected passage)
+Run the no-context baselines:
 
-2. `ask_rag_google.py`
-- RAG with Google Gemini for generation via OpenAI SDK.
-- Uses local embeddings (`all-MiniLM-L6-v2`) + local ChromaDB (`chroma_db/`) to retrieve relevant chunks before asking the model.
-- Currently points to `docs/CrimeAndPunishment.txt` and retrieves `n_results=5` for the question: `What does this say about Denis?`
+    python -m app.evaluate_no_context kestrel
+    python -m app.evaluate_no_context custom
 
-3. `bm25/ask_bm25_rag_google.py`
-- RAG with Google Gemini for generation via OpenAI SDK and in-memory BM25 lexical retrieval.
-- See [bm25/README.md](./bm25/README.md) for how it works, how to run it, and the BM25 challenge.
+Review baseline answers manually and record correct_without_context.
 
-## Project Structure
+Run retrieval-only evaluation:
 
-- `docs/CrimeAndPunishment.txt`: main source text used by the scripts.
-- `docs/CrimeAndPunishment-shorter.txt`: shortened version of the main source text for quicker testing and rapid experimentation in Gemini online at https://gemini.google.com/app (See note below)
-- `chroma_db/`: persistent local vector database (used by RAG scripts).
-- `bm25/`: BM25 retrieval example and challenges.
-- `concepts/`: multi-hop retrieval challenge.
-- `requirements.txt`: Python dependencies.
+    python -m app.evaluation_v2 kestrel
+    python -m app.evaluation_v2 custom
 
-## Prerequisites
+Generate grounded answers as part of a run:
 
-- Python 3.10+ (recommended)
-- API key:
-   - `GOOGLE_API_KEY` from [Google AI Studio](https://aistudio.google.com/app/apikey)
+    python -m app.evaluation_v2 kestrel --generate-answers --answer-top-k 5
 
+Results are saved under evaluation/results using unique run IDs.
 
-## Setup
+Retrieval is measured at k = 1, 3, 5, 10, overall and by question type.
+Unanswerable questions are excluded from retrieval denominators.
+Retrieval errors count as misses and are reported separately.
 
-1. Create and activate a virtual environment:
+Do not modify documents, indexes, or question sets during an evaluation.
+Runs detecting changed inputs are invalid.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
+A file left with status running after a forced process termination is
+incomplete. Start a fresh run and exclude the incomplete file from analysis.
 
-2. Install dependencies:
+The API exposes:
 
-```bash
-pip install -r requirements.txt
-```
+- GET /api/evaluation/datasets
+- POST /api/evaluation/runs
+- GET /api/evaluation/runs/{run_id}
 
-3. Configure environment variables:
+POST waits for completion. The request defaults to retrieval only.
+Optional answer generation increases execution time.
 
-```bash
-cp .env.example .env
-```
+Run the backend with one worker, matching the existing indexing lock design.
 
-Then edit `.env` and set your real keys.
-
-## Run Each Application
-
-With your virtual environment activated:
-
-### 1) NoRAG + Google
-
-```bash
-python ask_norag_google.py
-```
-
-### 2) RAG + Google
-
-```bash
-python ask_rag_google.py
-```
-
-### 3) BM25 RAG + Google
-
-```bash
-python bm25/ask_bm25_rag_google.py
-```
-
-## Notes
-
-- Both applications use the OpenAI SDK to interact with Google Gemini via Google's OpenAI-compatible endpoint.
-- The RAG app splits the text into fixed-size chunks with an overlap (`CHUNK_SIZE`, `OVERLAP_PERCENT` and `MIN_PARAGRAPH_LENGTH` at the top of the script), indexes them into `chroma_db/` and reuses them across runs.
-- There is one index per document (`DOCUMENT_FILE`) and chunking configuration. When no index exists for the current document and settings, the script asks before building one (this takes a little while).
-- Debug prompt printing can be enabled by passing `debug=True` in the NoRAG app.
-- RAG app prints retrieved context for verification.
-- Streaming output is enabled by default in both applications (controlled by `STREAM_ON` variable).
-
-- Using the shortened version of the text (`docs/CrimeAndPunishment-shorter.txt`)
-	- Go online at https://gemini.google.com/app
-	- At the prompt, start writing "Here is a story: ",
-	- Then paste the content of docs/CrimeAndPunishment-shorter.txt into the Gemini chat app and then, at the end of the prompt, ask "What can you tell me about Denis Amselemovitch?"
-	- Observe the response from Gemini.
-
-# Free books from Project Gutenberg
-- https://www.gutenberg.org/
-# Crime and Punishment by Fyodor Dostoevsky
-- https://www.gutenberg.org/ebooks/2554
-# Huckleberry Finn by Mark Twain
-- https://www.gutenberg.org/ebooks/76
-
-## Words analytics
-
-Upload and index the desired documents before opening the Words tab.
-Select the documents belonging to the corpus you want to inspect.
-
-Corpus mode displays normalized words, their occurrence counts across indexed
-chunks, and the number of distinct chunks containing them. Select a word to
-inspect its matching chunks.
-
-Question mode accepts a typed question or a question selected from an
-evaluation question set. It displays words present in the selected corpus,
-their matching chunks, and absent words.
-
-Tokenization uses Unicode normalization and case-insensitive comparison.
-Accents, numbers, internal apostrophes, hyphens, and underscores are retained.
-Stopwords are retained. Stemming and synonym expansion are not applied.
-
-Counts describe stored indexed chunks. Overlapping text can contribute more
-than once. Character-based chunk boundaries can produce word fragments.
-
-Changing document selection or rebuilding indexes requires refreshing the
-Words views.
-
-The backend exposes:
-
-- POST /api/words/vocabulary
-- POST /api/words/chunks
-- POST /api/words/question
-
-Every request includes document_ids. Word lookup also includes word.
-Question analysis also includes question.
-
-The vocabulary and chunk lookup endpoints support offset and limit.
-
-Run the backend with one worker, consistent with its existing indexing lock.
+Human grading rules are in evaluation/grading-rules.md.
+Grades and diagnosis notes are added to the corresponding results file.
