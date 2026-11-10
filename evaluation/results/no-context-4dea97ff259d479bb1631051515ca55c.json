@@ -1,0 +1,105 @@
+{
+  "run_id": "4dea97ff259d479bb1631051515ca55c",
+  "kind": "no_context",
+  "status": "completed",
+  "dataset_id": "kestrel",
+  "adapter_sha256": "47054fc76f321ca3df4f92a59c60d721432adf24f1f7bac23e615836b7b40efb",
+  "source_sha256": "d70eed659a2253006ee3471edb5505d227b173448be8f5519c23d76d4de25df2",
+  "created_at": "2026-11-10T20:48:59.602646+00:00",
+  "git_commit": "1551948bafd07c65220dd60717360ddd346fe664",
+  "model": "gemini-3.5-flash-lite",
+  "system_instruction": "Answer the question using your own knowledge. If you do not know, say that you do not know.",
+  "results": [
+    {
+      "id": "kestrel-syn-01",
+      "question": "What does KST-427 mean, and what must an operator do before replaying queued batches?",
+      "expected_answer": "The ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replay.",
+      "answer": "I do not know what KST-427 refers to, or what specific operational procedures are required before replaying queued batches under that designation. This appears to be a proprietary internal code, standard operating procedure (SOP), or system-specific error/task identifier from a specific software, financial platform, or industrial control system.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-02",
+      "question": "For SVC-GLINT, what is the maximum batch size and the required delay before retrying a rejected batch?",
+      "expected_answer": "At most 240 records per batch, with a 45-second delay before retrying a rejected batch.",
+      "answer": "I do not know. \"SVC-GLINT\" does not correspond to a standard, publicly widely-documented technology, API, or system specification in my knowledge base. Therefore, I cannot provide the maximum batch size or the required retry delay for it.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-03",
+      "question": "For an export above 2 GiB, whose approval is required before submission, and what encryption is required before issuing its download link?",
+      "expected_answer": "The workspace owner must approve submission, and the export must be encrypted with a workspace-managed key before a download link is issued.",
+      "answer": "I do not know.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-04",
+      "question": "What confirmation and recovery window apply to project deletion, and can erasure proceed after that window while an invoice-dispute hold remains active?",
+      "expected_answer": "Deletion requires workspace-owner confirmation and a 48-hour recovery window. An active invoice-dispute hold still blocks erasure until the billing reviewer releases it.",
+      "answer": "I do not know the specific confirmation and recovery window or erasure policy you are referring to, as this depends entirely on the cloud provider, SaaS platform, or enterprise software system in question (for example, Google Cloud Platform, AWS, Azure, Salesforce, etc.). Please specify the platform or service, and I may be able to provide the relevant documentation details.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-05",
+      "question": "Can a Cedar customer get help by phone, and which subscription permits that kind of support?",
+      "expected_answer": "Cedar uses written case replies. Voice callbacks are available only to Summit workspaces and must be requested through an authenticated support case.",
+      "answer": "I do not know. My knowledge base does not contain specific information regarding Cedar's current customer support phone policies or how they correspond to different subscription tiers.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-06",
+      "question": "I am locked out after five wrong password attempts. How long must I wait, and how can an administrator help me regain access sooner?",
+      "expected_answer": "Sign-in is suspended for 18 minutes. A workspace administrator can issue a recovery challenge from the membership console, and the member must complete it before a new session is created.",
+      "answer": "I do not know the specific lockout duration or administrative procedures for your system, as you have not mentioned which website, application, device, or operating system you are using. \n\nLockout policies and administrative procedures vary completely depending on the platform (for example: Windows, macOS, a specific banking app, a corporate network, or a website like Google or Apple). \n\nTo regain access sooner:\n* **Check for a self-service option:** Many systems offer a \"Forgot Password\" or \"Reset Password\" link on the login screen, which often bypasses the lockout timer by sending a verification code to your email or phone.\n* **Contact your administrator/IT support:** If this is a work, school, or managed account, reach out to your IT helpdesk or system administrator. They typically have the ability to manually unlock your account instantly or force a password reset.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-07",
+      "question": "A workspace starts its trial on 15 June 2026. Does the 7-day or 21-day trial policy apply, and what date separates the two policies?",
+      "expected_answer": "The 21-calendar-day policy applies. Trials started on or after 1 June 2026 receive 21 days; trials started before that date received 7 days.",
+      "answer": "I do not know, as this question appears to reference a specific company, software platform, or internal policy (such as Atlassian, Google Workspace, Slack, or another service) that is not specified in the prompt. Please provide the name of the service or platform for more details.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-08",
+      "question": "Which processing region and owning team handle scheduled jobs from Aurora Reports?",
+      "expected_answer": "Aurora Reports dispatches scheduled jobs to SVC-ORBIT, which processes them in EU-FR2 and is owned by Indigo Operations.",
+      "answer": "I do not know the answer to this question. This appears to refer to an internal team, system architecture, or proprietary infrastructure (such as within a specific company like Amazon/AWS for Amazon Aurora, or a private enterprise), and I do not have access to internal organizational charts or private system documentation.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-09",
+      "question": "What is the exact date of birth of Kestrel Analytics' founder?",
+      "expected_answer": "The documents do not provide the founder's date of birth.",
+      "answer": "I do not know the exact date of birth of Kestrel Analytics' founder.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "kestrel-syn-10",
+      "question": "What outbound IPv6 CIDR range should I allow for SVC-MARSH?",
+      "expected_answer": "The documents do not provide an outbound IPv6 CIDR range for SVC-MARSH.",
+      "answer": "I do not know what outbound IPv6 CIDR range is associated with \"SVC-MARSH,\" as this appears to be an internal, organization-specific service name or custom identifier. You would need to check your organization's internal documentation, network architecture team, or the specific vendor's deployment guide for that service to obtain the correct IP range.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    }
+  ],
+  "finished_at": "2026-11-10T20:49:13.592188+00:00"
+}

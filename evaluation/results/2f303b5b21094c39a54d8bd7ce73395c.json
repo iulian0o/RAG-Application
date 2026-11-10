@@ -1,0 +1,2010 @@
+{
+  "run_id": "2f303b5b21094c39a54d8bd7ce73395c",
+  "status": "completed_with_errors",
+  "created_at": "2026-11-10T21:20:21.448030+00:00",
+  "finished_at": "2026-11-10T21:20:43.596978+00:00",
+  "dataset_id": "kestrel",
+  "dataset_name": "Synthetic Kestrel Analytics KB v1 (team-created substitute)",
+  "adapter_sha256": "47054fc76f321ca3df4f92a59c60d721432adf24f1f7bac23e615836b7b40efb",
+  "source_sha256": "d70eed659a2253006ee3471edb5505d227b173448be8f5519c23d76d4de25df2",
+  "git_commit": "a7a671782c5af7b5abd5676ab75fd142830b91d4",
+  "settings": {
+    "dataset_id": "kestrel",
+    "generate_answers": true,
+    "answer_top_k": 5
+  },
+  "retrieval_cutoffs": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "versions": {
+    "chromadb": "1.5.9",
+    "sentence-transformers": "6.2.0",
+    "google-genai": "3.0.0"
+  },
+  "snapshot": {
+    "documents": [
+      {
+        "id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+        "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f"
+      },
+      {
+        "id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+        "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949"
+      },
+      {
+        "id": "a1a74718-0562-4221-958f-91bef7757ad9",
+        "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d"
+      },
+      {
+        "id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+        "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7"
+      },
+      {
+        "id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+        "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98"
+      }
+    ],
+    "indexes": [
+      {
+        "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+        "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+        "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 9,
+        "created_at": "2026-11-10T21:15:21.894834+00:00"
+      },
+      {
+        "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+        "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+        "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 12,
+        "created_at": "2026-11-10T21:15:21.609420+00:00"
+      },
+      {
+        "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+        "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+        "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 11,
+        "created_at": "2026-11-10T21:15:21.033961+00:00"
+      },
+      {
+        "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+        "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+        "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 10,
+        "created_at": "2026-11-10T21:15:22.180528+00:00"
+      },
+      {
+        "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+        "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+        "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 11,
+        "created_at": "2026-11-10T21:15:21.309993+00:00"
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "kestrel-syn-01",
+      "type": "exact identifier",
+      "question": "What does KST-427 mean, and what must an operator do before replaying queued batches?",
+      "answerable": true,
+      "expected_answer": "The ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replay.",
+      "evidence": [
+        {
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "quote": "KST-427 means the ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replaying queued batches.",
+          "start": 481,
+          "end": 715
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:2",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 1240,
+          "end": 1940,
+          "text": "ccessful replay, collect the new receipt and record its relationship to the interrupted job. Close the operational incident only after the stream resumes and its next checkpoint passes validation.\n\n## KST-472 dispatch quota\n\nKST-472 indicates that a workspace has exhausted its current dispatch allowance. Wait for the next dispatch window and retry with the original request token. This code does not require checkpoint restoration. Inspect the quota counter and job receipt before reducing concurrency. A second request token can create an additional pending job rather than accelerating the original request. Repeatedly submitting different tokens makes queue analysis harder and can prolong conge",
+          "distance": 0.4427793622016907
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:0",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics error runbook\n\nOperational edition 2026.11 for the fictional evaluation environment. Error identifiers are exact strings. Similar digits do not imply the same recovery procedure. Begin an investigation by collecting the complete identifier, affected workspace, job receipt, and event timestamp. Preserve a concise record of each recovery action so that a later operator can distinguish the original failure from a failed retry.\n\n## KST-427 checkpoint mismatch\n\nKST-427 means the ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replaying ",
+          "distance": 0.4984126687049866
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:1",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 620,
+          "end": 1320,
+          "text": "s last signed checkpoint, and verify the accepted-record count before replaying queued batches. Preserve the failed checkpoint digest in the incident record. Replaying first can make the discrepancy harder to reconstruct. The freeze applies to the affected stream; unrelated streams can continue when their checkpoint checks succeed.\n\nThe verification compares the restored checkpoint's accepted-record count with the last successful import receipt. A matching filename or source size is insufficient. If the receipt and restored checkpoint disagree, keep the stream frozen and escalate with both identifiers. After a successful replay, collect the new receipt and record its relationship to the inte",
+          "distance": 0.5003277063369751
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:3",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 1860,
+          "end": 2560,
+          "text": "ly submitting different tokens makes queue analysis harder and can prolong congestion.\n\nThe quota counter refreshes every minute. The user interface can briefly show a previous counter value while the service enforces the new one. Record both the counter sample timestamp and the rejection timestamp. An allowance increase requires an updated entitlement or an approved operational override. Editing a project display setting does not alter the dispatch allowance. If a valid override is present but the code persists, escalate to the service owner with the override receipt.\n\n## KST-214 schema revision\n\nKST-214 means the submitted import declares a schema revision that the project has retired. Obt",
+          "distance": 0.5465670228004456
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1860,
+          "end": 2560,
+          "text": "lation queue is marsh-abort. Cancellation prevents publication of uncommitted batches while preserving already accepted receipts. A cancellation acknowledgment does not imply that previously published records were removed. Dataset correction is a distinct operation requiring the appropriate editor permission. If a checkpoint mismatch interrupts cancellation, follow the exact error-code procedure in the runbook before replaying pending batches or submitting another cancellation token.\n\n## SVC-GLINT\n\nSVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration. The retry must ",
+          "distance": 0.5542932748794556
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:7",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 4340,
+          "end": 5040,
+          "text": "e revision.\n\n## KST-509 report delivery\n\nKST-509 means report rendering completed but the configured delivery destination rejected the artifact. Inspect destination permissions and the delivery receipt. A report can therefore be rendered successfully while its scheduled delivery is marked failed. Re-rendering is unnecessary when the saved artifact remains valid and retained. Use the delivery retry action after correcting the destination configuration. A delivery retry preserves the rendered report's original dataset revision.\n\nIf the destination has been removed intentionally, pause the schedule while an editor chooses a replacement. Repeated delivery retries cannot restore an external desti",
+          "distance": 0.5906744003295898
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1240,
+          "end": 1940,
+          "text": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba",
+          "distance": 0.5948344469070435
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:4",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 2480,
+          "end": 3180,
+          "text": " processing region is EU-FR2 and its owner is Prism Integration. The retry must retain the original batch token. A caller that splits a rejected batch into smaller requests should assign a new token to each new batch and retain the original rejection receipt. The receipt records whether any records were accepted before rejection.\n\nThe service normalizes incoming event envelopes and emits validated events to downstream consumers. It does not calculate subscription invoices. An envelope with an unknown event revision is rejected before dispatch. Event payloads remain subject to workspace access controls. Diagnostic counters expose aggregate accepted and rejected counts without including event ",
+          "distance": 0.6211679577827454
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3720,
+          "end": 4420,
+          "text": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi",
+          "distance": 0.622689962387085
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:8",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 4960,
+          "end": 5079,
+          "text": "s intact. The runbook describes the operational error returned when an erasure stage encounters an active restriction.\n",
+          "distance": 0.6237661242485046
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "KST-427 means that the ingestion checkpoint digest disagrees with the signed ledger checkpoint. Before replaying queued batches, an operator must freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count.",
+        "citation_ids": [
+          "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:0",
+          "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:1"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-02",
+      "type": "exact identifier",
+      "question": "For SVC-GLINT, what is the maximum batch size and the required delay before retrying a rejected batch?",
+      "answerable": true,
+      "expected_answer": "At most 240 records per batch, with a 45-second delay before retrying a rejected batch.",
+      "evidence": [
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch.",
+          "start": 2364,
+          "end": 2476
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1860,
+          "end": 2560,
+          "text": "lation queue is marsh-abort. Cancellation prevents publication of uncommitted batches while preserving already accepted receipts. A cancellation acknowledgment does not imply that previously published records were removed. Dataset correction is a distinct operation requiring the appropriate editor permission. If a checkpoint mismatch interrupts cancellation, follow the exact error-code procedure in the runbook before replaying pending batches or submitting another cancellation token.\n\n## SVC-GLINT\n\nSVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration. The retry must ",
+          "distance": 0.33709150552749634
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:4",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 2480,
+          "end": 3180,
+          "text": " processing region is EU-FR2 and its owner is Prism Integration. The retry must retain the original batch token. A caller that splits a rejected batch into smaller requests should assign a new token to each new batch and retain the original rejection receipt. The receipt records whether any records were accepted before rejection.\n\nThe service normalizes incoming event envelopes and emits validated events to downstream consumers. It does not calculate subscription invoices. An envelope with an unknown event revision is rejected before dispatch. Event payloads remain subject to workspace access controls. Diagnostic counters expose aggregate accepted and rejected counts without including event ",
+          "distance": 0.5446462631225586
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1240,
+          "end": 1940,
+          "text": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba",
+          "distance": 0.5524291396141052
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:1",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 620,
+          "end": 1320,
+          "text": "s last signed checkpoint, and verify the accepted-record count before replaying queued batches. Preserve the failed checkpoint digest in the incident record. Replaying first can make the discrepancy harder to reconstruct. The freeze applies to the affected stream; unrelated streams can continue when their checkpoint checks succeed.\n\nThe verification compares the restored checkpoint's accepted-record count with the last successful import receipt. A matching filename or source size is insufficient. If the receipt and restored checkpoint disagree, keep the stream frozen and escalate with both identifiers. After a successful replay, collect the new receipt and record its relationship to the inte",
+          "distance": 0.5587275624275208
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 2480,
+          "end": 3180,
+          "text": "ng published. Batches already included in a successful receipt remain visible and require an explicit dataset correction.\n\nHarbor Import dispatches ingestion jobs to service SVC-MARSH. The service catalog defines its processing region, queue, and owner. The product name shown to customers can differ from the operational service name. Include the service identifier and job receipt in an internal escalation. This routing statement applies to ordinary ingestion jobs. A dashboard refresh after ingestion is a separate action with its own receipt and does not change the original import's completion status.\n\n## Reports and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-OR",
+          "distance": 0.5611588954925537
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:5",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3100,
+          "end": 3800,
+          "text": " counters expose aggregate accepted and rejected counts without including event bodies. Investigators needing event bodies must follow the separate approved collection process described in the security handbook.\n\n## SVC-GLIDE\n\nSVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1. The identifier resembles SVC-GLINT, but the two entries refer to different operational services. GLIDE publishes connector status events and uses the queue glide-status. Its receipt records the connector identifier, observed watermark, and event revision.\n\nA temporary consumer pause leaves events in the se",
+          "distance": 0.5620743036270142
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:8",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 4960,
+          "end": 5660,
+          "text": "Repeated creation of replacement jobs cannot accelerate directory indexing and may make the incident harder to understand. Report persistent indexing delay with both creation and search timestamps.\n\n## SVC-VAULT\n\nSVC-VAULT stores generated artifacts in region EU-FR2 and is owned by Cobalt Storage. Its queue is vault-artifacts. Artifact metadata contains a digest, dataset revision, creation timestamp, and retention deadline. A delivery link refers to an artifact identifier and has a separate lifetime. Revoking a link does not automatically erase its artifact. Artifact erasure is recorded with its own receipt after applicable retention controls permit it.\n\nIntegrity checks compare stored bytes",
+          "distance": 0.6061989068984985
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:2",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 1240,
+          "end": 1940,
+          "text": "ccessful replay, collect the new receipt and record its relationship to the interrupted job. Close the operational incident only after the stream resumes and its next checkpoint passes validation.\n\n## KST-472 dispatch quota\n\nKST-472 indicates that a workspace has exhausted its current dispatch allowance. Wait for the next dispatch window and retry with the original request token. This code does not require checkpoint restoration. Inspect the quota counter and job receipt before reducing concurrency. A second request token can create an additional pending job rather than accelerating the original request. Repeatedly submitting different tokens makes queue analysis harder and can prolong conge",
+          "distance": 0.6227886080741882
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:8",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 4960,
+          "end": 5660,
+          "text": "the same request token resumes an unfinished job when possible. Retrying a completed export with a new request token produces a separate artifact whose retention timer begins when that artifact becomes ready.\n\n## Download links\n\nFor export artifacts created on or after 1 August 2026, download links expire 36 hours after the artifact becomes ready. Link expiration prevents another download through that link. It does not delete the artifact or remove the export receipt. An authorized user can issue a replacement link while the artifact remains within its retention period. Replacement links receive their own expiration timestamp and remain subject to the user's current project access.\n\nHistoric",
+          "distance": 0.6382695436477661
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3720,
+          "end": 4420,
+          "text": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi",
+          "distance": 0.645749568939209
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "SVC-GLINT accepts a maximum of 240 records per batch and requires a 45-second delay before retrying a rejected batch.",
+        "citation_ids": [
+          "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-03",
+      "type": "split answer",
+      "question": "For an export above 2 GiB, whose approval is required before submission, and what encryption is required before issuing its download link?",
+      "answerable": true,
+      "expected_answer": "The workspace owner must approve submission, and the export must be encrypted with a workspace-managed key before a download link is issued.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Exports above 2 GiB require approval from the workspace owner before the export job is submitted.",
+          "start": 4140,
+          "end": 4237
+        },
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "Exports above 2 GiB must be encrypted with a workspace-managed key before a download link is issued.",
+          "start": 2330,
+          "end": 2430
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:7",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 4340,
+          "end": 5040,
+          "text": "The approval is bound to the dataset revision and export format. Changing either value invalidates the approval. Smaller exports still require the requesting user's read permission on every included dataset. The security handbook specifies the encryption requirement for exports above the same threshold.\n\nExport manifests contain the dataset revision, row count, selected columns, format, and content digest. Filtering rows changes the manifest's row count but leaves the source dataset intact. A failed export creates a failure receipt and does not expose a partial artifact through the download screen. Retrying with the same request token resumes an unfinished job when possible. Retrying a compl",
+          "distance": 0.3212701082229614
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:3",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 1860,
+          "end": 2560,
+          "text": "fies the workspace association before discussing case details. A callback cannot authorize a membership change, reveal a stored credential, or override a retention hold. Those actions use their own documented approval processes. If the conversation identifies new evidence, the agent records a written summary in the case. Users can inspect that summary and correct factual mistakes without modifying the original operational receipts.\n\n## Encryption for large exports\n\nExports above 2 GiB must be encrypted with a workspace-managed key before a download link is issued. The key identifier is recorded in the artifact manifest. A key alias alone is insufficient because an alias can later point to a ",
+          "distance": 0.43626832962036133
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:6",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 3720,
+          "end": 4420,
+          "text": "he editor sees the next execution time together with its zone. A schedule changed during an execution affects the next execution only. Paused schedules preserve their saved view and recipients. The schedule history distinguishes a manual pause from an execution failure. A manual run can still be requested while the recurring schedule is paused, subject to the editor's ordinary project permissions.\n\n## Large exports\n\nExports above 2 GiB require approval from the workspace owner before the export job is submitted. An administrator can prepare the export request but cannot substitute their approval for the owner's. The approval is bound to the dataset revision and export format. Changing either",
+          "distance": 0.5521301031112671
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:8",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 4960,
+          "end": 5660,
+          "text": "the same request token resumes an unfinished job when possible. Retrying a completed export with a new request token produces a separate artifact whose retention timer begins when that artifact becomes ready.\n\n## Download links\n\nFor export artifacts created on or after 1 August 2026, download links expire 36 hours after the artifact becomes ready. Link expiration prevents another download through that link. It does not delete the artifact or remove the export receipt. An authorized user can issue a replacement link while the artifact remains within its retention period. Replacement links receive their own expiration timestamp and remain subject to the user's current project access.\n\nHistoric",
+          "distance": 0.5813711881637573
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:4",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 2480,
+          "end": 3180,
+          "text": "nifest. A key alias alone is insufficient because an alias can later point to a different key revision. The export service verifies access to the recorded revision before marking delivery ready. Workspace-owner approval is a separate prerequisite defined in the product guide.\n\nIf the required key is unavailable, the export remains blocked and the interface displays a key-access failure. Generating an unencrypted replacement is not an approved recovery action. The workspace security administrator must restore access to the required revision or approve a new export using an eligible revision. A new export receives a new manifest. Keep the failed job receipt so that investigators can reconstruc",
+          "distance": 0.61220383644104
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:4",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 2480,
+          "end": 3180,
+          "text": "he submitted import declares a schema revision that the project has retired. Obtain the current published schema and regenerate the mapping before submitting another import. Retired schemas remain in audit history and can still appear in old examples. A saved draft schema is not automatically eligible for ingestion. Confirm that the intended revision is published and belongs to the same project as the import request.\n\nWhen a column was renamed, review transformations that refer to its earlier name. A successful preview of a small sample does not establish that all source records comply. Run full validation and inspect rejected-record reasons. Keep the original failed receipt for comparison. ",
+          "distance": 0.7250407934188843
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:5",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 3100,
+          "end": 3800,
+          "text": "spect rejected-record reasons. Keep the original failed receipt for comparison. A new mapping should receive its own revision rather than overwriting the mapping attached to a completed import. Historical receipts continue to refer to the mapping used at their acceptance time.\n\n## KST-318 artifact digest\n\nKST-318 identifies an export artifact whose stored digest differs from the manifest digest. Disable delivery for the affected artifact and request regeneration from the recorded dataset revision. Do not patch individual bytes in the artifact to make a local download appear readable. Preserve the manifest and delivery receipt for diagnosis. The dataset itself may remain healthy, so the incid",
+          "distance": 0.735104501247406
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:9",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 5580,
+          "end": 6280,
+          "text": "request can remain pending while the hold is reviewed. An operator must not treat the code as a transient transport failure and repeatedly force the erasure stage. The billing policy and security handbook define distinct reasons for retaining records and distinct release authorities.\n\nA hold-release receipt is necessary before the blocked erasure stage can proceed. Confirm that the receipt applies to the correct project and hold identifier. A release for another project is insufficient even when both projects share a workspace. Keep the original deletion request identifier in the recovery record. Recreating the request with a different display name does not remove the hold and can obscure th",
+          "distance": 0.7406683564186096
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1240,
+          "end": 1940,
+          "text": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba",
+          "distance": 0.7427211999893188
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:1",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 620,
+          "end": 1320,
+          "text": "s last signed checkpoint, and verify the accepted-record count before replaying queued batches. Preserve the failed checkpoint digest in the incident record. Replaying first can make the discrepancy harder to reconstruct. The freeze applies to the affected stream; unrelated streams can continue when their checkpoint checks succeed.\n\nThe verification compares the restored checkpoint's accepted-record count with the last successful import receipt. A matching filename or source size is insufficient. If the receipt and restored checkpoint disagree, keep the stream frozen and escalate with both identifiers. After a successful replay, collect the new receipt and record its relationship to the inte",
+          "distance": 0.7447028160095215
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "Exports above 2 GiB require approval from the workspace owner before the export job is submitted, and they must be encrypted with a workspace-managed key before a download link is issued.",
+        "citation_ids": [
+          "2afaf780-da5d-4996-86cf-f376b248800c:6",
+          "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:3"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-04",
+      "type": "split answer",
+      "question": "What confirmation and recovery window apply to project deletion, and can erasure proceed after that window while an invoice-dispute hold remains active?",
+      "answerable": true,
+      "expected_answer": "Deletion requires workspace-owner confirmation and a 48-hour recovery window. An active invoice-dispute hold still blocks erasure until the billing reviewer releases it.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Project deletion requires a workspace owner's confirmation and a 48-hour recovery window before erasure begins.",
+          "start": 6677,
+          "end": 6788
+        },
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "An active invoice-dispute hold blocks project erasure until the billing reviewer releases the hold.",
+          "start": 5542,
+          "end": 5641
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:9",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 5580,
+          "end": 6280,
+          "text": "project erasure until the billing reviewer releases the hold. The hold preserves records needed to resolve the dispute and is listed in the account's retention panel. Project archival is still available while the hold exists. An owner can submit a deletion request, but the erasure stage waits for release. Support cannot bypass the hold by renaming the project or by moving it to a different display group.\n\nReleasing a hold records the reviewer identifier, release timestamp, and dispute reference. Release does not automatically confirm every pending deletion request. The owner must verify that the request still targets the intended project. A hold on one billing account does not automatically ",
+          "distance": 0.319733202457428
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:9",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 5580,
+          "end": 6280,
+          "text": "request can remain pending while the hold is reviewed. An operator must not treat the code as a transient transport failure and repeatedly force the erasure stage. The billing policy and security handbook define distinct reasons for retaining records and distinct release authorities.\n\nA hold-release receipt is necessary before the blocked erasure stage can proceed. Confirm that the receipt applies to the correct project and hold identifier. A release for another project is insufficient even when both projects share a workspace. Keep the original deletion request identifier in the recovery record. Recreating the request with a different display name does not remove the hold and can obscure th",
+          "distance": 0.3270566463470459
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:7",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 4340,
+          "end": 5040,
+          "text": "old. The retention panel lists each active hold independently. Releasing one hold does not release another. A project whose owner has requested deletion can remain pending while either hold is active. The owner can inspect the hold category and request status without receiving restricted investigation notes.\n\nThe release receipt identifies the project, hold, reviewer, and release timestamp. Before resuming erasure, verify all active holds rather than assuming the most recently released hold was the only one. A completed recovery window does not override a hold. Renaming or archiving a project also leaves its holds intact. The runbook describes the operational error returned when an erasure s",
+          "distance": 0.35562634468078613
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:10",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 6200,
+          "end": 6900,
+          "text": "rom the default project list and pauses its schedules. Members with existing access can find it using the archived-project filter. Archival preserves datasets, receipts, and report artifacts according to their ordinary retention rules. Restoring a project does not automatically resume its schedules. An editor must inspect the destination recipients and resume each schedule explicitly. This avoids sending a delayed report to recipients whose responsibilities have changed.\n\nProject deletion requires a workspace owner's confirmation and a 48-hour recovery window before erasure begins. During that window the owner can cancel the request from the audit screen. The security and billing documents d",
+          "distance": 0.4315490126609802
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:11",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 6820,
+          "end": 7143,
+          "text": "n cancel the request from the audit screen. The security and billing documents describe holds that may prevent erasure. A deletion request should include the project identifier rather than just its display name. Creating a new project with the same name does not restore the deleted project's data or reuse its identifier.\n",
+          "distance": 0.45755118131637573
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:8",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 4960,
+          "end": 5660,
+          "text": " than choosing whichever duration appears first in a search result.\n\nThe trial-policy change did not restart existing trials. A workspace activated on 31 May 2026 kept its original expiration calculation. A workspace activated on 1 June 2026 received the new duration. Paid subscriptions were unaffected by this trial-only change. An owner who converted before expiry became subject to the paid subscription revision recorded at conversion. The archived trial receipt remains available for reconstructing the sequence of entitlement events.\n\n## Account closure and legal retention\n\nAn active invoice-dispute hold blocks project erasure until the billing reviewer releases the hold. The hold preserves",
+          "distance": 0.47391510009765625
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:8",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 4960,
+          "end": 5660,
+          "text": "hooses a replacement. Repeated delivery retries cannot restore an external destination that no longer exists. The incident record should distinguish revoked permission from an unavailable endpoint. Include the destination identifier rather than a credential-bearing URL in ordinary notes. Secret rotation, when required, follows the security handbook and should be recorded as a separate access-management event.\n\n## KST-611 retention hold\n\nKST-611 indicates that an erasure stage encountered an active retention hold. Inspect the project's retention panel to determine the hold type and issuing authority. The deletion request can remain pending while the hold is reviewed. An operator must not trea",
+          "distance": 0.5470849275588989
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:6",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 3720,
+          "end": 4420,
+          "text": "sion.\n\nThe expiration timer begins when the bundle is uploaded to the case. If an investigation requires a fresh bundle after expiration, collect a new one through the same review process. Re-uploading an old attachment without reviewing its contents is insufficient. The case retains a record that a bundle existed and when it expired. It does not retain unrestricted copies of the original attachment in ordinary case comments.\n\n## Security-investigation holds\n\nA security-investigation hold prevents project erasure until the security reviewer issues a release receipt. This hold is distinct from an invoice-dispute hold. The retention panel lists each active hold independently. Releasing one hol",
+          "distance": 0.5528984665870667
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:8",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 4960,
+          "end": 5079,
+          "text": "s intact. The runbook describes the operational error returned when an erasure stage encounters an active restriction.\n",
+          "distance": 0.5834152698516846
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:10",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 6200,
+          "end": 6503,
+          "text": "gets the intended project. A hold on one billing account does not automatically create a hold on unrelated workspaces. Investigators should check the account identifier attached to the project before applying a retention restriction. The security handbook defines separate security-investigation holds.\n",
+          "distance": 0.5898931622505188
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "Project deletion requires a workspace owner's confirmation and a 48-hour recovery window before erasure begins. Erasure cannot proceed while an invoice-dispute hold remains active; the erasure stage waits for the hold to be released by the billing reviewer.",
+        "citation_ids": [
+          "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:9",
+          "2afaf780-da5d-4996-86cf-f376b248800c:10"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            false
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-05",
+      "type": "different vocabulary",
+      "question": "Can a Cedar customer get help by phone, and which subscription permits that kind of support?",
+      "answerable": true,
+      "expected_answer": "Cedar uses written case replies. Voice callbacks are available only to Summit workspaces and must be requested through an authenticated support case.",
+      "evidence": [
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "Voice callbacks are available only to Summit workspaces and must be requested through an authenticated support case. Cedar and trial workspaces use written case replies.",
+          "start": 1390,
+          "end": 1559
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:2",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 1240,
+          "end": 1940,
+          "text": "rocess. Investigators should distinguish a credential suspension from a revoked membership before suggesting a recovery action.\n\n## Voice assistance\n\nVoice callbacks are available only to Summit workspaces and must be requested through an authenticated support case. Cedar and trial workspaces use written case replies. A callback request includes the case identifier and the requesting member's preferred contact window. The support interface confirms that the request was received. It does not promise an immediate callback or bypass the queue for a case whose impact has not yet been assessed.\n\nThe support agent verifies the workspace association before discussing case details. A callback cannot",
+          "distance": 0.5246042013168335
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:1",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 620,
+          "end": 1320,
+          "text": "e that accounting boundary. The invoice lists the period start, period end, workspace identifier, and subscription revision. A workspace with several projects receives one invoice with separate project subtotals. Moving a project between display groups does not move its historical usage to another period.\n\nThe Cedar tier includes 12 enabled schedules and 40 GiB of retained dataset storage. The Summit tier includes 60 enabled schedules and 200 GiB of retained dataset storage. Archived projects continue to consume storage while their datasets remain retained. Disabled schedules do not consume an enabled-schedule slot. The product interface enforces entitlement limits using the confirmed subscr",
+          "distance": 0.718476414680481
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3720,
+          "end": 4420,
+          "text": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi",
+          "distance": 0.7418985366821289
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:0",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics security and support handbook\n\nHandbook edition 2026.11 for this fictional evaluation corpus. Workspace permissions, diagnostic access, and support entitlements are separate controls. A support representative's ability to inspect a case does not imply permission to inspect the customer's source records. Apply the documented approval path to each operation and preserve the relevant audit receipts.\n\n## Suspended sign-in\n\nAfter five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before ",
+          "distance": 0.7434114813804626
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:5",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 3100,
+          "end": 3800,
+          "text": "a new manifest. Keep the failed job receipt so that investigators can reconstruct the original encryption decision.\n\n## Diagnostic collection\n\nDiagnostic bundles must exclude raw customer records and expire after 72 hours. A bundle can contain job identifiers, error codes, aggregate counts, timestamps, and redacted configuration fields. Collect only the fields needed to reproduce or explain the observed failure. A support case identifier associates the bundle with an investigation but does not expand the permitted contents. The person preparing the bundle remains responsible for checking attachments before submission.\n\nThe expiration timer begins when the bundle is uploaded to the case. If a",
+          "distance": 0.7516000270843506
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:4",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 2480,
+          "end": 3180,
+          "text": " processing region is EU-FR2 and its owner is Prism Integration. The retry must retain the original batch token. A caller that splits a rejected batch into smaller requests should assign a new token to each new batch and retain the original rejection receipt. The receipt records whether any records were accepted before rejection.\n\nThe service normalizes incoming event envelopes and emits validated events to downstream consumers. It does not calculate subscription invoices. An envelope with an unknown event revision is rejected before dispatch. Event payloads remain subject to workspace access controls. Diagnostic counters expose aggregate accepted and rejected counts without including event ",
+          "distance": 0.7865746021270752
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:6",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 3720,
+          "end": 4420,
+          "text": "e evaluated against eligible subscription charges for the affected service period. A request for a credit does not change the operational incident's severity or reopen a resolved import job. Billing review and technical incident review have separate decision records.\n\nApproved credits appear on the next open invoice. A credit does not refund consumed storage or increase the workspace's schedule allowance. Duplicate requests referencing the same incident are consolidated into one review. The review receipt lists the affected service identifiers and approved amount. An internal note proposing a credit is not equivalent to an approved credit receipt. Owners can inspect the review status in the ",
+          "distance": 0.8171764612197876
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:9",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 5580,
+          "end": 6107,
+          "text": " applicable retention controls permit it.\n\nIntegrity checks compare stored bytes against the manifest digest. A mismatch blocks ordinary delivery and triggers the appropriate artifact error in the runbook. The service retains diagnostic metadata about the failed artifact while a replacement is generated. It does not expose unverified bytes to make a delivery attempt appear successful. Owners should compare artifact identifiers when reviewing replacement deliveries because the regenerated artifact receives a new identity.\n",
+          "distance": 0.8314979076385498
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:1",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 620,
+          "end": 1320,
+          "text": "the membership console. The affected member must complete that challenge before a new session is created. Repeated credential submissions during the suspension do not shorten its duration. An administrator's action is recorded with the affected member identifier and challenge issuance time.\n\nA recovery challenge is valid for six minutes and can be used once. If it expires, the administrator must issue a replacement. Issuing a challenge does not change project roles or grant access to additional workspaces. A member who has been removed from the workspace requires a new invitation through the ordinary membership process. Investigators should distinguish a credential suspension from a revoked ",
+          "distance": 0.8317033052444458
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1240,
+          "end": 1940,
+          "text": "ot. The product interface enforces entitlement limits using the confirmed subscription revision. Contract-specific entitlements must be visible in that revision before support can apply them.\n\n## Current trial policy\n\nFor trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation. The activation date counts as day one. Trial expiry is displayed in the workspace billing screen using UTC. A pending invitation does not delay the activation date. A trial can be converted to a paid subscription before it ends, and the conversion receipt records the effective paid-service timestamp. The conversion does not erase the trial's earlier audit records.\n\nThe curren",
+          "distance": 0.8379881978034973
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "No, Cedar workspaces use written case replies and voice callbacks are available only to Summit workspaces.",
+        "citation_ids": [
+          "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:2"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-06",
+      "type": "different vocabulary",
+      "question": "I am locked out after five wrong password attempts. How long must I wait, and how can an administrator help me regain access sooner?",
+      "answerable": true,
+      "expected_answer": "Sign-in is suspended for 18 minutes. A workspace administrator can issue a recovery challenge from the membership console, and the member must complete it before a new session is created.",
+      "evidence": [
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "After five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before a new session is created.",
+          "start": 443,
+          "end": 725
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:1",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 620,
+          "end": 1320,
+          "text": "the membership console. The affected member must complete that challenge before a new session is created. Repeated credential submissions during the suspension do not shorten its duration. An administrator's action is recorded with the affected member identifier and challenge issuance time.\n\nA recovery challenge is valid for six minutes and can be used once. If it expires, the administrator must issue a replacement. Issuing a challenge does not change project roles or grant access to additional workspaces. A member who has been removed from the workspace requires a new invitation through the ordinary membership process. Investigators should distinguish a credential suspension from a revoked ",
+          "distance": 0.5568646788597107
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:0",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics security and support handbook\n\nHandbook edition 2026.11 for this fictional evaluation corpus. Workspace permissions, diagnostic access, and support entitlements are separate controls. A support representative's ability to inspect a case does not imply permission to inspect the customer's source records. Apply the documented approval path to each operation and preserve the relevant audit receipts.\n\n## Suspended sign-in\n\nAfter five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before ",
+          "distance": 0.6496832370758057
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:8",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 4960,
+          "end": 5660,
+          "text": "hooses a replacement. Repeated delivery retries cannot restore an external destination that no longer exists. The incident record should distinguish revoked permission from an unavailable endpoint. Include the destination identifier rather than a credential-bearing URL in ordinary notes. Secret rotation, when required, follows the security handbook and should be recorded as a separate access-management event.\n\n## KST-611 retention hold\n\nKST-611 indicates that an erasure stage encountered an active retention hold. Inspect the project's retention panel to determine the hold type and issuing authority. The deletion request can remain pending while the hold is reviewed. An operator must not trea",
+          "distance": 0.7029141783714294
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:2",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 1240,
+          "end": 1940,
+          "text": "rocess. Investigators should distinguish a credential suspension from a revoked membership before suggesting a recovery action.\n\n## Voice assistance\n\nVoice callbacks are available only to Summit workspaces and must be requested through an authenticated support case. Cedar and trial workspaces use written case replies. A callback request includes the case identifier and the requesting member's preferred contact window. The support interface confirms that the request was received. It does not promise an immediate callback or bypass the queue for a case whose impact has not yet been assessed.\n\nThe support agent verifies the workspace association before discussing case details. A callback cannot",
+          "distance": 0.7481327056884766
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:8",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 4960,
+          "end": 5660,
+          "text": " than choosing whichever duration appears first in a search result.\n\nThe trial-policy change did not restart existing trials. A workspace activated on 31 May 2026 kept its original expiration calculation. A workspace activated on 1 June 2026 received the new duration. Paid subscriptions were unaffected by this trial-only change. An owner who converted before expiry became subject to the paid subscription revision recorded at conversion. The archived trial receipt remains available for reconstructing the sequence of entitlement events.\n\n## Account closure and legal retention\n\nAn active invoice-dispute hold blocks project erasure until the billing reviewer releases the hold. The hold preserves",
+          "distance": 0.7630788087844849
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:10",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 6200,
+          "end": 6503,
+          "text": "gets the intended project. A hold on one billing account does not automatically create a hold on unrelated workspaces. Investigators should check the account identifier attached to the project before applying a retention restriction. The security handbook defines separate security-investigation holds.\n",
+          "distance": 0.7749478816986084
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:7",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 4340,
+          "end": 5040,
+          "text": "old. The retention panel lists each active hold independently. Releasing one hold does not release another. A project whose owner has requested deletion can remain pending while either hold is active. The owner can inspect the hold category and request status without receiving restricted investigation notes.\n\nThe release receipt identifies the project, hold, reviewer, and release timestamp. Before resuming erasure, verify all active holds rather than assuming the most recently released hold was the only one. A completed recovery window does not override a hold. Renaming or archiving a project also leaves its holds intact. The runbook describes the operational error returned when an erasure s",
+          "distance": 0.782845139503479
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:7",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 4340,
+          "end": 5040,
+          "text": "lent to an approved credit receipt. Owners can inspect the review status in the billing screen without receiving access to operational diagnostic attachments.\n\n## Historical trial policy\n\nFor trials started before 1 June 2026, the trial lasted 7 calendar days from workspace activation. This historical rule remains relevant when reviewing an older trial's expiration or invoice transition. It does not govern a workspace activated on or after the policy change. Old screenshots and archived onboarding messages may contain the earlier duration. Determine the trial start date before selecting the applicable rule rather than choosing whichever duration appears first in a search result.\n\nThe trial-p",
+          "distance": 0.7983013391494751
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:6",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 3720,
+          "end": 4420,
+          "text": "sion.\n\nThe expiration timer begins when the bundle is uploaded to the case. If an investigation requires a fresh bundle after expiration, collect a new one through the same review process. Re-uploading an old attachment without reviewing its contents is insufficient. The case retains a record that a bundle existed and when it expired. It does not retain unrestricted copies of the original attachment in ordinary case comments.\n\n## Security-investigation holds\n\nA security-investigation hold prevents project erasure until the security reviewer issues a release receipt. This hold is distinct from an invoice-dispute hold. The retention panel lists each active hold independently. Releasing one hol",
+          "distance": 0.8149479031562805
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1240,
+          "end": 1940,
+          "text": "ot. The product interface enforces entitlement limits using the confirmed subscription revision. Contract-specific entitlements must be visible in that revision before support can apply them.\n\n## Current trial policy\n\nFor trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation. The activation date counts as day one. Trial expiry is displayed in the workspace billing screen using UTC. A pending invitation does not delay the activation date. A trial can be converted to a paid subscription before it ends, and the conversion receipt records the effective paid-service timestamp. The conversion does not erase the trial's earlier audit records.\n\nThe curren",
+          "distance": 0.8152867555618286
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "After five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console, and the affected member must complete that challenge before a new session is created.",
+        "citation_ids": [
+          "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:0",
+          "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:1"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-07",
+      "type": "two versions",
+      "question": "A workspace starts its trial on 15 June 2026. Does the 7-day or 21-day trial policy apply, and what date separates the two policies?",
+      "answerable": true,
+      "expected_answer": "The 21-calendar-day policy applies. Trials started on or after 1 June 2026 receive 21 days; trials started before that date received 7 days.",
+      "evidence": [
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "For trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation.",
+          "start": 1458,
+          "end": 1561
+        },
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "For trials started before 1 June 2026, the trial lasted 7 calendar days from workspace activation.",
+          "start": 4528,
+          "end": 4626
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:7",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 4340,
+          "end": 5040,
+          "text": "lent to an approved credit receipt. Owners can inspect the review status in the billing screen without receiving access to operational diagnostic attachments.\n\n## Historical trial policy\n\nFor trials started before 1 June 2026, the trial lasted 7 calendar days from workspace activation. This historical rule remains relevant when reviewing an older trial's expiration or invoice transition. It does not govern a workspace activated on or after the policy change. Old screenshots and archived onboarding messages may contain the earlier duration. Determine the trial start date before selecting the applicable rule rather than choosing whichever duration appears first in a search result.\n\nThe trial-p",
+          "distance": 0.2730897068977356
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1240,
+          "end": 1940,
+          "text": "ot. The product interface enforces entitlement limits using the confirmed subscription revision. Contract-specific entitlements must be visible in that revision before support can apply them.\n\n## Current trial policy\n\nFor trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation. The activation date counts as day one. Trial expiry is displayed in the workspace billing screen using UTC. A pending invitation does not delay the activation date. A trial can be converted to a paid subscription before it ends, and the conversion receipt records the effective paid-service timestamp. The conversion does not erase the trial's earlier audit records.\n\nThe curren",
+          "distance": 0.3265918493270874
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:8",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 4960,
+          "end": 5660,
+          "text": " than choosing whichever duration appears first in a search result.\n\nThe trial-policy change did not restart existing trials. A workspace activated on 31 May 2026 kept its original expiration calculation. A workspace activated on 1 June 2026 received the new duration. Paid subscriptions were unaffected by this trial-only change. An owner who converted before expiry became subject to the paid subscription revision recorded at conversion. The archived trial receipt remains available for reconstructing the sequence of entitlement events.\n\n## Account closure and legal retention\n\nAn active invoice-dispute hold blocks project erasure until the billing reviewer releases the hold. The hold preserves",
+          "distance": 0.3738187551498413
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:3",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1860,
+          "end": 2560,
+          "text": "mp. The conversion does not erase the trial's earlier audit records.\n\nThe current trial includes 3 enabled schedules and 5 GiB of dataset storage. Trial workspaces can generate report previews and inspect import validation reports. Trial entitlement changes apply to new actions after the entitlement record updates. Existing receipts remain readable. When a trial expires, scheduled execution pauses and workspace owners receive an in-product notice. The expiration itself does not authorize immediate deletion of retained data; ordinary retention and deletion controls continue to apply.\n\n## Invoices and adjustments\n\nInvoices become available two calendar days after the subscription period closes",
+          "distance": 0.4199219346046448
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:10",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 6200,
+          "end": 6503,
+          "text": "gets the intended project. A hold on one billing account does not automatically create a hold on unrelated workspaces. Investigators should check the account identifier attached to the project before applying a retention restriction. The security handbook defines separate security-investigation holds.\n",
+          "distance": 0.5909756422042847
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:0",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics security and support handbook\n\nHandbook edition 2026.11 for this fictional evaluation corpus. Workspace permissions, diagnostic access, and support entitlements are separate controls. A support representative's ability to inspect a case does not imply permission to inspect the customer's source records. Apply the documented approval path to each operation and preserve the relevant audit receipts.\n\n## Suspended sign-in\n\nAfter five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before ",
+          "distance": 0.6221175789833069
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:0",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics billing policies\n\nPolicy edition 2026.11. These fictional policies apply to the synthetic Kestrel Analytics evaluation corpus. All amounts are denominated in evaluation credits and do not describe a real commercial offer. This document contains current rules and explicitly marked historical rules so that a reader must consider effective dates when answering a policy question.\n\n## Subscription periods\n\nA subscription period begins at 00:00 UTC on the workspace's billing anniversary date. Metered usage is assigned by the event's accepted timestamp. A dashboard's local date display does not change that accounting boundary. The invoice lists the period start, period end, work",
+          "distance": 0.625205397605896
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:1",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 620,
+          "end": 1320,
+          "text": "e that accounting boundary. The invoice lists the period start, period end, workspace identifier, and subscription revision. A workspace with several projects receives one invoice with separate project subtotals. Moving a project between display groups does not move its historical usage to another period.\n\nThe Cedar tier includes 12 enabled schedules and 40 GiB of retained dataset storage. The Summit tier includes 60 enabled schedules and 200 GiB of retained dataset storage. Archived projects continue to consume storage while their datasets remain retained. Disabled schedules do not consume an enabled-schedule slot. The product interface enforces entitlement limits using the confirmed subscr",
+          "distance": 0.6350862383842468
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:10",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 6200,
+          "end": 6900,
+          "text": "rom the default project list and pauses its schedules. Members with existing access can find it using the archived-project filter. Archival preserves datasets, receipts, and report artifacts according to their ordinary retention rules. Restoring a project does not automatically resume its schedules. An editor must inspect the destination recipients and resume each schedule explicitly. This avoids sending a delayed report to recipients whose responsibilities have changed.\n\nProject deletion requires a workspace owner's confirmation and a 48-hour recovery window before erasure begins. During that window the owner can cancel the request from the audit screen. The security and billing documents d",
+          "distance": 0.6503794193267822
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:9",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 5580,
+          "end": 6280,
+          "text": "ion timestamp and remain subject to the user's current project access.\n\nHistorical behavior through 31 July 2026 used a 12-hour download-link lifetime. That value describes artifacts created under the earlier release and should not be used to calculate expiration for a newly created artifact. The migration did not extend links that had already expired. Support staff should check the artifact creation timestamp before comparing a reported expiration to the policy. Artifact retention and link lifetime are separate settings with separate audit events.\n\n## Project archival and deletion\n\nArchiving a project hides it from the default project list and pauses its schedules. Members with existing acc",
+          "distance": 0.6605924367904663
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "A workspace starting its trial on 15 June 2026 is subject to the 21-day trial policy, as trials started on or after 1 June 2026 last 21 calendar days. The date that separates the two policies is 1 June 2026.",
+        "citation_ids": [
+          "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:7",
+          "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            true
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-08",
+      "type": "two hops",
+      "question": "Which processing region and owning team handle scheduled jobs from Aurora Reports?",
+      "answerable": true,
+      "expected_answer": "Aurora Reports dispatches scheduled jobs to SVC-ORBIT, which processes them in EU-FR2 and is owned by Indigo Operations.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
+          "start": 3115,
+          "end": 3184
+        },
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
+          "start": 438,
+          "end": 514
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 3100,
+          "end": 3800,
+          "text": "and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-ORBIT. A scheduled job captures the published view revision at the instant execution begins. Editing a draft view while the job runs does not alter its result. A successful job writes a report artifact and a delivery receipt. Delivery can fail after rendering succeeds, so the two statuses are displayed separately. Re-running delivery uses the existing artifact while re-running the complete job renders a new artifact from the current published revision.\n\nSchedules use the workspace time zone and retain that zone when an editor travels. The editor sees the next execution time together with its zone. A schedule change",
+          "distance": 0.3363414406776428
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 2480,
+          "end": 3180,
+          "text": "ng published. Batches already included in a successful receipt remain visible and require an explicit dataset correction.\n\nHarbor Import dispatches ingestion jobs to service SVC-MARSH. The service catalog defines its processing region, queue, and owner. The product name shown to customers can differ from the operational service name. Include the service identifier and job receipt in an internal escalation. This routing statement applies to ordinary ingestion jobs. A dashboard refresh after ingestion is a separate action with its own receipt and does not change the original import's completion status.\n\n## Reports and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-OR",
+          "distance": 0.43250662088394165
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics service catalog\n\nCatalog revision 2026.11 for the fictional Kestrel evaluation environment. Operational identifiers are stable routing keys. Product labels and team names can change independently. Region codes in this catalog describe the assigned processing region for the named service. They do not establish a separate contractual residency guarantee for every integration or downstream destination.\n\n## SVC-ORBIT\n\nSVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins. The service stores the published view revision with the job. Renderin",
+          "distance": 0.46997976303100586
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:4",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 2480,
+          "end": 3180,
+          "text": " processing region is EU-FR2 and its owner is Prism Integration. The retry must retain the original batch token. A caller that splits a rejected batch into smaller requests should assign a new token to each new batch and retain the original rejection receipt. The receipt records whether any records were accepted before rejection.\n\nThe service normalizes incoming event envelopes and emits validated events to downstream consumers. It does not calculate subscription invoices. An envelope with an unknown event revision is rejected before dispatch. Event payloads remain subject to workspace access controls. Diagnostic counters expose aggregate accepted and rejected counts without including event ",
+          "distance": 0.559669017791748
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:1",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 620,
+          "end": 1320,
+          "text": "ng begins. The service stores the published view revision with the job. Rendering completion and destination delivery are recorded as separate stages. The on-call handoff should include the stage that failed, the job identifier, and the last successful receipt.\n\nThe service permits up to eight active rendering jobs per workspace. Additional accepted jobs remain queued. A queue position is advisory and can change when a higher-priority recovery job is admitted. Cancelling a queued job releases its reservation. Cancelling an active rendering job takes effect at the next safe boundary and can leave a cancellation receipt without an artifact. The receipt is retained for investigation even when n",
+          "distance": 0.6142647862434387
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3720,
+          "end": 4420,
+          "text": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi",
+          "distance": 0.6379154920578003
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:7",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 4340,
+          "end": 5040,
+          "text": "onitors the lantern-receipts queue. Directory entries contain operation identifiers and permitted summary fields. Access checks are performed before returning matches. A partial identifier can return several suggestions, while a complete identifier targets one receipt. The directory does not grant access to the original datasets referenced by a receipt.\n\nDirectory updates normally appear within two minutes of receipt creation. A newly completed job may therefore be visible on its project page before appearing in global receipt search. Investigators should use the complete receipt identifier during that interval. Repeated creation of replacement jobs cannot accelerate directory indexing and m",
+          "distance": 0.6419188976287842
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:1",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 620,
+          "end": 1320,
+          "text": "e that accounting boundary. The invoice lists the period start, period end, workspace identifier, and subscription revision. A workspace with several projects receives one invoice with separate project subtotals. Moving a project between display groups does not move its historical usage to another period.\n\nThe Cedar tier includes 12 enabled schedules and 40 GiB of retained dataset storage. The Summit tier includes 60 enabled schedules and 200 GiB of retained dataset storage. Archived projects continue to consume storage while their datasets remain retained. Disabled schedules do not consume an enabled-schedule slot. The product interface enforces entitlement limits using the confirmed subscr",
+          "distance": 0.6439757943153381
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:0",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics product guide\n\nEdition 2026.11, effective 1 November 2026. Kestrel Analytics is a fictional company used in this team's synthetic evaluation corpus. The products, identifiers, limits, policies, and incidents in this collection are invented. This document describes product behavior. Billing rules, operational recovery, service ownership, and security controls are maintained in the companion documents.\n\n## Workspaces and projects\n\nA workspace is the administrative boundary for membership, subscriptions, and encryption settings. Each workspace contains projects. A project groups datasets, saved views, report schedules, and import configurations. A person can belong to severa",
+          "distance": 0.6497265696525574
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:6",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 3720,
+          "end": 4420,
+          "text": "he editor sees the next execution time together with its zone. A schedule changed during an execution affects the next execution only. Paused schedules preserve their saved view and recipients. The schedule history distinguishes a manual pause from an execution failure. A manual run can still be requested while the recurring schedule is paused, subject to the editor's ordinary project permissions.\n\n## Large exports\n\nExports above 2 GiB require approval from the workspace owner before the export job is submitted. An administrator can prepare the export request but cannot substitute their approval for the owner's. The approval is bound to the dataset revision and export format. Changing either",
+          "distance": 0.6563029289245605
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "answered",
+        "answer": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT, which processes jobs in the EU-FR2 processing region and is owned by Indigo Operations.",
+        "citation_ids": [
+          "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true,
+            false
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-09",
+      "type": "not in the corpus",
+      "question": "What is the exact date of birth of Kestrel Analytics' founder?",
+      "answerable": false,
+      "expected_answer": "The documents do not provide the founder's date of birth.",
+      "evidence": [],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:0",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics product guide\n\nEdition 2026.11, effective 1 November 2026. Kestrel Analytics is a fictional company used in this team's synthetic evaluation corpus. The products, identifiers, limits, policies, and incidents in this collection are invented. This document describes product behavior. Billing rules, operational recovery, service ownership, and security controls are maintained in the companion documents.\n\n## Workspaces and projects\n\nA workspace is the administrative boundary for membership, subscriptions, and encryption settings. Each workspace contains projects. A project groups datasets, saved views, report schedules, and import configurations. A person can belong to severa",
+          "distance": 0.5642600059509277
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:0",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics billing policies\n\nPolicy edition 2026.11. These fictional policies apply to the synthetic Kestrel Analytics evaluation corpus. All amounts are denominated in evaluation credits and do not describe a real commercial offer. This document contains current rules and explicitly marked historical rules so that a reader must consider effective dates when answering a policy question.\n\n## Subscription periods\n\nA subscription period begins at 00:00 UTC on the workspace's billing anniversary date. Metered usage is assigned by the event's accepted timestamp. A dashboard's local date display does not change that accounting boundary. The invoice lists the period start, period end, work",
+          "distance": 0.6207981109619141
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics service catalog\n\nCatalog revision 2026.11 for the fictional Kestrel evaluation environment. Operational identifiers are stable routing keys. Product labels and team names can change independently. Region codes in this catalog describe the assigned processing region for the named service. They do not establish a separate contractual residency guarantee for every integration or downstream destination.\n\n## SVC-ORBIT\n\nSVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins. The service stores the published view revision with the job. Renderin",
+          "distance": 0.6902660727500916
+        },
+        {
+          "chunk_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614:0",
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+          "filename": "security-and-support.md",
+          "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics security and support handbook\n\nHandbook edition 2026.11 for this fictional evaluation corpus. Workspace permissions, diagnostic access, and support entitlements are separate controls. A support representative's ability to inspect a case does not imply permission to inspect the customer's source records. Apply the documented approval path to each operation and preserve the relevant audit receipts.\n\n## Suspended sign-in\n\nAfter five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before ",
+          "distance": 0.7100477814674377
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:0",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics error runbook\n\nOperational edition 2026.11 for the fictional evaluation environment. Error identifiers are exact strings. Similar digits do not imply the same recovery procedure. Begin an investigation by collecting the complete identifier, affected workspace, job receipt, and event timestamp. Preserve a concise record of each recovery action so that a later operator can distinguish the original failure from a failed retry.\n\n## KST-427 checkpoint mismatch\n\nKST-427 means the ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replaying ",
+          "distance": 0.7246361970901489
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:9",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 5580,
+          "end": 6280,
+          "text": "ion timestamp and remain subject to the user's current project access.\n\nHistorical behavior through 31 July 2026 used a 12-hour download-link lifetime. That value describes artifacts created under the earlier release and should not be used to calculate expiration for a newly created artifact. The migration did not extend links that had already expired. Support staff should check the artifact creation timestamp before comparing a reported expiration to the policy. Artifact retention and link lifetime are separate settings with separate audit events.\n\n## Project archival and deletion\n\nArchiving a project hides it from the default project list and pauses its schedules. Members with existing acc",
+          "distance": 0.7904199361801147
+        },
+        {
+          "chunk_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7:4",
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+          "filename": "error-runbook.md",
+          "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+          "start": 2480,
+          "end": 3180,
+          "text": "he submitted import declares a schema revision that the project has retired. Obtain the current published schema and regenerate the mapping before submitting another import. Retired schemas remain in audit history and can still appear in old examples. A saved draft schema is not automatically eligible for ingestion. Confirm that the intended revision is published and belongs to the same project as the import request.\n\nWhen a column was renamed, review transformations that refer to its earlier name. A successful preview of a small sample does not establish that all source records comply. Run full validation and inspect rejected-record reasons. Keep the original failed receipt for comparison. ",
+          "distance": 0.8722701072692871
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 2480,
+          "end": 3180,
+          "text": "ng published. Batches already included in a successful receipt remain visible and require an explicit dataset correction.\n\nHarbor Import dispatches ingestion jobs to service SVC-MARSH. The service catalog defines its processing region, queue, and owner. The product name shown to customers can differ from the operational service name. Include the service identifier and job receipt in an internal escalation. This routing statement applies to ordinary ingestion jobs. A dashboard refresh after ingestion is a separate action with its own receipt and does not change the original import's completion status.\n\n## Reports and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-OR",
+          "distance": 0.8724258542060852
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:11",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 6820,
+          "end": 7143,
+          "text": "n cancel the request from the audit screen. The security and billing documents describe holds that may prevent erasure. A deletion request should include the project identifier rather than just its display name. Creating a new project with the same name does not restore the deleted project's data or reuse its identifier.\n",
+          "distance": 0.8839045166969299
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1240,
+          "end": 1940,
+          "text": "ot. The product interface enforces entitlement limits using the confirmed subscription revision. Contract-specific entitlements must be visible in that revision before support can apply them.\n\n## Current trial policy\n\nFor trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation. The activation date counts as day one. Trial expiry is displayed in the workspace billing screen using UTC. A pending invitation does not delay the activation date. A trial can be converted to a paid subscription before it ends, and the conversion receipt records the effective paid-service timestamp. The conversion does not erase the trial's earlier audit records.\n\nThe curren",
+          "distance": 0.890519917011261
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": "The model returned an invalid answer or citation. Try again.",
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      }
+    },
+    {
+      "id": "kestrel-syn-10",
+      "type": "not in the corpus",
+      "question": "What outbound IPv6 CIDR range should I allow for SVC-MARSH?",
+      "answerable": false,
+      "expected_answer": "The documents do not provide an outbound IPv6 CIDR range for SVC-MARSH.",
+      "evidence": [],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 2480,
+          "end": 3180,
+          "text": "ng published. Batches already included in a successful receipt remain visible and require an explicit dataset correction.\n\nHarbor Import dispatches ingestion jobs to service SVC-MARSH. The service catalog defines its processing region, queue, and owner. The product name shown to customers can differ from the operational service name. Include the service identifier and job receipt in an internal escalation. This routing statement applies to ordinary ingestion jobs. A dashboard refresh after ingestion is a separate action with its own receipt and does not change the original import's completion status.\n\n## Reports and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-OR",
+          "distance": 0.7447253465652466
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 0,
+          "end": 700,
+          "text": "# Kestrel Analytics service catalog\n\nCatalog revision 2026.11 for the fictional Kestrel evaluation environment. Operational identifiers are stable routing keys. Product labels and team names can change independently. Region codes in this catalog describe the assigned processing region for the named service. They do not establish a separate contractual residency guarantee for every integration or downstream destination.\n\n## SVC-ORBIT\n\nSVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins. The service stores the published view revision with the job. Renderin",
+          "distance": 0.7593902945518494
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1240,
+          "end": 1940,
+          "text": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba",
+          "distance": 0.7608717083930969
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:5",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3100,
+          "end": 3800,
+          "text": " counters expose aggregate accepted and rejected counts without including event bodies. Investigators needing event bodies must follow the separate approved collection process described in the security handbook.\n\n## SVC-GLIDE\n\nSVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1. The identifier resembles SVC-GLINT, but the two entries refer to different operational services. GLIDE publishes connector status events and uses the queue glide-status. Its receipt records the connector identifier, observed watermark, and event revision.\n\nA temporary consumer pause leaves events in the se",
+          "distance": 0.7699314951896667
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 3720,
+          "end": 4420,
+          "text": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi",
+          "distance": 0.7909511923789978
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 1860,
+          "end": 2560,
+          "text": "lation queue is marsh-abort. Cancellation prevents publication of uncommitted batches while preserving already accepted receipts. A cancellation acknowledgment does not imply that previously published records were removed. Dataset correction is a distinct operation requiring the appropriate editor permission. If a checkpoint mismatch interrupts cancellation, follow the exact error-code procedure in the runbook before replaying pending batches or submitting another cancellation token.\n\n## SVC-GLINT\n\nSVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration. The retry must ",
+          "distance": 0.7944198846817017
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:1",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 620,
+          "end": 1320,
+          "text": "e that accounting boundary. The invoice lists the period start, period end, workspace identifier, and subscription revision. A workspace with several projects receives one invoice with separate project subtotals. Moving a project between display groups does not move its historical usage to another period.\n\nThe Cedar tier includes 12 enabled schedules and 40 GiB of retained dataset storage. The Summit tier includes 60 enabled schedules and 200 GiB of retained dataset storage. Archived projects continue to consume storage while their datasets remain retained. Disabled schedules do not consume an enabled-schedule slot. The product interface enforces entitlement limits using the confirmed subscr",
+          "distance": 0.8120728135108948
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:8",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "start": 4960,
+          "end": 5660,
+          "text": "Repeated creation of replacement jobs cannot accelerate directory indexing and may make the incident harder to understand. Report persistent indexing delay with both creation and search timestamps.\n\n## SVC-VAULT\n\nSVC-VAULT stores generated artifacts in region EU-FR2 and is owned by Cobalt Storage. Its queue is vault-artifacts. Artifact metadata contains a digest, dataset revision, creation timestamp, and retention deadline. A delivery link refers to an artifact identifier and has a separate lifetime. Revoking a link does not automatically erase its artifact. Artifact erasure is recorded with its own receipt after applicable retention controls permit it.\n\nIntegrity checks compare stored bytes",
+          "distance": 0.8188508152961731
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:7",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "start": 4340,
+          "end": 5040,
+          "text": "The approval is bound to the dataset revision and export format. Changing either value invalidates the approval. Smaller exports still require the requesting user's read permission on every included dataset. The security handbook specifies the encryption requirement for exports above the same threshold.\n\nExport manifests contain the dataset revision, row count, selected columns, format, and content digest. Filtering rows changes the manifest's row count but leaves the source dataset intact. A failed export creates a failure receipt and does not expose a partial artifact through the download screen. Retrying with the same request token resumes an unfinished job when possible. Retrying a compl",
+          "distance": 0.8339717984199524
+        },
+        {
+          "chunk_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1:2",
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+          "filename": "billing-policies.md",
+          "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+          "start": 1240,
+          "end": 1940,
+          "text": "ot. The product interface enforces entitlement limits using the confirmed subscription revision. Contract-specific entitlements must be visible in that revision before support can apply them.\n\n## Current trial policy\n\nFor trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation. The activation date counts as day one. Trial expiry is displayed in the workspace billing screen using UTC. A pending invitation does not delay the activation date. A trial can be converted to a paid subscription before it ends, and the conversion receipt records the effective paid-service timestamp. The conversion does not erase the trial's earlier audit records.\n\nThe curren",
+          "distance": 0.8470678329467773
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": {
+        "status": "insufficient_evidence",
+        "answer": "The selected document excerpts do not contain enough information to answer this question.",
+        "citation_ids": [],
+        "model": "gemini-3.5-flash-lite"
+      },
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      }
+    }
+  ],
+  "summary": {
+    "questions": 10,
+    "answerable_questions": 8,
+    "retrieval_errors": 0,
+    "generation_errors": 1,
+    "metrics": {
+      "1": {
+        "hit_rate": 0.5,
+        "evidence_recall": 0.3333333333333333,
+        "complete_evidence_rate": 0.25
+      },
+      "3": {
+        "hit_rate": 0.875,
+        "evidence_recall": 0.8333333333333334,
+        "complete_evidence_rate": 0.875
+      },
+      "5": {
+        "hit_rate": 1.0,
+        "evidence_recall": 0.9166666666666666,
+        "complete_evidence_rate": 0.875
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "evidence_recall": 1.0,
+        "complete_evidence_rate": 1.0
+      }
+    }
+  },
+  "by_type": {
+    "different vocabulary": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    },
+    "exact identifier": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    },
+    "not in the corpus": {
+      "questions": 2,
+      "answerable_questions": 0,
+      "retrieval_errors": 0,
+      "generation_errors": 1,
+      "metrics": {
+        "1": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "3": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "5": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "10": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        }
+      }
+    },
+    "split answer": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 0.75,
+          "complete_evidence_rate": 0.5
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    },
+    "two hops": {
+      "questions": 1,
+      "answerable_questions": 1,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 1.0,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    },
+    "two versions": {
+      "questions": 1,
+      "answerable_questions": 1,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 1.0,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    }
+  }
+}
