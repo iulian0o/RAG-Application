@@ -104,3 +104,39 @@ python bm25/ask_bm25_rag_google.py
 - https://www.gutenberg.org/ebooks/2554
 # Huckleberry Finn by Mark Twain
 - https://www.gutenberg.org/ebooks/76
+
+## Words analytics
+
+Upload and index the desired documents before opening the Words tab.
+Select the documents belonging to the corpus you want to inspect.
+
+Corpus mode displays normalized words, their occurrence counts across indexed
+chunks, and the number of distinct chunks containing them. Select a word to
+inspect its matching chunks.
+
+Question mode accepts a typed question or a question selected from an
+evaluation question set. It displays words present in the selected corpus,
+their matching chunks, and absent words.
+
+Tokenization uses Unicode normalization and case-insensitive comparison.
+Accents, numbers, internal apostrophes, hyphens, and underscores are retained.
+Stopwords are retained. Stemming and synonym expansion are not applied.
+
+Counts describe stored indexed chunks. Overlapping text can contribute more
+than once. Character-based chunk boundaries can produce word fragments.
+
+Changing document selection or rebuilding indexes requires refreshing the
+Words views.
+
+The backend exposes:
+
+- POST /api/words/vocabulary
+- POST /api/words/chunks
+- POST /api/words/question
+
+Every request includes document_ids. Word lookup also includes word.
+Question analysis also includes question.
+
+The vocabulary and chunk lookup endpoints support offset and limit.
+
+Run the backend with one worker, consistent with its existing indexing lock.
