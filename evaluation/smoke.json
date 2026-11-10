@@ -1,0 +1,32 @@
+{
+  "name": "Sample corpus smoke test",
+  "documents": {
+    "sample": {
+      "content_hash": "80e9a80e0e3a0fc8f5cf944102f73d9c5d9ccde857ca991d70de74574bd07994"
+    }
+  },
+  "questions": [
+    {
+      "id": "smoke-01",
+      "question": "When did the raven arrive?",
+      "document_keys": ["sample"],
+      "answerable": true,
+      "expected_answer": "At dawn.",
+      "evidence": [
+        {
+          "document_key": "sample",
+          "start": 0,
+          "end": 26
+        }
+      ]
+    },
+    {
+      "id": "smoke-02",
+      "question": "What is the baker's birthday?",
+      "document_keys": ["sample"],
+      "answerable": false,
+      "expected_answer": "Insufficient evidence.",
+      "evidence": []
+    }
+  ]
+}
