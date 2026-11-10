@@ -1,0 +1,149 @@
+{
+  "name": "Game of Thrones uploaded extract - draft questions v1",
+  "source": "custom.source.jsonl",
+  "documents": {
+    "got": {
+      "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e"
+    }
+  },
+  "questions": [
+    {
+      "id": "got-01",
+      "type": "different vocabulary",
+      "question": "Which parts of his body does Gared say he lost to the cold?",
+      "answerable": true,
+      "expected_answer": "Two ears, three toes, and the little finger of his left hand.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Gared pulled back his hood, giving Ser Waymar a\ngood long look at the stumps where his ears had been. ôTwo ears, three toes, and the\nlittle finger off my left hand.",
+          "start": 7074
+        }
+      ]
+    },
+    {
+      "id": "got-02",
+      "type": "different vocabulary",
+      "question": "Why was Will forced to choose service at the Wall, and what punishment was the alternative?",
+      "answerable": true,
+      "expected_answer": "Mallister freeriders caught him poaching and skinning a buck in their woods. He could join the Night's Watch or lose a hand.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Will had been a hunter before he joined the NightÆs Watch. Well, a poacher in truth.\n\n\fMallister freeriders had caught him red-handed in the MallistersÆ own woods, skinning\none of the MallistersÆ own bucks, and it had been a choice of putting on the black or\nlosing a hand.",
+          "start": 4308
+        }
+      ]
+    },
+    {
+      "id": "got-03",
+      "type": "split answer",
+      "question": "At the start of the prologue, how many years had Gared spent in the Watch and how many years had Will spent on the Wall?",
+      "answerable": true,
+      "expected_answer": "Gared had spent forty years in the Watch; Will had spent four years on the Wall.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Gared had spent forty years in the NightÆs\nWatch, man and boy",
+          "start": 1270
+        },
+        {
+          "document": "got",
+          "quote": "Will shared his unease. He had been four years on the Wall.",
+          "start": 1558
+        }
+      ]
+    },
+    {
+      "id": "got-04",
+      "type": "different vocabulary",
+      "question": "In which city did Daenerys live in the house with the red door, and what kind of tree was outside her window?",
+      "answerable": true,
+      "expected_answer": "Braavos; a lemon tree.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "That was when they\nlived in Braavos, in the big house with the red door. Dany had her own room there, with\na lemon tree outside her window.",
+          "start": 54898
+        }
+      ]
+    },
+    {
+      "id": "got-05",
+      "type": "different vocabulary",
+      "question": "Who was assigned to teach Daenerys riding, and who was assigned to teach her the Dothraki language?",
+      "answerable": true,
+      "expected_answer": "Irri was to teach her riding, and Jhiqui was to teach her the Dothraki language.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Irri\nwill teach you riding, Jhiqui the Dothraki tongue",
+          "start": 196330
+        }
+      ]
+    },
+    {
+      "id": "got-06",
+      "type": "different vocabulary",
+      "question": "Before teaching Arya, which position had Syrio Forel held, for whom, and for how long?",
+      "answerable": true,
+      "expected_answer": "He was first sword to the Sealord of Braavos for nine years.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Nine years Syrio Forel was first sword to the Sealord of Braavos",
+          "start": 434645
+        }
+      ]
+    },
+    {
+      "id": "got-07",
+      "type": "split answer",
+      "question": "Who made the slender sword Jon gave Arya, and who later taught her the water dance?",
+      "answerable": true,
+      "expected_answer": "Mikken made the sword at Jon's request. Syrio Forel taught Arya the water dance.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "I had Mikken make this special. The bravos use swords like\nthis in Pentos and Myr and the other Free Cities.",
+          "start": 184236
+        },
+        {
+          "document": "got",
+          "quote": "Syrio Forel said. ôYou are a sword, that is all.ö He clicked his teeth together.\nôJust so, that is the grip. You are not holding a battle-axe, you are holding aùö\n\nôùneedle,ö Arya finished for him, fiercely.\n\nôJust so. Now we will begin the dance. Remember, child, this is not the iron dance of\nWesteros we are learning, the knightÆs dance, hacking and hammering, no. This is the\nbravoÆs dance, the water dance, swift and sudden.",
+          "start": 434846
+        }
+      ]
+    },
+    {
+      "id": "got-08",
+      "type": "different vocabulary",
+      "question": "Who gave Petyr Baelish his childhood nickname, and which two details explain that nickname?",
+      "answerable": true,
+      "expected_answer": "Edmure gave him the nickname Littlefinger. His family held land on the smallest of the Fingers, and Petyr was slight and short for his age.",
+      "evidence": [
+        {
+          "document": "got",
+          "quote": "Her brother Edmure had\ngiven him that name, long ago at Riverrun. His familyÆs modest holdings were on the\nsmallest of the Fingers, and Petyr had been slight and short for his age.",
+          "start": 319304
+        }
+      ]
+    },
+    {
+      "id": "got-09",
+      "type": "not in the corpus",
+      "question": "What exact day, month, and year was Gared born?",
+      "answerable": false,
+      "expected_answer": "The provided document does not state Gared's exact date of birth.",
+      "evidence": []
+    },
+    {
+      "id": "got-10",
+      "type": "not in the corpus",
+      "question": "What purchase price did Ser Waymar Royce pay for his black destrier?",
+      "answerable": false,
+      "expected_answer": "The provided document does not state the purchase price of Ser Waymar Royce's black destrier.",
+      "evidence": []
+    }
+  ]
+}

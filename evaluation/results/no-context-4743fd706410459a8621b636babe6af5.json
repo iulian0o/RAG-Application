@@ -1,0 +1,105 @@
+{
+  "run_id": "4743fd706410459a8621b636babe6af5",
+  "kind": "no_context",
+  "status": "completed",
+  "dataset_id": "custom",
+  "adapter_sha256": "b67d34fe02dc91f04e03d80f1e137f37cdc42a264226a1ca9b087480a470a371",
+  "source_sha256": "d46c967deda34982206662c1a0e768cfcad452e5a1c5cd41ef494ccdcc415f32",
+  "created_at": "2026-11-10T20:59:40.930661+00:00",
+  "git_commit": "1551948bafd07c65220dd60717360ddd346fe664",
+  "model": "gemini-3.5-flash-lite",
+  "system_instruction": "Answer the question using your own knowledge. If you do not know, say that you do not know.",
+  "results": [
+    {
+      "id": "got-01",
+      "question": "Which parts of his body does Gared say he lost to the cold?",
+      "expected_answer": "Two ears, three toes, and the little finger of his left hand.",
+      "answer": "In the prologue of George R.R. Martin's *A Game of Thrones*, Gared says he lost **three of his fingers** to the cold. \n\nWhen Will suggests that they might lose their ears or toes, Gared corrects him, holding up his hand to show that he has already lost three fingers to frostbite.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-02",
+      "question": "Why was Will forced to choose service at the Wall, and what punishment was the alternative?",
+      "expected_answer": "Mallister freeriders caught him poaching and skinning a buck in their woods. He could join the Night's Watch or lose a hand.",
+      "answer": "Based on the opening chapter of George R.R. Martin's *A Game of Thrones*, **Will** was a member of the Night's Watch (a scout) who fled in terror after encountering the Others (White Walkers) and witnessing the slaughter of his comrades. \n\nHe was not *forced* to choose the Wall as a punishment in the traditional sense; rather, **desertion from the Night's Watch carries the death penalty.** \n\nWhen Will fled his post and traveled south, he became a deserter. He was captured and brought before **Lord Eddard (Ned) Stark**, the Lord of Winterfell. Because desertion is a capital crime, Ned Stark sentenced Will to death by beheading. \n\nTherefore, the alternative to his service at the Wall was **execution by decapitation**, which Ned Stark carried out himself with his greatsword, Ice. (Technically, Will had already broken his vows by deserting, so his only \"choice\" was facing the executioner's sword for his crime).",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-03",
+      "question": "At the start of the prologue, how many years had Gared spent in the Watch and how many years had Will spent on the Wall?",
+      "expected_answer": "Gared had spent forty years in the Watch; Will had spent four years on the Wall.",
+      "answer": "At the start of the prologue of *A Game of Thrones*, Gared had spent **forty years** in the Night's Watch, and Will had spent **three years** on the Wall.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-04",
+      "question": "In which city did Daenerys live in the house with the red door, and what kind of tree was outside her window?",
+      "expected_answer": "Braavos; a lemon tree.",
+      "answer": "In the *A Song of Ice and Fire* book series by George R.R. Martin, Daenerys Targaryen remembers living in a house with a red door in **Braavos** (though it is later heavily implied by the text and author that her memories of her early childhood may not be what they seem). \n\nOutside her window in Braavos, she specifically remembers a **lemon tree**.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-05",
+      "question": "Who was assigned to teach Daenerys riding, and who was assigned to teach her the Dothraki language?",
+      "expected_answer": "Irri was to teach her riding, and Jhiqui was to teach her the Dothraki language.",
+      "answer": "Based on George R.R. Martin's *A Song of Ice and Fire* series (and the television adaptation *Game of Thrones*):\n\n* **Riding:** **Ser Jorah Mormont** was assigned to teach Daenerys how to ride a horse properly the Dothraki way, as she was initially unaccustomed to their style of riding during the long travels across the grasslands. \n* **The Dothraki Language:** **Doreah** was originally assigned to teach Daenerys the Dothraki language, customs, and how to please a husband, having been bought for her as a handmaiden and tutor by her brother Viserys.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-06",
+      "question": "Before teaching Arya, which position had Syrio Forel held, for whom, and for how long?",
+      "expected_answer": "He was first sword to the Sealord of Braavos for nine years.",
+      "answer": "Before teaching Arya, Syrio Forel held the position of **First Sword to the Sealord of Braavos**. He held this position for **nine years**.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-07",
+      "question": "Who made the slender sword Jon gave Arya, and who later taught her the water dance?",
+      "expected_answer": "Mikken made the sword at Jon's request. Syrio Forel taught Arya the water dance.",
+      "answer": "The slender sword Jon Snow gave Arya Stark—named **Needle**—was made by the winter town smiths **Mikhail and Varly**, at the request of Jon, who had **Master Mott** (the castle armorer at Winterfell) check and finalize it. \n\nArya was later taught the \"water dance\" (the Braavosi style of sword fighting) by **Syrio Forel**, the former First Sword of Braavos, who was hired by her father, Eddard Stark.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-08",
+      "question": "Who gave Petyr Baelish his childhood nickname, and which two details explain that nickname?",
+      "expected_answer": "Edmure gave him the nickname Littlefinger. His family held land on the smallest of the Fingers, and Petyr was slight and short for his age.",
+      "answer": "Petyr Baelish's childhood nickname, **\"Littlefinger,\"** was given to him by **Edmure Tully**. \n\nThe two details that explain the nickname are:\n1. **His physical stature:** He was a remarkably small and short boy compared to others his age.\n2. **His ancestral home:** He came from the smallest and least significant of the Fingers, a jagged peninsula of land in the Vale of Arryn (specifically, a tiny stone tower on a barren finger of land).",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-09",
+      "question": "What exact day, month, and year was Gared born?",
+      "expected_answer": "The provided document does not state Gared's exact date of birth.",
+      "answer": "I do not know. \n\nIf you are referring to the character Gared from George R.R. Martin's *A Song of Ice and Fire* series (or the television adaptation *Game of Thrones*), his exact date, month, and year of birth are never provided in the source material.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    },
+    {
+      "id": "got-10",
+      "question": "What purchase price did Ser Waymar Royce pay for his black destrier?",
+      "expected_answer": "The provided document does not state the purchase price of Ser Waymar Royce's black destrier.",
+      "answer": "I do not know. In George R.R. Martin's *A Game of Thrones*, Ser Waymar Royce's black destrier is mentioned, but the specific purchase price for the horse is not stated in the text.",
+      "error": null,
+      "correct_without_context": null,
+      "review_notes": null
+    }
+  ],
+  "finished_at": "2026-11-10T20:59:54.944510+00:00"
+}
