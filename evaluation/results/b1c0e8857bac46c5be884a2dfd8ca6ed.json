@@ -1,0 +1,1783 @@
+{
+  "run_id": "b1c0e8857bac46c5be884a2dfd8ca6ed",
+  "status": "completed",
+  "created_at": "2026-11-10T21:16:13.422068+00:00",
+  "finished_at": "2026-11-10T21:16:14.896962+00:00",
+  "dataset_id": "custom",
+  "dataset_name": "Game of Thrones uploaded extract - draft questions v1",
+  "adapter_sha256": "b67d34fe02dc91f04e03d80f1e137f37cdc42a264226a1ca9b087480a470a371",
+  "source_sha256": "d46c967deda34982206662c1a0e768cfcad452e5a1c5cd41ef494ccdcc415f32",
+  "git_commit": "b1e2032ec2db70a6b84ed97214e1f16d8a363fa0",
+  "settings": {
+    "dataset_id": "custom",
+    "generate_answers": false,
+    "answer_top_k": 5
+  },
+  "retrieval_cutoffs": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "versions": {
+    "chromadb": "1.5.9",
+    "sentence-transformers": "6.2.0",
+    "google-genai": "3.0.0"
+  },
+  "snapshot": {
+    "documents": [
+      {
+        "id": "36766964-f370-4d06-8da5-57a24f4459c4",
+        "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e"
+      }
+    ],
+    "indexes": [
+      {
+        "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+        "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+        "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_size": 700,
+        "overlap": 80,
+        "chunk_count": 849,
+        "created_at": "2026-11-10T21:16:00.728081+00:00"
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "got-01",
+      "type": "different vocabulary",
+      "question": "Which parts of his body does Gared say he lost to the cold?",
+      "answerable": true,
+      "expected_answer": "Two ears, three toes, and the little finger of his left hand.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Gared pulled back his hood, giving Ser Waymar a\ngood long look at the stumps where his ears had been. ôTwo ears, three toes, and the\nlittle finger off my left hand.",
+          "start": 7074,
+          "end": 7238
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:9",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 5580,
+          "end": 6280,
+          "text": "s one woman up an ironwood, half-hid in the branches. A\nfar-eyes.ö He smiled thinly. ôI took care she never saw me. When I got closer, I saw that\nshe wasnÆt moving neither.ö Despite himself, he shivered.\n\nôYou have a chill?ö Royce asked.\n\nôSome,ö Will muttered. ôThe wind, mÆlord.ö\n\nThe young knight turned back to his grizzled man-at-arms. Frostfallen leaves whispered\npast them, and RoyceÆs destrier moved restlessly. ôWhat do you think might have killed\nthese men, Gared?ö Ser Waymar asked casually. He adjusted the drape of his long sable\ncloak.\n\nôIt was the cold,ö Gared said with iron certainty. ôI saw men freeze last winter, and the\n\n\fone before, when I was half a boy. Everyone talks about s",
+          "distance": 0.4982658624649048
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:11",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 6820,
+          "end": 7520,
+          "text": "t you go weak and drowsy,\nand everything starts to fade, and then itÆs like sinking into a sea of warm milk. Peaceful,\nlike.ö\n\nôSuch eloquence, Gared,ö Ser Waymar observed. ôI never suspected you had it in you.ö\n\nôIÆve had the cold in me too, lordling.ö Gared pulled back his hood, giving Ser Waymar a\ngood long look at the stumps where his ears had been. ôTwo ears, three toes, and the\nlittle finger off my left hand. I got off light. We found my brother frozen at his watch,\nwith a smile on his face.ö\n\nSer Waymar shrugged. ôYou ought dress more warmly, Gared.ö\n\nGared glared at the lordling, the scars around his ear holes flushed red with anger where\nMaester Aemon had cut the ears away. ôWeÆll s",
+          "distance": 0.5246556401252747
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:31",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 19220,
+          "end": 19920,
+          "text": "Blood welled between his fingers.\n\nThe watchers moved forward together, as if some signal had been given. Swords rose\n\n\fand fell, all in a deathly silence. It was cold butchery. The pale blades sliced through\nringmail as if it were silk. Will closed his eyes. Far beneath him, he heard their voices\nand laughter sharp as icicles.\n\nWhen he found the courage to look again, a long time had passed, and the ridge below\nwas empty.\n\nHe stayed in the tree, scarce daring to breathe, while the moon crept slowly across the\nblack sky. Finally, his muscles cramping and his fingers numb with cold, he climbed\ndown.\n\nRoyceÆs body lay facedown in the snow, one arm outflung. The thick sable cloak had\nbeen slash",
+          "distance": 0.5323523879051208
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:18",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 11160,
+          "end": 11860,
+          "text": ".ö\n\nGaredÆs hood shadowed his face, but Will could see the hard glitter in his eyes as he\nstared at the knight. For a moment he was afraid the older man would go for his sword.\nIt was a short, ugly thing, its grip discolored by sweat, its edge nicked from hard use, but\nWill would not have given an iron bob for the lordlingÆs life if Gared pulled it from its\nscabbard.\n\nFinally Gared looked down. ôNo fire,ö he muttered, low under his breath.\n\nRoyce took it for acquiescence and turned away. ôLead on,ö he said to Will.\n\nWill threaded their way through a thicket, then started up the slope to the low ridge\nwhere he had found his vantage point under a sentinel tree. Under the thin crust of\nsnow, th",
+          "distance": 0.5330915451049805
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:833",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 516460,
+          "end": 517160,
+          "text": "covered ground and began to cry, huge choking sobs that\nmade his whole body shake. Jon Snow could only stand and watch. Like the snowfall on\nthe barrowlands, it seemed the tears would never end.\n\nIt was Ghost who knew what to do. Silent as shadow, the pale direwolf moved closer and\nbegan to lick the warm tears off Samwell TarlyÆs face. The fat boy cried out,\nstartled . . . and somehow, in a heartbeat, his sobs turned to laughter.\n\n\fJon Snow laughed with him. Afterward they sat on the frozen ground, huddled in their\ncloaks with Ghost between them. Jon told the story of how he and Robb had found the\npups newborn in the late summer snows. It seemed a thousand years ago now. Before\nlong he found",
+          "distance": 0.5474920868873596
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:32",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 19840,
+          "end": 20540,
+          "text": "lay facedown in the snow, one arm outflung. The thick sable cloak had\nbeen slashed in a dozen places. Lying dead like that, you saw how young he was. A boy.\n\nHe found what was left of the sword a few feet away, the end splintered and twisted like\na tree struck by lightning. Will knelt, looked around warily, and snatched it up. The\nbroken sword would be his proof. Gared would know what to make of it, and if not him,\nthen surely that old bear Mormont or Maester Aemon. Would Gared still be waiting with\nthe horses? He had to hurry.\n\nWill rose. Ser Waymar Royce stood over him.\n\nHis fine clothes were a tatter, his face a ruin. A shard from his sword transfixed the blind\nwhite pupil of his left eye",
+          "distance": 0.5482927560806274
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:23",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 14260,
+          "end": 14960,
+          "text": "e taste of cold iron in his mouth gave him comfort.\n\nDown below, the lordling called out suddenly, ôWho goes there?ö Will heard uncertainty\nin the challenge. He stopped climbing; he listened; he watched.\n\n\fThe woods gave answer: the rustle of leaves, the icy rush of the stream, a distant hoot of\na snow owl.\n\nThe Others made no sound.\n\nWill saw movement from the corner of his eye. Pale shapes gliding through the wood. He\nturned his head, glimpsed a white shadow in the darkness. Then it was gone. Branches\nstirred gently in the wind, scratching at one another with wooden fingers. Will opened\nhis mouth to call down a warning, and the words seemed to freeze in his throat. Perhaps\nhe was wrong. Pe",
+          "distance": 0.555911123752594
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:830",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 514600,
+          "end": 515300,
+          "text": "he suspected some cruel trick was waiting for\n\n\fhim in the night. Ghost padded along beside them. ôI never thought it would be like\nthis,ö Sam said as they walked, his words steaming in the cold air. Already he was\nhuffing and puffing as he tried to keep up. ôAll the buildings are falling down, and itÆs\nso . . . so . . . ö\n\nôCold?ö A hard frost was settling over the castle, and Jon could hear the soft crunch of\ngrey weeds beneath his boots.\n\nSam nodded miserably. ôI hate the cold,ö he said. ôLast night I woke up in the dark and\nthe fire had gone out and I was certain I was going to freeze to death by morning.ö\n\nôIt must have been warmer where you come from.ö\n\nôI never saw snow until last mon",
+          "distance": 0.5651357769966125
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:12",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 7440,
+          "end": 8140,
+          "text": "holes flushed red with anger where\nMaester Aemon had cut the ears away. ôWeÆll see how warm you can dress when the\nwinter comes.ö He pulled up his hood and hunched over his garron, silent and sullen.\n\nôIf Gared said it was the cold . . . ö Will began.\n\nôHave you drawn any watches this past week, Will?ö\n\nôYes, mÆlord.ö There never was a week when he did not draw a dozen bloody watches.\nWhat was the man driving at?\n\nôAnd how did you find the Wall?ö\n\nôWeeping,ö Will said, frowning. He saw it clear enough, now that the lordling had\npointed it out. ôThey couldnÆt have froze. Not if the Wall was weeping. It wasnÆt cold\nenough.ö\n\nRoyce nodded. ôBright lad. WeÆve had a few light frosts this past wee",
+          "distance": 0.5655109286308289
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:786",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 487320,
+          "end": 488020,
+          "text": "ôWhat can you tell me of his final illness?ö\n\nThe Grand Maester spread his hands in a gesture of helpless sorrow. ôHe came to me\none day asking after a certain book, as hale and healthy as ever, though it did seem to me\nthat something was troubling him deeply. The next morning he was twisted over in pain,\ntoo sick to rise from bed. Maester Colemon thought it was a chill on the stomach. The\nweather had been hot, and the Hand often iced his wine, which can upset the digestion.\nWhen Lord Jon continued to weaken, I went to him myself, but the gods did not grant\nme the power to save him.ö\n\nôI have heard that you sent Maester Colemon away.ö\n\nThe Grand MaesterÆs nod was as slow and deliberate as a ",
+          "distance": 0.5720900893211365
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-02",
+      "type": "different vocabulary",
+      "question": "Why was Will forced to choose service at the Wall, and what punishment was the alternative?",
+      "answerable": true,
+      "expected_answer": "Mallister freeriders caught him poaching and skinning a buck in their woods. He could join the Night's Watch or lose a hand.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Will had been a hunter before he joined the NightÆs Watch. Well, a poacher in truth.\n\n\fMallister freeriders had caught him red-handed in the MallistersÆ own woods, skinning\none of the MallistersÆ own bucks, and it had been a choice of putting on the black or\nlosing a hand.",
+          "start": 4308,
+          "end": 4581
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:642",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 398040,
+          "end": 398740,
+          "text": "ss than a thousand now. Six hundred here, two\nhundred in the Shadow Tower, even fewer at Eastwatch, and a scant third of those\nfighting men. The Wall is a hundred leagues long. Think on that. Should an attack come,\nI have three men to defend each mile of wall.ö\n\nôThree and a third,ö Tyrion said with a yawn.\n\nMormont scarcely seemed to hear him. The old man warmed his hands before the fire. ôI\nsent Benjen Stark to search after Yohn RoyceÆs son, lost on his first ranging. The Royce\nboy was green as summer grass, yet he insisted on the honor of his own command,\nsaying it was his due as a knight. I did not wish to offend his lord father, so I yielded. I\nsent him out with two men I deemed as good",
+          "distance": 0.6086106300354004
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:645",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 399900,
+          "end": 400600,
+          "text": "ord Commander raised the Wall higher than he\nfound it. Now it is all we can do to stay alive.ö\n\nHe was in deadly earnest, Tyrion realized. He felt faintly embarrassed for the old man.\nLord Mormont had spent a good part of his life on the Wall, and he needed to believe if\nthose years were to have any meaning. ôI promise, the king will hear of your need,ö\nTyrion said gravely, ôand I will speak to my father and my brother Jaime as well.ö And\nhe would. Tyrion Lannister was as good as his word. He left the rest unsaid; that King\n\n\fRobert would ignore him, Lord Tywin would ask if he had taken leave of his senses, and\nJaime would only laugh.\n\nôYou are a young man, Tyrion,ö Mormont said. ôHow many w",
+          "distance": 0.6702082753181458
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:367",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 227540,
+          "end": 228240,
+          "text": "res hidden behind a\nbeard as black as his clothing, but he seemed as tough as an old root and as hard as\nstone. With him were a pair of ragged peasant boys from the Fingers. ôRapers,ö Yoren\nsaid with a cold look at his charges. Tyrion understood. Life on the Wall was said to be\nhard, but no doubt it was preferable to castration.\n\nFive men, three boys, a direwolf, twenty horses, and a cage of ravens given over to\nBenjen Stark by Maester Luwin. No doubt they made a curious fellowship for the\nkingsroad, or any road.\n\nTyrion noticed Jon Snow watching Yoren and his sullen companions, with an odd cast to\nhis face that looked uncomfortably like dismay. Yoren had a twisted shoulder and a sour\nsmell,",
+          "distance": 0.6746671795845032
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:44",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 27280,
+          "end": 27980,
+          "text": "ruth, the man\nwas an oathbreaker, a deserter from the NightÆs Watch. No man is more dangerous. The\ndeserter knows his life is forfeit if he is taken, so he will not flinch from any crime, no\nmatter how vile. But you mistake me. The question was not why the man had to die, but\nwhy I must do it.ö\n\nBran had no answer for that. ôKing Robert has a headsman,ö he said, uncertainly.\n\nôHe does,ö his father admitted. ôAs did the Targaryen kings before him. Yet our way is\nthe older way. The blood of the First Men still flows in the veins of the Starks, and we\nhold to the belief that the man who passes the sentence should swing the sword. If you\n\n\fwould take a manÆs life, you owe it to him to look into ",
+          "distance": 0.6863665580749512
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:194",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 120280,
+          "end": 120980,
+          "text": " answer the summons of a king.\nHe never came home again.ö\n\nôA different time,ö Maester Luwin said. ôA different king.ö\n\nôYes,ö Ned said dully. He seated himself in a chair by the hearth. ôCatelyn, you shall stay\nhere in Winterfell.ö\n\nHis words were like an icy draft through her heart. ôNo,ö she said, suddenly afraid. Was\nthis to be her punishment? Never to see his face again, nor to feel his arms around her?\n\nôYes,ö Ned said, in words that would brook no argument. ôYou must govern the north in\nmy stead, while I run RobertÆs errands. There must always be a Stark in Winterfell. Robb\nis fourteen. Soon enough, he will be a man grown. He must learn to rule, and I will not\nbe here for him. Make hi",
+          "distance": 0.6865273714065552
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:3",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 1860,
+          "end": 2560,
+          "text": "e southron called the haunted forest had no\nmore terrors for him.\n\nUntil tonight. Something was different tonight. There was an edge to this darkness that\nmade his hackles rise. Nine days they had been riding, north and northwest and then\nnorth again, farther and farther from the Wall, hard on the track of a band of wildling\nraiders. Each day had been worse than the day that had come before it. Today was the\nworst of all. A cold wind was blowing out of the north, and it made the trees rustle like\nliving things. All day, Will had felt as though something were watching him, something\ncold and implacable that loved him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent ",
+          "distance": 0.6910786628723145
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:232",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 143840,
+          "end": 144540,
+          "text": "he morrow they left for the south.\n\nBran had been left behind with Jon and the girls and Rickon. But Rickon was only a\nbaby and the girls were only girls and Jon and his wolf were nowhere to be found. Bran\ndid not look for him very hard. He thought Jon was angry at him. Jon seemed to be\nangry at everyone these days. Bran did not know why. He was going with Uncle Ben to\nthe Wall, to join the NightÆs Watch. That was almost as good as going south with the\nking. Robb was the one they were leaving behind, not Jon.\n\nFor days, Bran could scarcely wait to be off. He was going to ride the kingsroad on a\nhorse of his own, not a pony but a real horse. His father would be the Hand of the King,\nand they ",
+          "distance": 0.6959022283554077
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:418",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 259160,
+          "end": 259860,
+          "text": " tea. And with it came Maester Luwin.\n\nôHow is my son, Maester?ö Catelyn looked at all the food and found she had no appetite.\n\nMaester Luwin lowered his eyes. ôUnchanged, my lady.ö\n\nIt was the reply she had expected, no more and no less. Her hands throbbed with pain,\nas if the blade were still in her, cutting deep. She sent the servants away and looked back\nto Robb. ôDo you have the answer yet?ö\n\nôSomeone is afraid Bran might wake up,ö Robb said, ôafraid of what he might say or do,\nafraid of something he knows.ö\n\nCatelyn was proud of him. ôVery good.ö She turned to the new captain of the guard. ôWe\nmust keep Bran safe. If there was one killer, there could be others.ö\n\nôHow many guards do yo",
+          "distance": 0.6987279057502747
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:280",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 173600,
+          "end": 174300,
+          "text": "d. I have a mind to go with them and see this Wall we have all heard so much of.ö\n\nJaime smiled. ôI hope youÆre not thinking of taking the black on us, sweet brother.ö\n\nTyrion laughed. ôWhat, me, celibate? The whores would go begging from Dorne to\nCasterly Rock. No, I just want to stand on top of the Wall and piss off the edge of the\nworld.ö\n\nCersei stood abruptly. ôThe children donÆt need to hear this filth. Tommen, Myrcella,\ncome.ö She strode briskly from the morning room, her train and her pups trailing behind\nher.\n\nJaime Lannister regarded his brother thoughtfully with those cool green eyes. ôStark will\nnever consent to leave Winterfell with his son lingering in the shadow of death.ö\n\n\fô",
+          "distance": 0.6991740465164185
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:19",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 11780,
+          "end": 12480,
+          "text": " found his vantage point under a sentinel tree. Under the thin crust of\nsnow, the ground was damp and muddy, slick footing, with rocks and hidden roots to\ntrip you up. Will made no sound as he climbed. Behind him, he heard the soft metallic\nslither of the lordlingÆs ringmail, the rustle of leaves, and muttered curses as reaching\nbranches grabbed at his longsword and tugged on his splendid sable cloak.\n\nThe great sentinel was right there at the top of the ridge, where Will had known it would\n\n\fbe, its lowest branches a bare foot off the ground. Will slid in underneath, flat on his\nbelly in the snow and the mud, and looked down on the empty clearing below.\n\nHis heart stopped in his chest. For ",
+          "distance": 0.6994210481643677
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      }
+    },
+    {
+      "id": "got-03",
+      "type": "split answer",
+      "question": "At the start of the prologue, how many years had Gared spent in the Watch and how many years had Will spent on the Wall?",
+      "answerable": true,
+      "expected_answer": "Gared had spent forty years in the Watch; Will had spent four years on the Wall.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Gared had spent forty years in the NightÆs\nWatch, man and boy",
+          "start": 1270,
+          "end": 1331
+        },
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Will shared his unease. He had been four years on the Wall.",
+          "start": 1558,
+          "end": 1617
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:2",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 1240,
+          "end": 1940,
+          "text": "hick black hood of his cloak. Gared had spent forty years in the NightÆs\nWatch, man and boy, and he was not accustomed to being made light of. Yet it was more\nthan that. Under the wounded pride, Will could sense something else in the older man.\nYou could taste it; a nervous tension that came perilous close to fear.\n\nWill shared his unease. He had been four years on the Wall. The first time he had been\nsent beyond, all the old stories had come rushing back, and his bowels had turned to\nwater. He had laughed about it afterward. He was a veteran of a hundred rangings by\n\n\fnow, and the endless dark wilderness that the southron called the haunted forest had no\nmore terrors for him.\n\nUntil tonight",
+          "distance": 0.5481128692626953
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:3",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 1860,
+          "end": 2560,
+          "text": "e southron called the haunted forest had no\nmore terrors for him.\n\nUntil tonight. Something was different tonight. There was an edge to this darkness that\nmade his hackles rise. Nine days they had been riding, north and northwest and then\nnorth again, farther and farther from the Wall, hard on the track of a band of wildling\nraiders. Each day had been worse than the day that had come before it. Today was the\nworst of all. A cold wind was blowing out of the north, and it made the trees rustle like\nliving things. All day, Will had felt as though something were watching him, something\ncold and implacable that loved him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent ",
+          "distance": 0.591877818107605
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:771",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 478020,
+          "end": 478720,
+          "text": "stones, his feet scrabbling for purchase.\nHigher and higher he climbed, through the clouds and into the night sky, and still the\ntower rose before him. When he paused to look down, his head swam dizzily and he felt\nhis fingers slipping. Bran cried out and clung for dear life. The earth was a thousand\nmiles beneath him and he could not fly. He could not fly. He waited until his heart had\nstopped pounding, until he could breathe, and he began to climb again. There was no\nway to go but up. Far above him, outlined against a vast pale moon, he thought he could\nsee the shapes of gargoyles. His arms were sore and aching, but he dared not rest. He\nforced himself to climb faster. The gargoyles watche",
+          "distance": 0.6323289275169373
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:139",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 86180,
+          "end": 86880,
+          "text": "ents and talk to those who man it. The NightÆs Watch is a shadow of\nwhat it once was. Benjen saysùö\n\nôNo doubt I will hear what your brother says soon enough,ö Robert said. ôThe Wall has\nstood for what, eight thousand years? It can keep a few days more. I have more pressing\nconcerns. These are difficult times. I need good men about me. Men like Jon Arryn. He\nserved as Lord of the Eyrie, as Warden of the East, as the Hand of the King. He will not\nbe easy to replace.ö\n\n\fôHis son . . . ö Ned began.\n\nôHis son will succeed to the Eyrie and all its incomes,ö Robert said brusquely. ôNo more.ö\n\nThat took Ned by surprise. He stopped, startled, and turned to look at his king. The\nwords came unbidden. ",
+          "distance": 0.6339232921600342
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:577",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 357740,
+          "end": 358440,
+          "text": "e king Robert after a long nightÆs drinking? I thought all those\nbuildings had been abandoned.ö\n\nJon shrugged. ôNo one cares where you sleep. Most of the old keeps are empty, you can\npick any cell you want.ö Once Castle Black had housed five thousand fighting men with\nall their horses and servants and weapons. Now it was home to a tenth that number, and\nparts of it were falling into ruin.\n\nTyrion LannisterÆs laughter steamed in the cold air. ôIÆll be sure to tell your father to\narrest more stonemasons, before your tower collapses.ö\n\nJon could taste the mockery there, but there was no denying the truth. The Watch had\nbuilt nineteen great strongholds along the Wall, but only three were still o",
+          "distance": 0.6383391618728638
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:571",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 354020,
+          "end": 354720,
+          "text": "enough for a dozen armored\nknights to ride abreast. The gaunt outlines of huge catapults and monstrous wooden\ncranes stood sentry up there, like the skeletons of great birds, and among them walked\nmen in black as small as ants.\n\nAs he stood outside the armory looking up, Jon felt almost as overwhelmed as he had\nthat day on the kingsroad, when heÆd seen it for the first time. The Wall was like that.\nSometimes he could almost forget that it was there, the way you forgot about the sky or\nthe earth underfoot, but there were other times when it seemed as if there was nothing\nelse in the world. It was older than the Seven Kingdoms, and when he stood beneath it\nand looked up, it made Jon dizzy. He ",
+          "distance": 0.6483533382415771
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:747",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 463140,
+          "end": 463840,
+          "text": ". At night he closeted himself with\nMaester Luwin, talking or going over account books. Sometimes he would ride out with\nHallis Mollen and be gone for days at a time, visiting distant holdfasts. Whenever he was\naway more than a day, Rickon would cry and ask Bran if Robb was ever coming back.\nEven when he was home at Winterfell, Robb the Lord seemed to have more time for\nHallis Mollen and Theon Greyjoy than he ever did for his brothers.\n\nôI could tell you the story about Brandon the Builder,ö Old Nan said. ôThat was always\nyour favorite.ö\n\n\fThousands and thousands of years ago, Brandon the Builder had raised Winterfell, and\nsome said the Wall. Bran knew the story, but it had never been his fa",
+          "distance": 0.6486115455627441
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:250",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 155000,
+          "end": 155700,
+          "text": "ones were loose, the mortar that held them together long gone to ash, and Bran\nnever liked to put his full weight on them.\n\nThe best way was to start from the godswood, shinny up the tall sentinel, and cross over\nthe armory and the guards hall, leaping roof to roof, barefoot so the guards wouldnÆt\nhear you overhead. That brought you up to the blind side of the First Keep, the oldest\npart of the castle, a squat round fortress that was taller than it looked. Only rats and\nspiders lived there now but the old stones still made for good climbing. You could go\nstraight up to where the gargoyles leaned out blindly over empty space, and swing from\ngargoyle to gargoyle, hand over hand, around to the ",
+          "distance": 0.6512572765350342
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:16",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 9920,
+          "end": 10620,
+          "text": "g here,ö Gared muttered.\n\nThe young knight gave him a disdainful smile. ôIs there?ö\n\nôCanÆt you feel it?ö Gared asked. ôListen to the darkness.ö\n\nWill could feel it. Four years in the NightÆs Watch, and he had never been so afraid.\nWhat was it?\n\n\fôWind. Trees rustling. A wolf. Which sound is it that unmans you so, Gared?ö When\nGared did not answer, Royce slid gracefully from his saddle. He tied the destrier securely\nto a low-hanging limb, well away from the other horses, and drew his longsword from its\nsheath. Jewels glittered in its hilt, and the moonlight ran down the shining steel. It was a\nsplendid weapon, castle-forged, and new-made from the look of it. Will doubted it had\never been swu",
+          "distance": 0.6597844362258911
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:4",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 2480,
+          "end": 3180,
+          "text": "him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent for the safety of the Wall, but that was not a feeling to share\nwith your commander.\n\nEspecially not a commander like this one.\n\nSer Waymar Royce was the youngest son of an ancient house with too many heirs. He\nwas a handsome youth of eighteen, grey-eyed and graceful and slender as a knife.\nMounted on his huge black destrier, the knight towered above Will and Gared on their\nsmaller garrons. He wore black leather boots, black woolen pants, black moleskin gloves,\nand a fine supple coat of gleaming black ringmail over layers of black wool and boiled\nleather. Ser Waymar had been a Sworn Brother of the NightÆs Watch f",
+          "distance": 0.6603100895881653
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-04",
+      "type": "different vocabulary",
+      "question": "In which city did Daenerys live in the house with the red door, and what kind of tree was outside her window?",
+      "answerable": true,
+      "expected_answer": "Braavos; a lemon tree.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "That was when they\nlived in Braavos, in the big house with the red door. Dany had her own room there, with\na lemon tree outside her window.",
+          "start": 54898,
+          "end": 55037
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:716",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 443920,
+          "end": 444620,
+          "text": "and if she still cried out when Drogo took her, it was not\nalways in pain.\n\nAt the bottom of the ridge, the grasses rose around her, tall and supple. Dany slowed to a\ntrot and rode out onto the plain, losing herself in the green, blessedly alone. In the\nkhalasar she was never alone. Khal Drogo came to her only after the sun went down, but\nher handmaids fed her and bathed her and slept by the door of her tent, DrogoÆs\nbloodriders and the men of her khas were never far, and her brother was an unwelcome\nshadow, day and night. Dany could hear him on the top of the ridge, his voice shrill with\nanger as he shouted at Ser Jorah. She rode on, submerging herself deeper in the\nDothraki sea.\n\nThe green",
+          "distance": 0.4993833303451538
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:306",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 189720,
+          "end": 190420,
+          "text": "ound and\nthe crackling of some great fire. When she looked again, Viserys was gone, great columns\nof flame rose all around, and in the midst of them was the dragon. It turned its great\nhead slowly. When its molten eyes found hers, she woke, shaking and covered with a fine\nsheen of sweat. She had never been so afraid . . .\n\n . . . until the day of her wedding came at last.\n\nThe ceremony began at dawn and continued until dusk, an endless day of drinking and\nfeasting and fighting. A mighty earthen ramp had been raised amid the grass palaces,\nand there Dany was seated beside Khal Drogo, above the seething sea of Dothraki. She\nhad never seen so many people in one place, nor people so strange and ",
+          "distance": 0.5025535821914673
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:90",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 55800,
+          "end": 56500,
+          "text": "l their last few treasures, and now even the coin they had\ngotten from MotherÆs crown had gone. In the alleys and wine sinks of Pentos, they called\nher brother ôthe beggar king.ö Dany did not want to know what they called her.\n\nôWe will have it all back someday, sweet sister,ö he would promise her. Sometimes his\nhands shook when he talked about it. ôThe jewels and the silks, Dragonstone and KingÆs\nLanding, the Iron Throne and the Seven Kingdoms, all they have taken from us, we will\nhave it back.ö Viserys lived for that day. All that Daenerys wanted back was the big house\nwith the red door, the lemon tree outside her window, the childhood she had never\nknown.\n\n\fThere came a soft knock on her ",
+          "distance": 0.5244420766830444
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:708",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 438960,
+          "end": 439660,
+          "text": "de her silver had Daenerys Targaryen ever felt like one.\n\nAt first it had not come easy. The khalasar had broken camp the morning after her\nwedding, moving east toward Vaes Dothrak, and by the third day Dany thought she was\ngoing to die. Saddle sores opened on her bottom, hideous and bloody. Her thighs were\nchafed raw, her hands blistered from the reins, the muscles of her legs and back so\nwracked with pain that she could scarcely sit. By the time dusk fell, her handmaids\nwould need to help her down from her mount.\n\nEven the nights brought no relief. Khal Drogo ignored her when they rode, even as he\nhad ignored her during their wedding, and spent his evenings drinking with his warriors\nand b",
+          "distance": 0.5284985303878784
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:310",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 192200,
+          "end": 192900,
+          "text": "ere was no one to talk to. Khal Drogo shouted commands and jests down to his\nbloodriders, and laughed at their replies, but he scarcely glanced at Dany beside him.\nThey had no common language. Dothraki was incomprehensible to her, and the khal\nknew only a few words of the bastard Valyrian of the Free Cities, and none at all of the\nCommon Tongue of the Seven Kingdoms. She would even have welcomed the\nconversation of Illyrio and her brother, but they were too far below to hear her.\n\nSo she sat in her wedding silks, nursing a cup of honeyed wine, afraid to eat, talking\nsilently to herself. I am blood of the dragon, she told herself. I am Daenerys Stormborn,\nPrincess of Dragonstone, of the blood",
+          "distance": 0.5287150144577026
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:315",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 195300,
+          "end": 196000,
+          "text": "o sat drinking\nbeside her with a face as still and cruel as a bronze mask.\n\nI am the blood of the dragon, she told herself again.\n\nWhen at last the sun was low in the sky, Khal Drogo clapped his hands together, and the\ndrums and the shouting and feasting came to a sudden halt. Drogo stood and pulled\nDany to her feet beside him. It was time for her bride gifts.\n\nAnd after the gifts, she knew, after the sun had gone down, it would be time for the first\nride and the consummation of her marriage. Dany tried to put the thought aside, but it\nwould not leave her. She hugged herself to try to keep from shaking.\n\nHer brother Viserys gifted her with three handmaids. Dany knew they had cost him\nnothing",
+          "distance": 0.5306417942047119
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:311",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 192820,
+          "end": 193520,
+          "text": "she told herself. I am Daenerys Stormborn,\nPrincess of Dragonstone, of the blood and seed of Aegon the Conqueror.\n\nThe sun was only a quarter of the way up the sky when she saw her first man die. Drums\nwere beating as some of the women danced for the khal. Drogo watched without\nexpression, but his eyes followed their movements, and from time to time he would toss\ndown a bronze medallion for the women to fight over.\n\nThe warriors were watching too. One of them finally stepped into the circle, grabbed a\ndancer by the arm, pushed her down to the ground, and mounted her right there, as a\nstallion mounts a mare. Illyrio had told her that might happen. ôThe Dothraki mate like\nthe animals in their ",
+          "distance": 0.5424546599388123
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:707",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 438340,
+          "end": 439040,
+          "text": " them all to stay. Tell them I command it.ö\n\nThe knight smiled. Ser Jorah was not a handsome man. He had a neck and shoulders\nlike a bull, and coarse black hair covered his arms and chest so thickly that there was\nnone left for his head. Yet his smiles gave Dany comfort. ôYou are learning to talk like a\nqueen, Daenerys.ö\n\nôNot a queen,ö said Dany. ôA khaleesi.ö She wheeled her horse about and galloped down\nthe ridge alone.\n\nThe descent was steep and rocky, but Dany rode fearlessly, and the joy and the danger of\nit were a song in her heart. All her life Viserys had told her she was a princess, but not\nuntil she rode her silver had Daenerys Targaryen ever felt like one.\n\nAt first it had not co",
+          "distance": 0.5444982051849365
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:302",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 187240,
+          "end": 187940,
+          "text": "te given over to Daenerys and her\nbrother until the wedding.\n\nôBest we get Princess Daenerys wedded quickly before they hand half the wealth of\nPentos away to sellswords and bravos,ö Ser Jorah Mormont jested. The exile had offered\nher brother his sword the night Dany had been sold to Kbal Drogo; Viserys had accepted\neagerly. Mormont had been their constant companion ever since.\n\nMagister Illyrio laughed lightly through his forked beard, but Viserys did not so much as\nsmile. ôHe can have her tomorrow, if he likes,ö her brother said. He glanced over at\nDany, and she lowered her eyes. ôSo long as he pays the price.ö\n\nIllyrio waved a languid hand in the air, rings glittering on his fat fingers. ",
+          "distance": 0.5453121066093445
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:88",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 54560,
+          "end": 55260,
+          "text": "aring and\nbellowing orders from his sickbed. The servants had lived in terror of him, but he had\nalways been kind to Dany. He called her ôLittle Princessö and sometimes ôMy Lady,ö and\nhis hands were soft as old leather. He never left his bed, though, and the smell of\nsickness clung to him day and night, a hot, moist, sickly sweet odor. That was when they\nlived in Braavos, in the big house with the red door. Dany had her own room there, with\na lemon tree outside her window. After Ser Willem had died, the servants had stolen\nwhat little money they had left, and soon after they had been put out of the big house.\nDany had cried when the red door closed behind them forever.\n\nThey had wandered sin",
+          "distance": 0.546640157699585
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-05",
+      "type": "different vocabulary",
+      "question": "Who was assigned to teach Daenerys riding, and who was assigned to teach her the Dothraki language?",
+      "answerable": true,
+      "expected_answer": "Irri was to teach her riding, and Jhiqui was to teach her the Dothraki language.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Irri\nwill teach you riding, Jhiqui the Dothraki tongue",
+          "start": 196330,
+          "end": 196384
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:311",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 192820,
+          "end": 193520,
+          "text": "she told herself. I am Daenerys Stormborn,\nPrincess of Dragonstone, of the blood and seed of Aegon the Conqueror.\n\nThe sun was only a quarter of the way up the sky when she saw her first man die. Drums\nwere beating as some of the women danced for the khal. Drogo watched without\nexpression, but his eyes followed their movements, and from time to time he would toss\ndown a bronze medallion for the women to fight over.\n\nThe warriors were watching too. One of them finally stepped into the circle, grabbed a\ndancer by the arm, pushed her down to the ground, and mounted her right there, as a\nstallion mounts a mare. Illyrio had told her that might happen. ôThe Dothraki mate like\nthe animals in their ",
+          "distance": 0.38437318801879883
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:712",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 441440,
+          "end": 442140,
+          "text": " she answered, standing over the dragonÆs eggs that Illyrio had given her when\nshe wed. She touched one, the largest of the three, running her hand lightly over the\nshelf. Black-and-scarlet, she thought, like the dragon in my dream. The stone felt\nstrangely warm beneath her fingers . . . or was she still dreaming? She pulled her hand\nback nervously.\n\nFrom that hour onward, each day was easier than the one before it. Her legs grew\nstronger; her blisters burst and her hands grew callused; her soft thighs toughened,\nsupple as leather.\n\nThe khal had commanded the handmaid Irri to teach Dany to ride in the Dothraki\nfashion, but it was the filly who was her real teacher. The horse seemed to know h",
+          "distance": 0.3945080637931824
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:713",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 442060,
+          "end": 442760,
+          "text": "shion, but it was the filly who was her real teacher. The horse seemed to know her\nmoods, as if they shared a single mind. With every passing day, Dany felt surer in her\nseat. The Dothraki were a hard and unsentimental people, and it was not their custom to\nname their animals, so Dany thought of her only as the silver. She had never loved\nanything so much.\n\nAs the riding became less an ordeal, Dany began to notice the beauties of the land\naround her. She rode at the head of the khalasar with Drogo and his bloodriders, so she\ncame to each country fresh and unspoiled. Behind them the great horde might tear the\nearth and muddy the rivers and send up clouds of choking dust, but the fields ahead ",
+          "distance": 0.4070035219192505
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:316",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 195920,
+          "end": 196620,
+          "text": "her Viserys gifted her with three handmaids. Dany knew they had cost him\nnothing; Illyrio no doubt had provided the girls. Irri and Jhiqui were copper-skinned\nDothraki with black hair and almond-shaped eyes, Doreah a fair-haired, blue-eyed\nLysene girl. ôThese are no common servants, sweet sister,ö her brother told her as they\nwere brought forward one by one. ôIllyrio and I selected them personally for you. Irri\nwill teach you riding, Jhiqui the Dothraki tongue, and Doreah will instruct you in the\nwomanly arts of love.ö He smiled thinly. ôSheÆs very good, Illyrio and I can both swear to\nthat.ö\n\nSer Jorah Mormont apologized for his gift. ôIt is a small thing, my princess, but all a\npoor exile ",
+          "distance": 0.41847652196884155
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:310",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 192200,
+          "end": 192900,
+          "text": "ere was no one to talk to. Khal Drogo shouted commands and jests down to his\nbloodriders, and laughed at their replies, but he scarcely glanced at Dany beside him.\nThey had no common language. Dothraki was incomprehensible to her, and the khal\nknew only a few words of the bastard Valyrian of the Free Cities, and none at all of the\nCommon Tongue of the Seven Kingdoms. She would even have welcomed the\nconversation of Illyrio and her brother, but they were too far below to hear her.\n\nSo she sat in her wedding silks, nursing a cup of honeyed wine, afraid to eat, talking\nsilently to herself. I am blood of the dragon, she told herself. I am Daenerys Stormborn,\nPrincess of Dragonstone, of the blood",
+          "distance": 0.4221334457397461
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:325",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 201500,
+          "end": 202200,
+          "text": "ter than she had intended, yet\nsomehow it was exciting rather than terrifying. The horse broke into a trot, and she\nsmiled. Dothraki scrambled to clear a path. The slightest pressure with her legs, the\nlightest touch on the reins, and the filly responded. She sent it into a gallop, and now the\nDothraki were hooting and laughing and shouting at her as they jumped out of her way.\nAs she turned to ride back, a firepit loomed ahead, directly in her path. They were\nhemmed in on either side, with no room to stop. A daring she had never known filled\nDaenerys then, and she gave the filly her head.\n\n\fThe silver horse leapt the flames as if she had wings.\n\nWhen she pulled up before Magister Illyrio, s",
+          "distance": 0.4240081310272217
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:83",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 51460,
+          "end": 52160,
+          "text": "state. For a\nmoment she wished she could be out there with them, barefoot and breathless and\ndressed in tatters, with no past and no future and no feast to attend at Khal DrogoÆs\nmanse.\n\nSomewhere beyond the sunset, across the narrow sea, lay a land of green hills and\nflowered plains and great rushing rivers, where towers of dark stone rose amidst\nmagnificent blue-grey mountains, and armored knights rode to battle beneath the\nbanners of their lords. The Dothraki called that land Rhaesh Andahli, the land of the\nAndals. In the Free Cities, they talked of Westeros and the Sunset Kingdoms. Her\nbrother had a simpler name. ôOur land,ö he called it. The words were like a prayer with\nhim. If he said",
+          "distance": 0.4539734125137329
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:722",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 447640,
+          "end": 448340,
+          "text": "y commanded Ser Jorah. Viserys gaped at her. He could not\nbelieve what he was hearing; nor could Dany quite believe what she was saying. Yet the\nwords came. ôLet my brother walk behind us back to the khalasar.ö Among the\nDothraki, the man who does not ride was no man at all, the lowest of the low, without\nhonor or pride. ôLet everyone see him as he is.ö\n\nôNo!ö Viserys screamed. He turned to Ser Jorah, pleading in the Common Tongue with\nwords the horsemen would not understand. ôHit her, Mormont. Hurt her. Your king\ncommands it. Kill these Dothraki dogs and teach her.ö\n\n\fThe exile knight looked from Dany to her brother; she barefoot, with dirt between her\ntoes and oil in her hair, he with his ",
+          "distance": 0.45786917209625244
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:718",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 445160,
+          "end": 445860,
+          "text": "e screamed at her. ôYou give commands to me? To\nme?ö He vaulted off the horse, stumbling as he landed. His face was flushed as he\nstruggled back to his feet. He grabbed her, shook her. ôHave you forgotten who you are?\nLook at you. Look at you!ö\n\nDany did not need to look. She was barefoot, with oiled hair, wearing Dothraki riding\nleathers and a painted vest given her as a bride gift. She looked as though she belonged\nhere. Viserys was soiled and stained in city silks and ringmail.\n\nHe was still screaming. ôYou do not command the dragon. Do you understand? I am the\nLord of the Seven Kingdoms, I will not hear orders from some horselordÆs slut, do you\nhear me?ö His hand went under her vest, his",
+          "distance": 0.4591445326805115
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:348",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 215760,
+          "end": 216460,
+          "text": "dden\nPentoshi cheesemonger had her brother and her walled up on his estate with pointy-\nhatted eunuchs all around them, and now heÆs handed them over to the Dothraki. I\nshould have had them both killed years ago, when it was easy to get at them, but Jon was\nas bad as you. More fool I, I listened to him.ö\n\nôJon Arryn was a wise man and a good Hand.ö\n\nRobert snorted. The anger was leaving him as suddenly as it had come. ôThis Khal Drogo\nis said to have a hundred thousand men in his horde. What would Jon say to that?ö\n\nôHe would say that even a million Dothraki are no threat to the realm, so long as they\nremain on the other side of the narrow sea,ö Ned replied calmly. ôThe barbarians have\nno sh",
+          "distance": 0.4592254161834717
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-06",
+      "type": "different vocabulary",
+      "question": "Before teaching Arya, which position had Syrio Forel held, for whom, and for how long?",
+      "answerable": true,
+      "expected_answer": "He was first sword to the Sealord of Braavos for nine years.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Nine years Syrio Forel was first sword to the Sealord of Braavos",
+          "start": 434645,
+          "end": 434709
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:701",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 434620,
+          "end": 435320,
+          "text": "op part of your\narm? No. Nine years Syrio Forel was first sword to the Sealord of Braavos, he knows\nthese things. Listen to him, boy.ö\n\nIt was the third time he had called her ôboy.ö ôIÆm a girl,ö Arya objected.\n\nôBoy, girl,ö Syrio Forel said. ôYou are a sword, that is all.ö He clicked his teeth together.\nôJust so, that is the grip. You are not holding a battle-axe, you are holding aùö\n\nôùneedle,ö Arya finished for him, fiercely.\n\nôJust so. Now we will begin the dance. Remember, child, this is not the iron dance of\nWesteros we are learning, the knightÆs dance, hacking and hammering, no. This is the\nbravoÆs dance, the water dance, swift and sudden. All men are made of water, do you\nknow this?",
+          "distance": 0.41134166717529297
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:217",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 134540,
+          "end": 135240,
+          "text": "ad led her people across the narrow sea. That had\nbeen a great scandal too. Sansa, of course, had named her pup ôLady.ö Arya made a face\nand hugged the wolfling tight. Nymeria licked her ear, and she giggled.\n\nBy now Septa Mordane would certainly have sent word to her lady mother. If she went to\nher room, they would find her. Arya did not care to be found. She had a better notion.\nThe boys were at practice in the yard. She wanted to see Robb put gallant Prince Joffrey\nflat on his back. ôCome,ö she whispered to Nymeria. She got up and ran, the wolf coming\n\n\fhard at her heels.\n\nThere was a window in the covered bridge between the armory and the Great Keep\nwhere you had a view of the whole yard",
+          "distance": 0.45246750116348267
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:196",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 121520,
+          "end": 122220,
+          "text": "very\nyoung,ö he said gently. ôHe should stay here with you and Robb. The others I would take\nwith me.ö\n\nôI could not bear it,ö Catelyn said, trembling.\n\nôYou must,ö he said. ôSansa must wed Joffrey, that is clear now, we must give them no\ngrounds to suspect our devotion. And it is past time that Arya learned the ways of a\nsouthron court. In a few years she will be of an age to marry too.ö\n\nSansa would shine in the south, Catelyn thought to herself, and the gods knew that Arya\nneeded refinement. Reluctantly, she let go of them in her heart. But not Bran. Never\nBran. ôYes,ö she said, ôbut please, Ned, for the love you bear me, let Bran remain here at\nWinterfell. He is only seven.ö\n\nôI was eigh",
+          "distance": 0.4616518020629883
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:214",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 132680,
+          "end": 133380,
+          "text": ".ö\n\nMyrcella blinked at her and looked to her ladies for guidance. But if she was uncertain,\nSepta Mordane was not. ôJust where do you think you are going, Arya?ö the septa\ndemanded.\n\nArya glared at her. ôI have to go shoe a horse,ö she said sweetly, taking a brief\nsatisfaction in the shock on the septaÆs face. Then she whirled and made her exit,\nrunning down the steps as fast as her feet would take her.\n\nIt wasnÆt fair. Sansa had everything. Sansa was two years older; maybe by the time Arya\nhad been born, there had been nothing left. Often it felt that way. Sansa could sew and\ndance and sing. She wrote poetry. She knew how to dress. She played the high harp and\nthe bells. Worse, she was bea",
+          "distance": 0.4662572741508484
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:215",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 133300,
+          "end": 134000,
+          "text": "he knew how to dress. She played the high harp and\nthe bells. Worse, she was beautiful. Sansa had gotten their motherÆs fine high\ncheekbones and the thick auburn hair of the Tullys. Arya took after their lord father. Her\nhair was a lusterless brown, and her face was long and solemn. Jeyne used to call her\nArya Horseface, and neigh whenever she came near. It hurt that the one thing Arya\ncould do better than her sister was ride a horse. Well, that and manage a household.\nSansa had never had much of a head for figures. If she did marry Prince Joff, Arya hoped\nfor his sake that he had a good steward.\n\nNymeria was waiting for her in the guardroom at the base of the stairs. She bounded to\nher feet",
+          "distance": 0.4772287607192993
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:212",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 131440,
+          "end": 132140,
+          "text": "Arya and\nI were remarking on how pleased we were to have the princess with us today,ö she said.\n\nSepta Mordane nodded. ôIndeed. A great honor for us all.ö Princess Myrcella smiled\nuncertainly at the compliment. ôArya, why arenÆt you at work?ö the septa asked. She rose\nto her feet, starched skirts rustling as she started across the room. ôLet me see your\nstitches.ö\n\nArya wanted to scream. It was just like Sansa to go and attract the septaÆs attention.\nôHere,ö she said, surrendering up her work.\n\nThe septa examined the fabric. ôArya, Arya, Arya,ö she said. ôThis will not do. This will\nnot do at all.ö\n\nEveryone was looking at her. It was too much. Sansa was too well bred to smile at her\nsisterÆ",
+          "distance": 0.4841625690460205
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:688",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 426560,
+          "end": 427260,
+          "text": " her duty, though gods know you have made it a struggle for the poor woman. Your\nmother and I have charged her with the impossible task of making you a lady.ö\n\nôI donÆt want to be a lady!ö Arya flared.\n\nôI ought to snap this toy across my knee here and now, and put an end to this nonsense.ö\n\nôNeedle wouldnÆt break,ö Arya said defiantly, but her voice betrayed her words.\n\nôIt has a name, does it?ö Her father sighed. ôAh, Arya. You have a wildness in you, child.\næThe wolf blood,Æ my father used to call it. Lyanna had a touch of it, and my brother\nBrandon more than a touch. It brought them both to an early grave.ö Arya heard sadness\nin his voice; he did not often speak of his father, or of the ",
+          "distance": 0.4859893321990967
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:437",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 270940,
+          "end": 271640,
+          "text": "er arms. Sansa would have thought that might have taught her a lesson, but Arya\nlaughed about it, and the next day she rubbed mud all over her arms like some ignorant\nbog woman just because her friend Mycah told her it would stop the itching. She had\nbruises on her arms and shoulders too, dark purple welts and faded green-and-yellow\nsplotches, Sansa had seen them when her sister undressed for sleep. How she had gotten\nthose only the seven gods knew.\n\nArya was still going on, brushing out NymeriaÆs tangles and chattering about things\nsheÆd seen on the trek south. ôLast week we found this haunted watchtower, and the day\nbefore we chased a herd of wild horses. You should have seen them run when",
+          "distance": 0.4862489104270935
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:207",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 128340,
+          "end": 129040,
+          "text": "Contents | next\n\n\fprevious | Table of Contents | next\n\nAryaÆs stitches were crooked again.\n\nARYA\n\nShe frowned down at them with dismay and glanced over to where her sister Sansa sat\namong the other girls. SansaÆs needlework was exquisite. Everyone said so. ôSansaÆs\nwork is as pretty as she is,ö Septa Mordane told their lady mother once. ôShe has such\nfine, delicate hands.ö When Lady Catelyn had asked about Arya, the septa had sniffed.\nôArya has the hands of a blacksmith.ö\n\nArya glanced furtively across the room, worried that Septa Mordane might have read her\nthoughts, but the septa was paying her no attention today. She was sitting with the\nPrincess Myrcella, all smiles and admiration. It wa",
+          "distance": 0.48972374200820923
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:216",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 133920,
+          "end": 134620,
+          "text": "ting for her in the guardroom at the base of the stairs. She bounded to\nher feet as soon as she caught sight of Arya. Arya grinned. The wolf pup loved her, even\nif no one else did. They went everywhere together, and Nymeria slept in her room, at the\nfoot of her bed. If Mother had not forbidden it, Arya would gladly have taken the wolf\nwith her to needlework. Let Septa Mordane complain about her stitches then.\n\nNymeria nipped eagerly at her hand as Arya untied her. She had yellow eyes. When they\ncaught the sunlight, they gleamed like two golden coins. Arya had named her after the\nwarrior queen of the Rhoyne, who had led her people across the narrow sea. That had\nbeen a great scandal too. Sans",
+          "distance": 0.4973132014274597
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-07",
+      "type": "split answer",
+      "question": "Who made the slender sword Jon gave Arya, and who later taught her the water dance?",
+      "answerable": true,
+      "expected_answer": "Mikken made the sword at Jon's request. Syrio Forel taught Arya the water dance.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "I had Mikken make this special. The bravos use swords like\nthis in Pentos and Myr and the other Free Cities.",
+          "start": 184236,
+          "end": 184344
+        },
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Syrio Forel said. ôYou are a sword, that is all.ö He clicked his teeth together.\nôJust so, that is the grip. You are not holding a battle-axe, you are holding aùö\n\nôùneedle,ö Arya finished for him, fiercely.\n\nôJust so. Now we will begin the dance. Remember, child, this is not the iron dance of\nWesteros we are learning, the knightÆs dance, hacking and hammering, no. This is the\nbravoÆs dance, the water dance, swift and sudden.",
+          "start": 434846,
+          "end": 435275
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:702",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 435240,
+          "end": 435940,
+          "text": " the water dance, swift and sudden. All men are made of water, do you\nknow this? When you pierce them, the water leaks out and they die.ö He took a step\nbackward, raised his own wooden blade. ôNow you will try to strike me.ö\n\nArya tried to strike him. She tried for four hours, until every muscle in her body was sore\nand aching, while Syrio Forel clicked his teeth together and told her what to do.\n\nThe next day their real work began.\n\n\fprevious | Table of Contents | next\n\n\fprevious | Table of Contents | next\n\nDAENERYS\n\nThe Dothraki sea,ö Ser Jorah Mormont said as he reined to a halt beside her on the top\nof the ridge. beneath them, the plain stretched out immense and empty, a vast flat\nexpans",
+          "distance": 0.37819135189056396
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:690",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 427800,
+          "end": 428500,
+          "text": "ou\nknow the first thing about sword fighting?ö\n\nAll she could think of was the lesson Jon had given her. ôStick them with the pointy\nend,ö she blurted out.\n\nHer father snorted back laughter. ôThat is the essence of it, I suppose.ö\n\nArya desperately wanted to explain, to make him see. ôI was trying to learn, but . . . ö Her\neyes filled with tears. ôI asked Mycah to practice with me.ö The grief came on her all at\nonce. She turned away, shaking. ôI asked him,ö she cried. ôIt was my fault, it was me . . . ö\n\nSuddenly her fatherÆs arms were around her. He held her gently as she turned to him\nand sobbed against his chest. ôNo, sweet one,ö he murmured. ôGrieve for your friend,\nbut never blame yours",
+          "distance": 0.38207757472991943
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:701",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 434620,
+          "end": 435320,
+          "text": "op part of your\narm? No. Nine years Syrio Forel was first sword to the Sealord of Braavos, he knows\nthese things. Listen to him, boy.ö\n\nIt was the third time he had called her ôboy.ö ôIÆm a girl,ö Arya objected.\n\nôBoy, girl,ö Syrio Forel said. ôYou are a sword, that is all.ö He clicked his teeth together.\nôJust so, that is the grip. You are not holding a battle-axe, you are holding aùö\n\nôùneedle,ö Arya finished for him, fiercely.\n\nôJust so. Now we will begin the dance. Remember, child, this is not the iron dance of\nWesteros we are learning, the knightÆs dance, hacking and hammering, no. This is the\nbravoÆs dance, the water dance, swift and sudden. All men are made of water, do you\nknow this?",
+          "distance": 0.4135023355484009
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:686",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 425320,
+          "end": 426020,
+          "text": "closed the door. ôWhose sword is that?ö\n\nôMine.ö Arya had almost forgotten Needle, in her hand.\n\nôGive it to me.ö\n\nReluctantly Arya surrendered her sword, wondering if she would ever hold it again. Her\nfather turned it in the light, examining both sides of the blade. He tested the point with\nhis thumb. ôA bravoÆs blade,ö he said. ôYet it seems to me that I know this makerÆs mark.\nThis is MikkenÆs work.ö\n\nArya could not lie to him. She lowered her eyes.\n\nLord Eddard Stark sighed. ôMy nine-year-old daughter is being armed from my own\nforge, and I know nothing of it. The Hand of the King is expected to rule the Seven\nKingdoms, yet it seems I cannot even rule my own household. How is it that you",
+          "distance": 0.4168543219566345
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:297",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 184140,
+          "end": 184840,
+          "text": "er seen the septaÆs legs?ö\n\nShe giggled at him. ôItÆs so skinny.ö\n\nôSo are you,ö Jon told her. ôI had Mikken make this special. The bravos use swords like\nthis in Pentos and Myr and the other Free Cities. It wonÆt hack a manÆs head off, but it\ncan poke him full of holes if youÆre fast enough.ö\n\nôI can be fast,ö Arya said.\n\nôYouÆll have to work at it every day.ö He put the sword in her hands, showed her how to\nhold it, and stepped back. ôHow does it feel? Do you like the balance?ö\n\nôI think so,ö Arya said.\n\nôFirst lesson,ö Jon said. ôStick them with the pointy end.ö\n\nArya gave him a whap on the arm with the flat of her blade. The blow stung, but Jon\nfound himself grinning like an idiot. ôI kn",
+          "distance": 0.42008745670318604
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:689",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 427180,
+          "end": 427880,
+          "text": "rya heard sadness\nin his voice; he did not often speak of his father, or of the brother and sister who had\ndied before she was born. ôLyanna might have carried a sword, if my lord father had\nallowed it. You remind me of her sometimes. You even look like her.ö\n\nôLyanna was beautiful,ö Arya said, startled. Everybody said so. It was not a thing that\nwas ever said of Arya.\n\nôShe was,ö Eddard Stark agreed, ôbeautiful, and willful, and dead before her time.ö He\nlifted the sword, held it out between them. ôArya, what did you think to do with\nthis . . . Needle? Who did you hope to skewer? Your sister? Septa Mordane? Do you\nknow the first thing about sword fighting?ö\n\nAll she could think of was the l",
+          "distance": 0.42130643129348755
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:677",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 419740,
+          "end": 420440,
+          "text": "rmor and swords and\n\n\fhow hot a forge should be and the best way to temper steel. Another day it might be\nHullen with his endless horse talk, or Septon Chayle from the library, or Jory, or Ser\nRodrik, or even Old Nan with her stories.\n\nArya had loved nothing better than to sit at her fatherÆs table and listen to them talk. She\nhad loved listening to the men on the benches too; to freeriders tough as leather, courtly\nknights and bold young squires, grizzled old men-at-arms. She used to throw snowballs\nat them and help them steal pies from the kitchen. Their wives gave her scones and she\ninvented names for their babies and played monsters-and-maidens and hide-the-\ntreasure and come-into-my-cas",
+          "distance": 0.42510372400283813
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:224",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 138880,
+          "end": 139580,
+          "text": "important too!ö Arya protested.\n\nJon chuckled. ôPerhaps you should do the same thing, little sister. Wed Tully to Stark in\nyour arms.ö\n\nôA wolf with a fish in its mouth?ö It made her laugh. ôThat would look silly. Besides, if a\ngirl canÆt fight, why should she have a coat of arms?ö\n\nJon shrugged. ôGirls get the arms but not the swords. Bastards get the swords but not\nthe arms. I did not make the rules, little sister.ö\n\n\fThere was a shout from the courtyard below. Prince Tommen was rolling in the dust,\ntrying to get up and failing. All the padding made him look like a turtle on its back. Bran\nwas standing over him with upraised wooden sword, ready to whack him again once he\nregained his feet.",
+          "distance": 0.4318550229072571
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:298",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 184760,
+          "end": 185460,
+          "text": "f her blade. The blow stung, but Jon\nfound himself grinning like an idiot. ôI know which end to use,ö Arya said. A doubtful\n\n\flook crossed her face. ôSepta Mordane will take it away from me.ö\n\nôNot if she doesnÆt know you have it,ö Jon said.\n\nôWho will I practice with?ö\n\nôYouÆll find someone,ö Jon promised her. ôKingÆs Landing is a true city, a thousand times\nthe size of Winterfell. Until you find a partner, watch how they fight in the yard. Run,\nand ride, make yourself strong. And whatever you do . . . ö\n\nArya knew what was coming next. They said it together.\n\nô . . . donÆt . . . tell . . .  Sansa!ö\n\nJon messed up her hair. ôI will miss you, little sister.ö\n\nSuddenly she looked like she was",
+          "distance": 0.4332190155982971
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:685",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 424700,
+          "end": 425400,
+          "text": "od boots and a warm cloak. She could find Nymeria in the wild woods below the\nTrident, and together theyÆd return to Winterfell, or run to Jon on the Wall. She found\nherself wishing that Jon was here with her now. Then maybe she wouldnÆt feel so alone.\n\nA soft knock at the door behind her turned Arya away from the window and her dreams\nof escape. ôArya,ö her fatherÆs voice called out. ôOpen the door. We need to talk.ö\n\nArya crossed the room and lifted the crossbar. Father was alone. He seemed more sad\nthan angry. That made Arya feel even worse. ôMay I come in?ö Arya nodded, then\ndropped her eyes, ashamed. Father closed the door. ôWhose sword is that?ö\n\nôMine.ö Arya had almost forgotten Needl",
+          "distance": 0.4408407211303711
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false,
+            true
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-08",
+      "type": "different vocabulary",
+      "question": "Who gave Petyr Baelish his childhood nickname, and which two details explain that nickname?",
+      "answerable": true,
+      "expected_answer": "Edmure gave him the nickname Littlefinger. His family held land on the smallest of the Fingers, and Petyr was slight and short for his age.",
+      "evidence": [
+        {
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "quote": "Her brother Edmure had\ngiven him that name, long ago at Riverrun. His familyÆs modest holdings were on the\nsmallest of the Fingers, and Petyr had been slight and short for his age.",
+          "start": 319304,
+          "end": 319484
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:515",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 319300,
+          "end": 320000,
+          "text": "er. Her brother Edmure had\ngiven him that name, long ago at Riverrun. His familyÆs modest holdings were on the\nsmallest of the Fingers, and Petyr had been slight and short for his age.\n\nSer Rodrik cleared his throat. ôLord Baelish once, ah . . . ö His thought trailed off\nuncertainly in search of the polite word.\n\nCatelyn was past delicacy. ôHe was my fatherÆs ward. We grew up together in Riverrun. I\nthought of him as a brother, but his feelings for me were . . . more than brotherly. When\n\n\fit was announced that I was to wed Brandon Stark, Petyr challenged for the right to my\nhand. It was madness. Brandon was twenty, Petyr scarcely fifteen. I had to beg Brandon\nto spare PetyrÆs life. He let h",
+          "distance": 0.4837191104888916
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:514",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 318680,
+          "end": 319380,
+          "text": "Æs master-at-arms, and pray that he can be trusted.ö\n\nôSer Aron Santagar is a vain man, but an honest one.ö Ser RodrikÆs hand went to his face\nto stroke his whiskers and discovered once again that they were gone. He looked\nnonplussed. ôHe may know the blade, yes . . . but, my lady, the moment we go ashore we\nare at risk. And there are those at court who will know you on sight.ö\n\nCatelynÆs mouth grew tight. ôLittlefinger,ö she murmured. His face swam up before her;\na boyÆs face, though he was a boy no longer. His father had died several years before, so\nhe was Lord Baelish now, yet still they called him Littlefinger. Her brother Edmure had\ngiven him that name, long ago at Riverrun. His family",
+          "distance": 0.5636113882064819
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:532",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 329840,
+          "end": 330540,
+          "text": "ked contrite. The look\nbrought back vivid memories for Catelyn. He had been a sly child, but after his mischiefs\nhe always looked contrite; it was a gift he had. The years had not changed him much.\nPetyr had been a small boy, and he had grown into a small man, an inch or two shorter\nthan Catelyn, slender and quick, with the sharp features she remembered and the same\nlaughing grey-green eyes. He had a little pointed chin beard now, and threads of silver in\nhis dark hair, though he was still shy of thirty. They went well with the silver\nmockingbird that fastened his cloak. Even as a child, he had always loved his silver.\n\nôHow did you know I was in the city?ö she asked him.\n\nôLord Varys knows ",
+          "distance": 0.5675607323646545
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:516",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 319920,
+          "end": 320620,
+          "text": "ty, Petyr scarcely fifteen. I had to beg Brandon\nto spare PetyrÆs life. He let him off with a scar. Afterward my father sent him away. I\nhave not seen him since.ö She lifted her face to the spray, as if the brisk wind could blow\nthe memories away. ôHe wrote to me at Riverrun after Brandon was killed, but I burned\nthe letter unread. By then I knew that Ned would marry me in his brotherÆs place.ö\n\nSer RodrikÆs fingers fumbled once again for nonexistent whiskers. ôLittlefinger sits on\nthe small council now.ö\n\nôI knew he would rise high,ö Catelyn said. ôHe was always clever, even as a boy, but it is\none thing to be clever and another to be wise. I wonder what the years have done to him.ö\n\nHigh o",
+          "distance": 0.5898985862731934
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:838",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 519560,
+          "end": 520260,
+          "text": " and learned how it was that a self-\nconfessed coward found himself on the Wall.\n\nThe Tarlys were a family old in honor, bannermen to Mace Tyrell, Lord of Highgarden\nand Warden of the South. The eldest son of Lord Randyll Tarly, Samwell was born heir\n\n\fto rich lands, a strong keep, and a storied two-handed greatsword named Heartsbane,\nforged of Valyrian steel and passed down from father to son near five hundred years.\n\nWhatever pride his lord father might have felt at SamwellÆs birth vanished as the boy\ngrew up plump, soft, and awkward. Sam loved to listen to music and make his own\nsongs, to wear soft velvets, to play in the castle kitchen beside the cooks, drinking in the\nrich smells as he ",
+          "distance": 0.5920871496200562
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:820",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 508400,
+          "end": 509100,
+          "text": "ngered hands unfastened helm from gorget and lifted it\noff gently. ôDid he hurt you?ö\n\nôIÆve been bruised before.ö He touched his shoulder and winced. The yard was emptying\naround them.\n\nBlood matted the fat boyÆs hair where Halder had split his helm asunder. ôMy name is\nSamwell Tarly, of Horn . . . ö He stopped and licked his lips. ôI mean, I was of Horn Hill,\nuntil I . . . left. IÆve come to take the black. My father is Lord Randyll, a bannerman to the\nTyrells of Highgarden. I used to be his heir, only . . . ö His voice trailed off.\n\nôIÆm Jon Snow, Ned StarkÆs bastard, of Winterfell.ö\n\nSamwell Tarly nodded. ôI . . . if you want, you can call me Sam. My mother calls me\nSam.ö\n\nôYou can call ",
+          "distance": 0.6315164566040039
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:453",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 280860,
+          "end": 281560,
+          "text": " the daughter of Eddard Stark.\nI am honored to know you, however irregular the manner of our meeting. I am Ser\nBarristan Selmy, of the Kingsguard.ö He bowed.\n\nSansa knew the name, and now the courtesies that Septa Mordane had taught her over\nthe years came back to her. ôThe Lord Commander of the Kingsguard,ö she said, ôand\ncouncillor to Robert our king and to Aerys Targaryen before him. The honor is mine,\ngood knight. Even in the far north, the singers praise the deeds of Barristan the Bold.ö\n\nThe green knight laughed again. ôBarristan the Old, you mean. DonÆt flatter him too\nsweetly, child, he thinks overmuch of himself already.ö He smiled at her. ôNow, wolf girl,\nif you can put a name to m",
+          "distance": 0.6334009766578674
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:454",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 281480,
+          "end": 282180,
+          "text": " himself already.ö He smiled at her. ôNow, wolf girl,\nif you can put a name to me as well, then I must concede that you are truly our HandÆs\ndaughter.ö\n\nJoffrey stiffened beside her. ôHave a care how you address my betrothed.ö\n\nôI can answer,ö Sansa said quickly, to quell her princeÆs anger. She smiled at the green\nknight. ôYour helmet bears golden antlers, my lord. The stag is the sigil of the royal\nHouse. King Robert has two brothers. By your extreme youth, you can only be Renly\nBaratheon, Lord of StormÆs End and councillor to the king, and so I name you.ö\n\nSer Barristan chuckled. ôBy his extreme youth, he can only be a prancing jackanapes,\nand so I name him.ö\n\n\fThere was general laughter,",
+          "distance": 0.634374737739563
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:238",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 147560,
+          "end": 148260,
+          "text": "e showed very little interest in chasing sticks.\n\nHe was still trying to decide on a name. Robb was calling his Grey Wind, because he ran\nso fast. Sansa had named hers Lady, and Arya named hers after some old witch queen in\nthe songs, and little Rickon called his Shaggydog, which Bran thought was a pretty\nstupid name for a direwolf. JonÆs wolf, the white one, was Ghost. Bran wished he had\nthought of that first, even though his wolf wasnÆt white. He had tried a hundred names\nin the last fortnight, but none of them sounded right.\n\nFinally he got tired of the stick game and decided to go climbing. He hadnÆt been up to\nthe broken tower for weeks with everything that had happened, and this might ",
+          "distance": 0.6474894285202026
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:376",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 233120,
+          "end": 233820,
+          "text": "d of the last\ntwo hatchlings born on Dragonstone. They were the last of the Targaryen dragons,\nperhaps the last dragons anywhere, and they had not lived very long.\n\nFrom there the skulls ranged upward in size to the three great monsters of song and\nstory, the dragons that Aegon Targaryen and his sisters had unleashed on the Seven\nKingdoms of old. The singers had given them the names of gods: Balerion, Meraxes,\nVhaghar. Tyrion had stood between their gaping jaws, wordless and awed. You could\nhave ridden a horse down VhagharÆs gullet, although you would not have ridden it out\nagain. Meraxes was even bigger. And the greatest of them, Balerion, the Black Dread,\ncould have swallowed an aurochs wh",
+          "distance": 0.6590478420257568
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      }
+    },
+    {
+      "id": "got-09",
+      "type": "not in the corpus",
+      "question": "What exact day, month, and year was Gared born?",
+      "answerable": false,
+      "expected_answer": "The provided document does not state Gared's exact date of birth.",
+      "evidence": [],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:3",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 1860,
+          "end": 2560,
+          "text": "e southron called the haunted forest had no\nmore terrors for him.\n\nUntil tonight. Something was different tonight. There was an edge to this darkness that\nmade his hackles rise. Nine days they had been riding, north and northwest and then\nnorth again, farther and farther from the Wall, hard on the track of a band of wildling\nraiders. Each day had been worse than the day that had come before it. Today was the\nworst of all. A cold wind was blowing out of the north, and it made the trees rustle like\nliving things. All day, Will had felt as though something were watching him, something\ncold and implacable that loved him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent ",
+          "distance": 0.6799768805503845
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:2",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 1240,
+          "end": 1940,
+          "text": "hick black hood of his cloak. Gared had spent forty years in the NightÆs\nWatch, man and boy, and he was not accustomed to being made light of. Yet it was more\nthan that. Under the wounded pride, Will could sense something else in the older man.\nYou could taste it; a nervous tension that came perilous close to fear.\n\nWill shared his unease. He had been four years on the Wall. The first time he had been\nsent beyond, all the old stories had come rushing back, and his bowels had turned to\nwater. He had laughed about it afterward. He was a veteran of a hundred rangings by\n\n\fnow, and the endless dark wilderness that the southron called the haunted forest had no\nmore terrors for him.\n\nUntil tonight",
+          "distance": 0.6818730235099792
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:1",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 620,
+          "end": 1320,
+          "text": "han sooner. ôMy mother told me that dead men sing no songs,ö he put\nin.\n\nôMy wet nurse said the same thing, Will,ö Royce replied. ôNever believe anything you\nhear at a womanÆs tit. There are things to be learned even from the dead.ö His voice\nechoed, too loud in the twilit forest.\n\nôWe have a long ride before us,ö Gared pointed out. ôEight days, maybe nine. And night\nis falling.ö\n\nSer Waymar Royce glanced at the sky with disinterest. ôIt does that every day about this\ntime. Are you unmanned by the dark, Gared?ö\n\nWill could see the tightness around GaredÆs mouth, the barely suppressed anger in his\neyes under the thick black hood of his cloak. Gared had spent forty years in the NightÆs\nWatch, ",
+          "distance": 0.6834188103675842
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:32",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 19840,
+          "end": 20540,
+          "text": "lay facedown in the snow, one arm outflung. The thick sable cloak had\nbeen slashed in a dozen places. Lying dead like that, you saw how young he was. A boy.\n\nHe found what was left of the sword a few feet away, the end splintered and twisted like\na tree struck by lightning. Will knelt, looked around warily, and snatched it up. The\nbroken sword would be his proof. Gared would know what to make of it, and if not him,\nthen surely that old bear Mormont or Maester Aemon. Would Gared still be waiting with\nthe horses? He had to hurry.\n\nWill rose. Ser Waymar Royce stood over him.\n\nHis fine clothes were a tatter, his face a ruin. A shard from his sword transfixed the blind\nwhite pupil of his left eye",
+          "distance": 0.683927059173584
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:4",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 2480,
+          "end": 3180,
+          "text": "him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent for the safety of the Wall, but that was not a feeling to share\nwith your commander.\n\nEspecially not a commander like this one.\n\nSer Waymar Royce was the youngest son of an ancient house with too many heirs. He\nwas a handsome youth of eighteen, grey-eyed and graceful and slender as a knife.\nMounted on his huge black destrier, the knight towered above Will and Gared on their\nsmaller garrons. He wore black leather boots, black woolen pants, black moleskin gloves,\nand a fine supple coat of gleaming black ringmail over layers of black wool and boiled\nleather. Ser Waymar had been a Sworn Brother of the NightÆs Watch f",
+          "distance": 0.6954327821731567
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:742",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 460040,
+          "end": 460740,
+          "text": "n smiled at him toothlessly. ôMy stories? No, my little lord, not mine. The\nstories are, before me and after me, before you too.ö\n\nShe was a very ugly old woman, Bran thought spitefully; shrunken and wrinkled, almost\nblind, too weak to climb stairs, with only a few wisps of white hair left to cover a mottled\npink scalp. No one really knew how old she was, but his father said sheÆd been called Old\nNan even when he was a boy. She was the oldest person in Winterfell for certain, maybe\nthe oldest person in the Seven Kingdoms. Nan had come to the castle as a wet nurse for a\nBrandon Stark whose mother had died birthing him. He had been an older brother of\n\n\fLord Rickard, BranÆs grandfather, or per",
+          "distance": 0.7104500532150269
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:71",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 44020,
+          "end": 44720,
+          "text": " hand. ôThere was grievous news today, my lord. I did not\nwish to trouble you until you had cleansed yourself.ö There was no way to soften the\n\n\fblow, so she told him straight. ôI am so sorry, my love. Jon Arryn is dead.ö\n\nHis eyes found hers, and she could see how hard it took him, as she had known it would.\nIn his youth, Ned had fostered at the Eyrie, and the childless Lord Arryn had become a\nsecond father to him and his fellow ward, Robert Baratheon. When the Mad King Aerys\nII Targaryen had demanded their heads, the Lord of the Eyrie had raised his moon-and-\nfalcon banners in revolt rather than give up those he had pledged to protect.\n\nAnd one day fifteen years ago, this second father had",
+          "distance": 0.712902843952179
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:18",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 11160,
+          "end": 11860,
+          "text": ".ö\n\nGaredÆs hood shadowed his face, but Will could see the hard glitter in his eyes as he\nstared at the knight. For a moment he was afraid the older man would go for his sword.\nIt was a short, ugly thing, its grip discolored by sweat, its edge nicked from hard use, but\nWill would not have given an iron bob for the lordlingÆs life if Gared pulled it from its\nscabbard.\n\nFinally Gared looked down. ôNo fire,ö he muttered, low under his breath.\n\nRoyce took it for acquiescence and turned away. ôLead on,ö he said to Will.\n\nWill threaded their way through a thicket, then started up the slope to the low ridge\nwhere he had found his vantage point under a sentinel tree. Under the thin crust of\nsnow, th",
+          "distance": 0.7136753797531128
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:16",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 9920,
+          "end": 10620,
+          "text": "g here,ö Gared muttered.\n\nThe young knight gave him a disdainful smile. ôIs there?ö\n\nôCanÆt you feel it?ö Gared asked. ôListen to the darkness.ö\n\nWill could feel it. Four years in the NightÆs Watch, and he had never been so afraid.\nWhat was it?\n\n\fôWind. Trees rustling. A wolf. Which sound is it that unmans you so, Gared?ö When\nGared did not answer, Royce slid gracefully from his saddle. He tied the destrier securely\nto a low-hanging limb, well away from the other horses, and drew his longsword from its\nsheath. Jewels glittered in its hilt, and the moonlight ran down the shining steel. It was a\nsplendid weapon, castle-forged, and new-made from the look of it. Will doubted it had\never been swu",
+          "distance": 0.717246413230896
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:201",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 124620,
+          "end": 125320,
+          "text": "r Sea. The Lady Ashara Dayne, tall and fair, with haunting\nviolet eyes. It had taken her a fortnight to marshal her courage, but finally, in bed one\nnight, Catelyn had asked her husband the truth of it, asked him to his face.\n\nThat was the only time in all their years that Ned had ever frightened her. ôNever ask me\nabout Jon,ö he said, cold as ice. ôHe is my blood, and that is all you need to know. And\nnow I will learn where you heard that name, my lady.ö She had pledged to obey; she told\nhim; and from that day on, the whispering had stopped, and Ashara DayneÆs name was\nnever heard in Winterfell again.\n\nWhoever JonÆs mother had been, Ned must have loved her fiercely, for nothing Catelyn\nsaid",
+          "distance": 0.7246527671813965
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      }
+    },
+    {
+      "id": "got-10",
+      "type": "not in the corpus",
+      "question": "What purchase price did Ser Waymar Royce pay for his black destrier?",
+      "answerable": false,
+      "expected_answer": "The provided document does not state the purchase price of Ser Waymar Royce's black destrier.",
+      "evidence": [],
+      "retrieved": [
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:4",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 2480,
+          "end": 3180,
+          "text": "him not. Gared had felt it too. Will wanted nothing so\nmuch as to ride hellbent for the safety of the Wall, but that was not a feeling to share\nwith your commander.\n\nEspecially not a commander like this one.\n\nSer Waymar Royce was the youngest son of an ancient house with too many heirs. He\nwas a handsome youth of eighteen, grey-eyed and graceful and slender as a knife.\nMounted on his huge black destrier, the knight towered above Will and Gared on their\nsmaller garrons. He wore black leather boots, black woolen pants, black moleskin gloves,\nand a fine supple coat of gleaming black ringmail over layers of black wool and boiled\nleather. Ser Waymar had been a Sworn Brother of the NightÆs Watch f",
+          "distance": 0.5617549419403076
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:25",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 15500,
+          "end": 16200,
+          "text": " from the dark of the wood. It stood in front of Royce. Tall, it was, and\ngaunt and hard as old bones, with flesh pale as milk. Its armor seemed to change color as\nit moved; here it was white as new-fallen snow, there black as shadow, everywhere\ndappled with the deep grey-green of the trees. The patterns ran like moonlight on water\nwith every step it took.\n\nWill heard the breath go out of Ser Waymar Royce in a long hiss. ôCome no farther,ö the\nlordling warned. His voice cracked like a boyÆs. He threw the long sable cloak back over\nhis shoulders, to free his arms for battle, and took his sword in both hands. The wind\nhad stopped. It was very cold.\n\nThe Other slid forward on silent feet. In it",
+          "distance": 0.6423081159591675
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:14",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 8680,
+          "end": 9380,
+          "text": "fore, and there were stones and roots\nand hidden sinks lying just under its crust, waiting for the careless and the unwary. Ser\nWaymar Royce came next, his great black destrier snorting impatiently. The warhorse\nwas the wrong mount for ranging, but try and tell that to the lordling. Gared brought up\nthe rear. The old man-at-arms muttered to himself as he rode.\n\nTwilight deepened. The cloudless sky turned a deep purple, the color of an old bruise,\nthen faded to black. The stars began to come out. A half-moon rose. Will was grateful for\nthe light.\n\nôWe can make a better pace than this, surely,ö Royce said when the moon was full risen.\n\nôNot with this horse,ö Will said. Fear had made him insole",
+          "distance": 0.6535872220993042
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:811",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 502820,
+          "end": 503520,
+          "text": "her, mail and plate and helm, even a great wood-and-leather shield\nblazoned with the same striding huntsman he wore on his surcoat. As none of it was\nblack, however, Ser Alliser insisted that he reequip himself from the armory. That took\nhalf the morning. His girth required Donal Noye to take apart a mail hauberk and refit it\nwith leather panels at the sides. To get a helm over his head the armorer had to detach\nthe visor. His leathers bound so tightly around his legs and under his arms that he could\nscarcely move. Dressed for battle, the new boy looked like an overcooked sausage about\nto burst its skin. ôLet us hope you are not as inept as you look,ö Ser Alliser said. ôHalder,\nsee what Ser ",
+          "distance": 0.6622082591056824
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:30",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 18600,
+          "end": 19300,
+          "text": "language that Will did not know; his voice was like the\ncracking of ice on a winter lake, and the words were mocking.\n\nSer Waymar Royce found his fury. ôFor Robert!ö he shouted, and he came up snarling,\nlifting the frost-covered longsword with both hands and swinging it around in a flat\nsidearm slash with all his weight behind it. The OtherÆs parry was almost lazy.\n\nWhen the blades touched, the steel shattered.\n\nA scream echoed through the forest night, and the longsword shivered into a hundred\nbrittle pieces, the shards scattering like a rain of needles. Royce went to his knees,\nshrieking, and covered his eyes. Blood welled between his fingers.\n\nThe watchers moved forward together, as if so",
+          "distance": 0.6899192929267883
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:24",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 14880,
+          "end": 15580,
+          "text": " warning, and the words seemed to freeze in his throat. Perhaps\nhe was wrong. Perhaps it had only been a bird, a reflection on the snow, some trick of\nthe moonlight. What had he seen, after all?\n\nôWill, where are you?ö Ser Waymar called up. ôCan you see anything?ö He was turning in\na slow circle, suddenly wary, his sword in hand. He must have felt them, as Will felt\nthem. There was nothing to see. ôAnswer me! Why is it so cold?ö\n\nIt was cold. Shivering, Will clung more tightly to his perch. His face pressed hard\nagainst the trunk of the sentinel. He could feel the sweet, sticky sap on his cheek.\n\nA shadow emerged from the dark of the wood. It stood in front of Royce. Tall, it was, and\ngaunt ",
+          "distance": 0.7024009823799133
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:775",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 480500,
+          "end": 481200,
+          "text": "f Jon Snow. ôSer AlliserÆs bane,ö he\n\n\fgrunted, and two of his companions shared a laugh that Bran did not understand. But\nwhen Robb asked for news of their uncle Benjen, the black brothers grew ominously\nquiet.\n\nôWhat is it?ö Bran asked.\n\nYoren wiped his fingers on his vest. ôThereÆs hard news, mÆlords, and a cruel way to pay\nyou for your meat and mead, but the man as asks the question must bear the answer.\nStarkÆs gone.ö\n\nOne of the other men said, ôThe Old Bear sent him out to look for Waymar Royce, and\nheÆs late returning, my lord.ö\n\nôToo long,ö Yoren said. ôMost like heÆs dead.ö\n\nôMy uncle is not dead,ö Robb Stark said loudly, anger in his tones. He rose from the\nbench and laid his hand",
+          "distance": 0.7041807174682617
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:603",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 373860,
+          "end": 374560,
+          "text": "iming that the Crown is three million gold pieces in debt?ö\n\nôThe Crown is more than six million gold pieces in debt, Lord Stark. The Lannisters are\nthe biggest part of it, but we have also borrowed from Lord Tyrell, the Iron Bank of\n\n\fBraavos, and several Tyroshi trading cartels. Of late IÆve had to turn to the Faith. The\nHigh Septon haggles worse than a Dornish fishmonger.ö\n\nNed was aghast. ôAerys Targaryen left a treasury flowing with gold. How could you let\nthis happen?ö\n\nLittlefinger gave a shrug. ôThe master of coin finds the money. The king and the Hand\nspend it.ö\n\nôI will not believe that Jon Arryn allowed Robert to beggar the realm,ö Ned said hotly.\n\nGrand Maester Pycelle shook his ",
+          "distance": 0.7249464988708496
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:28",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 17360,
+          "end": 18060,
+          "text": " hugged the tree, and kept the silence.\n\nThe pale sword came shivering through the air.\n\nSer Waymar met it with steel. When the blades met, there was no ring of metal on metal;\nonly a high, thin sound at the edge of hearing, like an animal screaming in pain. Royce\nchecked a second blow, and a third, then fell back a step. Another flurry of blows, and he\nfell back again.\n\nBehind him, to right, to left, all around him, the watchers stood patient, faceless, silent,\nthe shifting patterns of their delicate armor making them all but invisible in the wood.\nYet they made no move to interfere.\n\nAgain and again the swords met, until Will wanted to cover his ears against the strange\nanguished keening o",
+          "distance": 0.7318803071975708
+        },
+        {
+          "chunk_id": "b983a693-a669-4a45-a08f-a1cbfedd6135:524",
+          "document_id": "36766964-f370-4d06-8da5-57a24f4459c4",
+          "index_id": "b983a693-a669-4a45-a08f-a1cbfedd6135",
+          "filename": "got.md",
+          "content_hash": "8d7e837c6112b4d68c812dcfa1c5316dc66b1a5b4714391c9c7313578f174f7e",
+          "start": 324880,
+          "end": 325580,
+          "text": "alf of the payment we agreed upon. And of course the extra silver you were so kind as to\npromise. Sixty stags, I believe it was.ö\n\nôFor the oarmen,ö Catelyn reminded him.\n\n\fôOh, of a certainty,ö said Moreo. ôThough perhaps I should hold it for them until we\nreturn to Tyrosh. For the sake of their wives and children. If you give them the silver\nhere, my lady, they will dice it away or spend it all for a nightÆs pleasure.ö\n\nôThere are worse things to spend money on,ö Ser Rodrik put in. ôWinter is coming.ö\n\nôA man must make his own choices,ö Catelyn said. ôThey earned the silver. How they\nspend it is no concern of mine.ö\n\nôAs you say, my lady,ö Moreo replied, bowing and smiling.\n\nJust to be sur",
+          "distance": 0.7319655418395996
+        }
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer": null,
+      "grade": null,
+      "grading_notes": null,
+      "failure_stage": null,
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      }
+    }
+  ],
+  "summary": {
+    "questions": 10,
+    "answerable_questions": 8,
+    "retrieval_errors": 0,
+    "generation_errors": 0,
+    "metrics": {
+      "1": {
+        "hit_rate": 0.375,
+        "evidence_recall": 0.4,
+        "complete_evidence_rate": 0.375
+      },
+      "3": {
+        "hit_rate": 0.625,
+        "evidence_recall": 0.6,
+        "complete_evidence_rate": 0.5
+      },
+      "5": {
+        "hit_rate": 0.75,
+        "evidence_recall": 0.8,
+        "complete_evidence_rate": 0.75
+      },
+      "10": {
+        "hit_rate": 0.875,
+        "evidence_recall": 0.9,
+        "complete_evidence_rate": 0.875
+      }
+    }
+  },
+  "by_type": {
+    "different vocabulary": {
+      "questions": 6,
+      "answerable_questions": 6,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.3333333333333333,
+          "evidence_recall": 0.3333333333333333,
+          "complete_evidence_rate": 0.3333333333333333
+        },
+        "3": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "5": {
+          "hit_rate": 0.6666666666666666,
+          "evidence_recall": 0.6666666666666666,
+          "complete_evidence_rate": 0.6666666666666666
+        },
+        "10": {
+          "hit_rate": 0.8333333333333334,
+          "evidence_recall": 0.8333333333333334,
+          "complete_evidence_rate": 0.8333333333333334
+        }
+      }
+    },
+    "not in the corpus": {
+      "questions": 2,
+      "answerable_questions": 0,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "3": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "5": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "10": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        }
+      }
+    },
+    "split answer": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 0.75,
+          "complete_evidence_rate": 0.5
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    }
+  }
+}
