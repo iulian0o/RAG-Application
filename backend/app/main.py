@@ -15,6 +15,8 @@ from app.questions import router as questions_router
 
 from app.words import router as words_router
 
+from app.evaluation import router as evaluation_router
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     initialize_database()
