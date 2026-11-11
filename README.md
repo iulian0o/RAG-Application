@@ -49,3 +49,16 @@ Run the backend with one worker, matching the existing indexing lock design.
 
 Human grading rules are in evaluation/grading-rules.md.
 Grades and diagnosis notes are added to the corresponding results file.
+
+## Using Words and Evaluation
+
+Run the backend on port 8000 and the frontend with npm run dev from frontend.
+Open the URL printed by Vite.
+
+Select uploaded and indexed documents, then open Words. Corpus mode shows
+word frequencies and matching chunks. Question mode analyzes typed questions
+or questions loaded from the evaluation sets.
+
+Open Evaluation and load the available corpora. Select a corpus and run the
+evaluation. Enable Generate answers when you want grounded answers alongside
+retrieval results. Use the run ID to reopen saved results or download the JSON.
