@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react"
+import { WordsPanel } from "@/components/words-panel"
 
 import { QuestionPanel } from "@/components/question-panel"
 
@@ -23,7 +24,11 @@ function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "Something went wrong."
 }
 
-export function DocumentPanel() {
+export function DocumentPanel({
+  mode = "ask",
+}: {
+  mode?: "ask" | "words"
+}) {
   const [documents, setDocuments] = useState<StoredDocument[]>([])
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [busy, setBusy] = useState(true)
@@ -250,6 +255,7 @@ export function DocumentPanel() {
           </ul>
         </div>
 
+      {mode === "ask" ? (
         <QuestionPanel
           key={selectedIds.join(",")}
           documents={documents.filter((document) =>
@@ -258,6 +264,14 @@ export function DocumentPanel() {
           disabled={busy}
           onBusyChange={setBusy}
         />
+      ) : busy ? (
+        <p role="status">Waiting for the document operation to finish…</p>
+      ) : (
+        <WordsPanel
+          key={selectedIds.join(",")}
+          documentIds={selectedIds}
+        />
+      )}
         
       </CardContent>
     </Card>
