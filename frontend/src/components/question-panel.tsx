@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react"
+import { GraphPathPanel } from "@/components/graph-path-panel"
 
 import { Button } from "@/components/ui/button"
 import { RetrieverControls } from "@/components/retriever-controls"
@@ -187,9 +188,16 @@ export function QuestionPanel({
       </p>
 
       {error && (
-        <p role="alert" className="text-sm text-destructive">
-          {error}
-        </p>
+        <div role="alert" className="space-y-1 text-sm text-destructive">
+          <p>{error}</p>
+          {/Concept Graph/i.test(error) && (
+            <p className="text-xs">
+              The Concept Graph is built from the indexed Kestrel documents.
+              Build or rebuild it (see the README), or uncheck Concept Graph
+              to ask with Dense and BM25 only.
+            </p>
+          )}
+        </div>
       )}
 
       {snapshot && (
@@ -265,19 +273,7 @@ export function QuestionPanel({
                       ` · distance ${citation.distance.toFixed(3)}`}
                   </p>
 
-                  {citation.graph_paths.length > 0 && (
-                    <div className="mt-2 space-y-1">
-                      <p className="text-xs font-medium">Graph path</p>
-                      {citation.graph_paths.map((path, index) => (
-                        <pre
-                          key={index}
-                          className="overflow-x-auto rounded bg-muted p-2 text-xs"
-                        >
-                          {JSON.stringify(path, null, 2)}
-                        </pre>
-                      ))}
-                    </div>
-                  )}
+                  <GraphPathPanel paths={citation.graph_paths} />
                 </details>
               ))}
             </div>

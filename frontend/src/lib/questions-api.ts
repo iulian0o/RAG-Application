@@ -3,6 +3,34 @@ import { z } from "zod"
 export const retrieverNameSchema = z.enum(["dense", "bm25", "graph"])
 export type RetrieverName = z.infer<typeof retrieverNameSchema>
 
+const entitySchema = z
+  .object({ name: z.string(), type: z.string().optional() })
+  .passthrough()
+
+const sourceSchema = z.object({
+  chunk_id: z.string(),
+  document_id: z.string(),
+  filename: z.string(),
+  start: z.number().int(),
+  end: z.number().int(),
+  quote: z.string(),
+})
+
+const edgeSchema = z.object({
+  subject: entitySchema,
+  relation: z.string(),
+  object: entitySchema,
+  sources: z.array(sourceSchema),
+})
+
+const graphPathSchema = z.object({
+  matched_entity: entitySchema,
+  edges: z.array(edgeSchema),
+  traversed_reverse: z.array(z.boolean()).default([]),
+})
+
+export type GraphPath = z.infer<typeof graphPathSchema>
+
 const citationSchema = z.object({
   chunk_id: z.string(),
   document_id: z.string(),
@@ -17,7 +45,7 @@ const citationSchema = z.object({
   fused_score: z.number().default(0),
   retriever_ranks: z.record(z.string(), z.number().int().min(1)).default({}),
   evidence: z.record(z.string(), z.record(z.string(), z.unknown())).default({}),
-  graph_paths: z.array(z.record(z.string(), z.unknown())).default([]),
+  graph_paths: z.array(graphPathSchema).default([]),
 })
 
 export type Citation = z.infer<typeof citationSchema>
