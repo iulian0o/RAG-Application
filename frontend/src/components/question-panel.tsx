@@ -1,10 +1,12 @@
 import { useState, type FormEvent } from "react"
 
 import { Button } from "@/components/ui/button"
+import { RetrieverControls } from "@/components/retriever-controls"
 import { type StoredDocument } from "@/lib/documents-api"
 import {
   askQuestion,
   type QuestionResponse,
+  type RetrieverName,
 } from "@/lib/questions-api"
 
 type QuestionPanelProps = {
@@ -26,6 +28,7 @@ export function QuestionPanel({
 }: QuestionPanelProps) {
   const [question, setQuestion] = useState("")
   const [topK, setTopK] = useState("5")
+  const [retrievers, setRetrievers] = useState<RetrieverName[]>(["dense"])
   const [asking, setAsking] = useState(false)
   const [error, setError] = useState("")
   const [snapshot, setSnapshot] = useState<AnswerSnapshot | null>(null)
@@ -51,6 +54,11 @@ export function QuestionPanel({
       return
     }
 
+    if (retrievers.length === 0) {
+      setError("Select at least one retriever.")
+      return
+    }
+
     if (
       topK.trim() === "" ||
       !Number.isInteger(count) ||
@@ -72,6 +80,7 @@ export function QuestionPanel({
         question: trimmedQuestion,
         document_ids: selectedDocuments.map((document) => document.id),
         top_k: count,
+        retrievers,
       })
 
       setSnapshot({
@@ -155,7 +164,16 @@ export function QuestionPanel({
           </p>
         </div>
 
-        <Button type="submit" disabled={locked || noSelection}>
+        <RetrieverControls
+          value={retrievers}
+          onChange={setRetrievers}
+          disabled={locked}
+        />
+
+        <Button
+          type="submit"
+          disabled={locked || noSelection || retrievers.length === 0}
+        >
           {asking ? "Finding an answer…" : "Ask question"}
         </Button>
       </form>
@@ -191,6 +209,15 @@ export function QuestionPanel({
               Sources selected: {snapshot.filenames.join(", ")}
               {" · "}Top-k: {snapshot.topK}
             </p>
+
+            {snapshot.response.retrieval && (
+              <p className="text-xs text-muted-foreground">
+                Retrievers: {snapshot.response.retrieval.retrievers.join(" + ")}
+                {" · "}Candidate depth:{" "}
+                {snapshot.response.retrieval.candidate_depth}
+                {" · "}RRF k: {snapshot.response.retrieval.rrf_k}
+              </p>
+            )}
           </div>
 
           <p className="whitespace-pre-wrap break-words text-sm leading-7">
@@ -228,6 +255,29 @@ export function QuestionPanel({
                   <p className="mt-1 text-xs text-muted-foreground">
                     Source character range: [{citation.start}, {citation.end})
                   </p>
+
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Fused rank: #{citation.fused_rank}
+                    {Object.entries(citation.retriever_ranks).map(
+                      ([name, rank]) => ` · ${name}: ${rank}`,
+                    )}
+                    {citation.distance != null &&
+                      ` · distance ${citation.distance.toFixed(3)}`}
+                  </p>
+
+                  {citation.graph_paths.length > 0 && (
+                    <div className="mt-2 space-y-1">
+                      <p className="text-xs font-medium">Graph path</p>
+                      {citation.graph_paths.map((path, index) => (
+                        <pre
+                          key={index}
+                          className="overflow-x-auto rounded bg-muted p-2 text-xs"
+                        >
+                          {JSON.stringify(path, null, 2)}
+                        </pre>
+                      ))}
+                    </div>
+                  )}
                 </details>
               ))}
             </div>
