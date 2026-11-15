@@ -1,16 +1,37 @@
+"""The shared retrieval service used by Ask (questions.py) and the benchmark (evaluation_v2.py).
+
+    request -> one Snapshot of the active indexes -> each enabled retriever returns an ordered candidate list
+            -> reciprocal rank fusion -> final top-k chunks, each with the rank every retriever gave it.
+
+Retrievers are plain functions registered by name (``register_retriever``). Dense and BM25 live here; the
+concept-graph retriever registers itself under "graph" when it exists. A request that omits ``retrievers`` is
+dense-only, which behaves like the V2 function (same top-k chunks, same order, same distances).
+"""
 import logging
+import math
+import time
+from dataclasses import dataclass, field
+from typing import Any, Callable, Literal, Self
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from app.database import database
-from app.embeddings import MODEL_NAME, embed_texts
+from app import bm25
+from app.embeddings import embed_texts
+from app.fusion import reciprocal_rank_fusion
 from app.indexing import index_write_lock
+from app.snapshot import Snapshot, load_snapshot
 from app.vector_store import get_collection
+from app.word_chunks import WordChunk, validate_chunk
 
 
 router = APIRouter(prefix="/api/retrieval", tags=["retrieval"])
 logger = logging.getLogger(__name__)
+
+RetrieverName = Literal["dense", "bm25", "graph"]
+
+# Candidate depth used when several retrievers are fused and the request does not choose one.
+DEFAULT_CANDIDATE_DEPTH = 50
 
 
 class RetrievalRequest(BaseModel):
@@ -23,6 +44,17 @@ class RetrievalRequest(BaseModel):
     document_ids: list[str] = Field(min_length=1, max_length=50)
     top_k: int = Field(default=5, ge=1, le=20, strict=True)
 
+    # V3. Omitting all of these keeps the V2 behaviour (dense only).
+    retrievers: list[RetrieverName] = Field(default_factory=lambda: ["dense"], min_length=1, max_length=3)
+    # How many candidates each retriever contributes to the fusion. Default: top_k for a single retriever,
+    # otherwise DEFAULT_CANDIDATE_DEPTH (never below top_k).
+    candidate_depth: int | None = Field(default=None, ge=1, le=200, strict=True)
+    rrf_k: int = Field(default=60, ge=1, le=1000, strict=True)
+    # Weighted RRF. Retrievers without a weight use 1.0; omitted = plain RRF.
+    weights: dict[RetrieverName, float] | None = None
+    # Also return every retriever's own candidate list (used by the benchmark to compare candidate and fused ranks).
+    include_candidates: bool = False
+
     @field_validator("document_ids")
     @classmethod
     def validate_document_ids(cls, values: list[str]) -> list[str]:
@@ -32,6 +64,36 @@ class RetrievalRequest(BaseModel):
             raise ValueError("Document IDs cannot be blank.")
 
         return list(dict.fromkeys(cleaned))
+
+    @field_validator("retrievers")
+    @classmethod
+    def validate_retrievers(cls, values: list[str]) -> list[str]:
+        return list(dict.fromkeys(values))
+
+    @field_validator("weights")
+    @classmethod
+    def validate_weights(cls, values):
+        if values is not None and any(not math.isfinite(w) or w <= 0 for w in values.values()):
+            raise ValueError("Weights must be positive numbers.")
+
+        return values
+
+    @model_validator(mode="after")
+    def validate_combination(self) -> Self:
+        if self.weights is not None and not set(self.weights) <= set(self.retrievers):
+            raise ValueError("Weights can only be given for enabled retrievers.")
+
+        if self.candidate_depth is not None and self.candidate_depth < self.top_k:
+            raise ValueError("candidate_depth cannot be smaller than top_k.")
+
+        return self
+
+    @property
+    def depth(self) -> int:
+        if self.candidate_depth is not None:
+            return self.candidate_depth
+
+        return self.top_k if len(self.retrievers) == 1 else max(self.top_k, DEFAULT_CANDIDATE_DEPTH)
 
 
 class RetrievedChunk(BaseModel):
@@ -43,7 +105,22 @@ class RetrievedChunk(BaseModel):
     start: int = Field(ge=0)
     end: int = Field(gt=0)
     text: str
-    distance: float = Field(allow_inf_nan=False)
+    # Cosine distance. Present only when the Dense retriever found this chunk.
+    distance: float | None = Field(default=None, allow_inf_nan=False)
+    # V3: where the chunk came from.
+    fused_rank: int = Field(default=1, ge=1)
+    fused_score: float = Field(default=0.0, allow_inf_nan=False)
+    retriever_ranks: dict[str, int] = Field(default_factory=dict)      # retriever -> one-based rank
+    evidence: dict[str, dict[str, Any]] = Field(default_factory=dict)  # retriever -> its own evidence
+    # Filled by the graph retriever (path, matched entities, source chunks); empty for the others.
+    graph_paths: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class CandidateRank(BaseModel):
+    chunk_id: str
+    rank: int
+    distance: float | None = None
+    score: float | None = None
 
 
 class RetrievalResponse(BaseModel):
@@ -51,7 +128,94 @@ class RetrievalResponse(BaseModel):
     document_ids: list[str]
     top_k: int
     matches: list[RetrievedChunk]
+    retrievers: list[str] = Field(default_factory=lambda: ["dense"])
+    candidate_depth: int = 0
+    rrf_k: int = 60
+    weights: dict[str, float] = Field(default_factory=dict)
+    candidate_counts: dict[str, int] = Field(default_factory=dict)
+    timings_ms: dict[str, float] = Field(default_factory=dict)
+    candidates: dict[str, list[CandidateRank]] | None = None
 
+
+# ----- retriever interface --------------------------------------------------
+
+@dataclass
+class Candidate:
+    chunk: WordChunk
+    distance: float | None = None
+    evidence: dict[str, Any] = field(default_factory=dict)
+    graph_paths: list[dict[str, Any]] = field(default_factory=list)
+
+
+@dataclass
+class Query:
+    question: str
+    snapshot: Snapshot
+    depth: int
+
+
+Retriever = Callable[[Query], list[Candidate]]
+RETRIEVERS: dict[str, Retriever] = {}
+
+
+def register_retriever(name: str, function: Retriever) -> None:
+    RETRIEVERS[name] = function
+
+
+def dense_retriever(query: Query) -> list[Candidate]:
+    snapshot = query.snapshot
+
+    try:
+        vector = embed_texts([query.question])[0]
+    except ValueError as error:
+        raise HTTPException(422, str(error)) from error
+
+    count = min(query.depth, snapshot.total_chunks)
+    result = get_collection().query(
+        query_embeddings=[vector],
+        n_results=count,
+        where={"index_id": {"$in": snapshot.active_index_ids}},
+        include=["documents", "metadatas", "distances"],
+    )
+
+    candidates = [
+        Candidate(
+            chunk=validate_chunk(chunk_id, text, metadata, snapshot.documents),
+            distance=distance,
+        )
+        for chunk_id, text, metadata, distance in zip(
+            result["ids"][0],
+            result["documents"][0],
+            result["metadatas"][0],
+            result["distances"][0],
+        )
+    ]
+
+    if len(candidates) != count:
+        raise RuntimeError("The index returned fewer chunks than expected.")
+
+    return candidates
+
+
+def bm25_retriever(query: Query) -> list[Candidate]:
+    snapshot = query.snapshot
+    index = bm25.get_index(snapshot.active_index_ids, snapshot.read_chunks)
+    hits = index.search(query.question, query.depth, snapshot.document_order)
+
+    return [
+        Candidate(
+            chunk=hit.chunk,
+            evidence={"bm25": {"score": round(hit.score, 6), "matched_terms": list(hit.matched_terms)}},
+        )
+        for hit in hits
+    ]
+
+
+register_retriever("dense", dense_retriever)
+register_retriever("bm25", bm25_retriever)
+
+
+# ----- the service ----------------------------------------------------------
 
 def retrieve_chunks(request: RetrievalRequest) -> RetrievalResponse:
     if not index_write_lock.acquire(blocking=False):
@@ -61,133 +225,120 @@ def retrieve_chunks(request: RetrievalRequest) -> RetrievalResponse:
         )
 
     try:
-        placeholders = ",".join("?" for _ in request.document_ids)
+        started = time.perf_counter()
 
-        with database() as connection:
-            rows = connection.execute(
-                f"""
-                SELECT
-                    d.id,
-                    d.filename,
-                    d.content,
-                    d.content_hash AS current_hash,
-                    i.index_id,
-                    i.content_hash AS indexed_hash,
-                    i.model_name,
-                    i.chunk_count
-                FROM documents AS d
-                LEFT JOIN document_indexes AS i
-                    ON i.document_id = d.id
-                WHERE d.id IN ({placeholders})
-                """,
-                request.document_ids,
-            ).fetchall()
-
-        documents = {row["id"]: row for row in rows}
-
-        for document_id in request.document_ids:
-            document = documents.get(document_id)
-
-            if document is None:
-                raise HTTPException(
-                    404,
-                    f"Selected document does not exist: {document_id}",
-                )
-
-            if document["index_id"] is None:
+        for name in request.retrievers:
+            if name not in RETRIEVERS:
                 raise HTTPException(
                     409,
-                    f"Build an index for {document['filename']} first.",
+                    f"The {name} retriever is not available in this build.",
                 )
 
-            if (
-                document["model_name"] != MODEL_NAME
-                or document["current_hash"] != document["indexed_hash"]
-            ):
-                raise HTTPException(
-                    409,
-                    f"The index for {document['filename']} is outdated. Rebuild it.",
-                )
+        snapshot = load_snapshot(request.document_ids)
+        query = Query(request.question, snapshot, request.depth)
 
-        try:
-            query_vector = embed_texts([request.question])[0]
-        except ValueError as error:
-            raise HTTPException(422, str(error)) from error
+        candidates: dict[str, list[Candidate]] = {}
+        timings: dict[str, float] = {}
 
-        active_index_ids = [row["index_id"] for row in rows]
-        available_chunks = sum(row["chunk_count"] for row in rows)
-        result_count = min(request.top_k, available_chunks)
+        for name in request.retrievers:
+            began = time.perf_counter()
+            candidates[name] = RETRIEVERS[name](query)
+            timings[name] = round((time.perf_counter() - began) * 1000, 2)
 
-        if result_count < 1:
-            raise HTTPException(
-                409,
-                "The selected indexes contain no chunks. Rebuild them.",
-            )
+        found: dict[str, dict[str, Candidate]] = {
+            name: {c.chunk.chunk_id: c for c in candidates[name]}
+            for name in request.retrievers
+        }
+        by_id: dict[str, Candidate] = {}
+        for name in request.retrievers:
+            for candidate in candidates[name]:
+                by_id.setdefault(candidate.chunk.chunk_id, candidate)
 
-        result = get_collection().query(
-            query_embeddings=[query_vector],
-            n_results=result_count,
-            where={"index_id": {"$in": active_index_ids}},
-            include=["documents", "metadatas", "distances"],
+        order_of_document = snapshot.document_order
+        order = {
+            chunk_id: (order_of_document[c.chunk.document_id], c.chunk.chunk_index)
+            for chunk_id, c in by_id.items()
+        }
+
+        fused = reciprocal_rank_fusion(
+            {name: [c.chunk.chunk_id for c in candidates[name]] for name in request.retrievers},
+            order=order,
+            k=request.rrf_k,
+            weights=request.weights,
         )
 
         matches: list[RetrievedChunk] = []
 
-        for position, chunk_id in enumerate(result["ids"][0]):
-            metadata = result["metadatas"][0][position]
-            text = result["documents"][0][position]
+        for position, item in enumerate(fused[:request.top_k], start=1):
+            chunk = by_id[item.chunk_id].chunk
+            distance = None
+            evidence: dict[str, dict[str, Any]] = {}
+            graph_paths: list[dict[str, Any]] = []
 
-            document = documents.get(metadata["document_id"])
+            for name in request.retrievers:
+                candidate = found[name].get(item.chunk_id)
 
-            if document is None:
-                raise RuntimeError("Retrieval returned an unselected document.")
+                if candidate is None:
+                    continue
 
-            if (
-                metadata["index_id"] != document["index_id"]
-                or metadata["content_hash"] != document["current_hash"]
-            ):
-                raise RuntimeError("Retrieval returned an outdated chunk.")
+                if name == "dense":
+                    distance = candidate.distance
+                    evidence["dense"] = {"distance": candidate.distance}
 
-            start = metadata["start"]
-            end = metadata["end"]
+                if name in candidate.evidence:
+                    evidence[name] = candidate.evidence[name]
 
-            if (
-                not isinstance(start, int)
-                or not isinstance(end, int)
-                or not 0 <= start < end <= len(document["content"])
-                or text != document["content"][start:end]
-            ):
-                raise RuntimeError("Stored chunk does not match its source.")
-
-            expected_id = (
-                f"{metadata['index_id']}:{metadata['chunk_index']}"
-            )
-
-            if chunk_id != expected_id:
-                raise RuntimeError("Stored chunk ID is inconsistent.")
+                if name == "graph":
+                    graph_paths = candidate.graph_paths
 
             matches.append(
                 RetrievedChunk(
-                    chunk_id=chunk_id,
-                    document_id=document["id"],
-                    index_id=document["index_id"],
-                    filename=document["filename"],
-                    content_hash=document["current_hash"],
-                    start=start,
-                    end=end,
-                    text=text,
-                    distance=result["distances"][0][position],
+                    chunk_id=chunk.chunk_id,
+                    document_id=chunk.document_id,
+                    index_id=chunk.index_id,
+                    filename=chunk.filename,
+                    content_hash=chunk.content_hash,
+                    start=chunk.start,
+                    end=chunk.end,
+                    text=chunk.text,
+                    distance=distance,
+                    fused_rank=position,
+                    fused_score=item.score,
+                    retriever_ranks=item.ranks,
+                    evidence=evidence,
+                    graph_paths=graph_paths,
                 )
             )
 
-        if len(matches) != result_count:
-            raise RuntimeError("The index returned fewer chunks than expected.")
+        timings["total"] = round((time.perf_counter() - started) * 1000, 2)
 
         return RetrievalResponse(
             question=request.question,
-            document_ids=request.document_ids,
+            document_ids=snapshot.document_ids,
             top_k=request.top_k,
             matches=matches,
+            retrievers=request.retrievers,
+            candidate_depth=request.depth,
+            rrf_k=request.rrf_k,
+            weights={name: (request.weights or {}).get(name, 1.0) for name in request.retrievers},
+            candidate_counts={name: len(candidates[name]) for name in request.retrievers},
+            timings_ms=timings,
+            candidates=(
+                {
+                    name: [
+                        CandidateRank(
+                            chunk_id=c.chunk.chunk_id,
+                            rank=rank,
+                            distance=c.distance,
+                            score=c.evidence.get(name, {}).get("score"),
+                        )
+                        for rank, c in enumerate(candidates[name], start=1)
+                    ]
+                    for name in request.retrievers
+                }
+                if request.include_candidates
+                else None
+            ),
         )
 
     except HTTPException:
