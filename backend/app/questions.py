@@ -15,17 +15,33 @@ from app.retrieval import (
 router = APIRouter(prefix="/api/questions", tags=["questions"])
 
 
+class RetrievalSummary(BaseModel):
+    retrievers: list[str]
+    candidate_depth: int
+    top_k: int
+    rrf_k: int
+    weights: dict[str, float]
+
+
 class QuestionResponse(BaseModel):
     question: str
     status: Literal["answered", "insufficient_evidence"]
     answer: str
     citations: list[RetrievedChunk]
     model: str | None
+    retrieval: RetrievalSummary | None = None
 
 
 @router.post("", response_model=QuestionResponse)
 def ask_question(request: RetrievalRequest) -> QuestionResponse:
     retrieval = retrieve_chunks(request)
+    summary = RetrievalSummary(
+        retrievers=retrieval.retrievers,
+        candidate_depth=retrieval.candidate_depth,
+        top_k=retrieval.top_k,
+        rrf_k=retrieval.rrf_k,
+        weights=retrieval.weights,
+    )
 
     if not retrieval.matches:
         return QuestionResponse(
