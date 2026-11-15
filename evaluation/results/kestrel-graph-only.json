@@ -1,0 +1,2150 @@
+{
+  "dataset": "kestrel",
+  "adapter_sha256": "495bfd1b8334fe345294cb9347dcc47991ab9b10deba1bc7a4fe8e755b5de30d",
+  "source_sha256": "b38304a3a32077a9d74c112252717051e0a4f30d542ce73d79aeefba3e9df264",
+  "retrievers": [
+    "graph"
+  ],
+  "artifact_id": "90725636e10f4649b297c99823b31913",
+  "indexes": {
+    "57aa19d6-c870-41c7-93ab-3c2f92b32af6": {
+      "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+      "index_id": "1e7e5216-4a4f-4d7e-9e24-16bfd04da614",
+      "content_hash": "17fa4c49a0a301151240f5c71e75ef81e826afdc9c504b1c513313f701af527f",
+      "chunk_size": 700,
+      "overlap": 80,
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_count": 9
+    },
+    "7e6a5abb-0155-4483-9bb1-148a7ca4e44c": {
+      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+      "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+      "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+      "chunk_size": 700,
+      "overlap": 80,
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_count": 12
+    },
+    "a1a74718-0562-4221-958f-91bef7757ad9": {
+      "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+      "index_id": "21de9bc8-1d09-4b27-b0f4-b908b53ca0f1",
+      "content_hash": "9b8dccfeee34d44bbbf84595fecf998a79b0e48e890cec5a864228a995a4155d",
+      "chunk_size": 700,
+      "overlap": 80,
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_count": 11
+    },
+    "b7bb65cc-7422-4ea0-a066-52a9b7d558e4": {
+      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+      "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+      "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+      "chunk_size": 700,
+      "overlap": 80,
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_count": 10
+    },
+    "cf62b5d6-96b9-4a64-ac01-642f01953f3d": {
+      "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+      "index_id": "abfa0ad4-8ee7-4359-bc5c-3f6cb939e4b7",
+      "content_hash": "880e3ac8b930de0c9792aae3c2982ad0fbb37a20877e19d380103085fb699b98",
+      "chunk_size": 700,
+      "overlap": 80,
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_count": 11
+    }
+  },
+  "summary": {
+    "questions": 12,
+    "answerable_questions": 10,
+    "retrieval_errors": 0,
+    "generation_errors": 0,
+    "metrics": {
+      "1": {
+        "hit_rate": 0.4,
+        "evidence_recall": 0.25,
+        "complete_evidence_rate": 0.1
+      },
+      "3": {
+        "hit_rate": 0.4,
+        "evidence_recall": 0.4375,
+        "complete_evidence_rate": 0.4
+      },
+      "5": {
+        "hit_rate": 0.4,
+        "evidence_recall": 0.4375,
+        "complete_evidence_rate": 0.4
+      },
+      "10": {
+        "hit_rate": 0.4,
+        "evidence_recall": 0.4375,
+        "complete_evidence_rate": 0.4
+      }
+    }
+  },
+  "by_type": {
+    "different vocabulary": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "5": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "10": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        }
+      }
+    },
+    "exact identifier": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "3": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "5": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        },
+        "10": {
+          "hit_rate": 0.5,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.5
+        }
+      }
+    },
+    "not in the corpus": {
+      "questions": 2,
+      "answerable_questions": 0,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "3": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "5": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        },
+        "10": {
+          "hit_rate": null,
+          "evidence_recall": null,
+          "complete_evidence_rate": null
+        }
+      }
+    },
+    "split answer": {
+      "questions": 2,
+      "answerable_questions": 2,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "5": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "10": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        }
+      }
+    },
+    "two hops": {
+      "questions": 3,
+      "answerable_questions": 3,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 1.0,
+          "evidence_recall": 0.5,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "5": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        },
+        "10": {
+          "hit_rate": 1.0,
+          "evidence_recall": 1.0,
+          "complete_evidence_rate": 1.0
+        }
+      }
+    },
+    "two versions": {
+      "questions": 1,
+      "answerable_questions": 1,
+      "retrieval_errors": 0,
+      "generation_errors": 0,
+      "metrics": {
+        "1": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "3": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "5": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        },
+        "10": {
+          "hit_rate": 0.0,
+          "evidence_recall": 0.0,
+          "complete_evidence_rate": 0.0
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "kestrel-syn-01",
+      "type": "exact identifier",
+      "question": "What does KST-427 mean, and what must an operator do before replaying queued batches?",
+      "answerable": true,
+      "expected_answer": "The ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replay.",
+      "evidence": [
+        {
+          "document_id": "cf62b5d6-96b9-4a64-ac01-642f01953f3d",
+          "quote": "KST-427 means the ingestion checkpoint digest disagrees with the signed ledger checkpoint. Freeze the affected ingestion stream, restore its last signed checkpoint, and verify the accepted-record count before replaying queued batches.",
+          "start": 481,
+          "end": 715
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 1.5867999998135929,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-02",
+      "type": "exact identifier",
+      "question": "For SVC-GLINT, what is the maximum batch size and the required delay before retrying a rejected batch?",
+      "answerable": true,
+      "expected_answer": "At most 240 records per batch, with a 45-second delay before retrying a rejected batch.",
+      "evidence": [
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch.",
+          "start": 2364,
+          "end": 2476
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 3,
+          "start": 1860,
+          "end": 2560
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 0,
+          "start": 0,
+          "end": 700
+        }
+      ],
+      "graph_candidates": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "rank": 1,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-GLINT"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-GLINT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 2364,
+                      "end": 2544,
+                      "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 479,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2"
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                true
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-GLINT"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-GLINT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 2364,
+                      "end": 2544,
+                      "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-GLINT"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-GLINT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Prism Integration"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 2364,
+                      "end": 2544,
+                      "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "rank": 2,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-GLINT"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-GLINT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 2364,
+                      "end": 2544,
+                      "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 479,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2"
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                true
+              ]
+            }
+          ]
+        }
+      ],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "3": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.29859999995096587,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-03",
+      "type": "split answer",
+      "question": "For an export above 2 GiB, whose approval is required before submission, and what encryption is required before issuing its download link?",
+      "answerable": true,
+      "expected_answer": "The workspace owner must approve submission, and the export must be encrypted with a workspace-managed key before a download link is issued.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Exports above 2 GiB require approval from the workspace owner before the export job is submitted.",
+          "start": 4140,
+          "end": 4237
+        },
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "Exports above 2 GiB must be encrypted with a workspace-managed key before a download link is issued.",
+          "start": 2330,
+          "end": 2430
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.2888999999868247,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-04",
+      "type": "split answer",
+      "question": "What confirmation and recovery window apply to project deletion, and can erasure proceed after that window while an invoice-dispute hold remains active?",
+      "answerable": true,
+      "expected_answer": "Deletion requires workspace-owner confirmation and a 48-hour recovery window. An active invoice-dispute hold still blocks erasure until the billing reviewer releases it.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Project deletion requires a workspace owner's confirmation and a 48-hour recovery window before erasure begins.",
+          "start": 6677,
+          "end": 6788
+        },
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "An active invoice-dispute hold blocks project erasure until the billing reviewer releases the hold.",
+          "start": 5542,
+          "end": 5641
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.20529999983409652,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-05",
+      "type": "different vocabulary",
+      "question": "Can a Cedar customer get help by phone, and which subscription permits that kind of support?",
+      "answerable": true,
+      "expected_answer": "Cedar uses written case replies. Voice callbacks are available only to Summit workspaces and must be requested through an authenticated support case.",
+      "evidence": [
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "Voice callbacks are available only to Summit workspaces and must be requested through an authenticated support case. Cedar and trial workspaces use written case replies.",
+          "start": 1390,
+          "end": 1559
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.17209999987244373,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-06",
+      "type": "different vocabulary",
+      "question": "I am locked out after five wrong password attempts. How long must I wait, and how can an administrator help me regain access sooner?",
+      "answerable": true,
+      "expected_answer": "Sign-in is suspended for 18 minutes. A workspace administrator can issue a recovery challenge from the membership console, and the member must complete it before a new session is created.",
+      "evidence": [
+        {
+          "document_id": "57aa19d6-c870-41c7-93ab-3c2f92b32af6",
+          "quote": "After five unsuccessful credential submissions, sign-in is suspended for 18 minutes. A workspace administrator can end the suspension early by issuing a recovery challenge from the membership console. The affected member must complete that challenge before a new session is created.",
+          "start": 443,
+          "end": 725
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.17490000004727335,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-07",
+      "type": "two versions",
+      "question": "A workspace starts its trial on 15 June 2026. Does the 7-day or 21-day trial policy apply, and what date separates the two policies?",
+      "answerable": true,
+      "expected_answer": "The 21-calendar-day policy applies. Trials started on or after 1 June 2026 receive 21 days; trials started before that date received 7 days.",
+      "evidence": [
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "For trials started on or after 1 June 2026, the trial lasts 21 calendar days from workspace activation.",
+          "start": 1458,
+          "end": 1561
+        },
+        {
+          "document_id": "a1a74718-0562-4221-958f-91bef7757ad9",
+          "quote": "For trials started before 1 June 2026, the trial lasted 7 calendar days from workspace activation.",
+          "start": 4528,
+          "end": 4626
+        }
+      ],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [
+            false,
+            false
+          ],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.17660000003161258,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-08",
+      "type": "two hops",
+      "question": "Which processing region and owning team handle scheduled jobs from Aurora Reports?",
+      "answerable": true,
+      "expected_answer": "Aurora Reports dispatches scheduled jobs to SVC-ORBIT, which processes them in EU-FR2 and is owned by Indigo Operations.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
+          "start": 3115,
+          "end": 3184
+        },
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
+          "start": 438,
+          "end": 514
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "chunk_index": 5,
+          "start": 3100,
+          "end": 3800
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 0,
+          "start": 0,
+          "end": 700
+        }
+      ],
+      "graph_candidates": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "rank": 1,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Aurora Reports"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 479,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2"
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Aurora Reports"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Aurora Reports"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "rank": 2,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Aurora Reports"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 479,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2"
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Aurora Reports"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true,
+            false
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.233299999990777,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-09",
+      "type": "not in the corpus",
+      "question": "What is the exact date of birth of Kestrel Analytics' founder?",
+      "answerable": false,
+      "expected_answer": "The documents do not provide the founder's date of birth.",
+      "evidence": [],
+      "retrieved": [],
+      "graph_candidates": [],
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.1554000000396627,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-10",
+      "type": "not in the corpus",
+      "question": "What outbound IPv6 CIDR range should I allow for SVC-MARSH?",
+      "answerable": false,
+      "expected_answer": "The documents do not provide an outbound IPv6 CIDR range for SVC-MARSH.",
+      "evidence": [],
+      "retrieved": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 2,
+          "start": 1240,
+          "end": 1940
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 6,
+          "start": 3720,
+          "end": 4420
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "chunk_index": 4,
+          "start": 2480,
+          "end": 3180
+        }
+      ],
+      "graph_candidates": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "rank": 1,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-MARSH"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-LANTERN"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 4227,
+                      "end": 4299,
+                      "quote": "SVC-LANTERN maintains the searchable receipt directory in region EU-DE3."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                true
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-MARSH"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-MARSH"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Reed Data Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "rank": 2,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-MARSH"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-LANTERN"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 4227,
+                      "end": 4299,
+                      "quote": "SVC-LANTERN maintains the searchable receipt directory in region EU-DE3."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "rank": 3,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "service",
+                "name": "SVC-MARSH"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                true
+              ]
+            }
+          ]
+        }
+      ],
+      "scores": {
+        "1": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "5": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        },
+        "10": {
+          "evidence_hits": [],
+          "hit": false,
+          "complete": false
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.220299999909912,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-11",
+      "type": "two hops",
+      "question": "Which team owns the service that receives ordinary Harbor Import ingestion jobs?",
+      "answerable": true,
+      "expected_answer": "Harbor Import dispatches ingestion jobs to SVC-MARSH, owned by Reed Data Operations.",
+      "evidence": [
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH.",
+          "start": 2603,
+          "end": 2664
+        },
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations.",
+          "start": 1361,
+          "end": 1450
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "chunk_index": 4,
+          "start": 2480,
+          "end": 3180
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 2,
+          "start": 1240,
+          "end": 1940
+        }
+      ],
+      "graph_candidates": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+          "rank": 1,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Harbor Import"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Reed Data Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Harbor Import"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Harbor Import"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "rank": 2,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Harbor Import"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Reed Data Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "feature",
+                "name": "Harbor Import"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Harbor Import"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:4",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 2603,
+                      "end": 2664,
+                      "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-MARSH"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-DE3"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 1361,
+                      "end": 1450,
+                      "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                false,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true,
+            false
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.2277000000958651,
+      "llm_calls": 0
+    },
+    {
+      "id": "kestrel-syn-12",
+      "type": "two hops",
+      "question": "Which product feature sends its scheduled jobs to the service owned by Indigo Operations?",
+      "answerable": true,
+      "expected_answer": "Aurora Reports sends scheduled jobs to SVC-ORBIT, owned by Indigo Operations.",
+      "evidence": [
+        {
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
+          "start": 438,
+          "end": 514
+        },
+        {
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
+          "start": 3115,
+          "end": 3184
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "index_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324",
+          "filename": "service-catalog.md",
+          "content_hash": "fac74703a72842482b342a940c0f2c1efa99497862c651e941cc879f4af58bf7",
+          "chunk_index": 0,
+          "start": 0,
+          "end": 700
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "index_id": "2afaf780-da5d-4996-86cf-f376b248800c",
+          "filename": "product-guide.md",
+          "content_hash": "893054bd13cd1ea90b60db758daa8114d25a967f9db6617db445446562c70949",
+          "chunk_index": 5,
+          "start": 3100,
+          "end": 3800
+        }
+      ],
+      "graph_candidates": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "rank": 1,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "team",
+                "name": "Indigo Operations"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "processes_in",
+                  "object": {
+                    "kind": "region",
+                    "name": "EU-FR2"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 479,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2"
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                true,
+                false
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "team",
+                "name": "Indigo Operations"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                true,
+                true
+              ]
+            },
+            {
+              "matched_entity": {
+                "kind": "team",
+                "name": "Indigo Operations"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "rank": 2,
+          "paths": [
+            {
+              "matched_entity": {
+                "kind": "team",
+                "name": "Indigo Operations"
+              },
+              "edges": [
+                {
+                  "subject": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "relation": "owned_by",
+                  "object": {
+                    "kind": "team",
+                    "name": "Indigo Operations"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+                      "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+                      "filename": "service-catalog.md",
+                      "start": 438,
+                      "end": 514,
+                      "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations."
+                    }
+                  ]
+                },
+                {
+                  "subject": {
+                    "kind": "feature",
+                    "name": "Aurora Reports"
+                  },
+                  "relation": "dispatches_to",
+                  "object": {
+                    "kind": "service",
+                    "name": "SVC-ORBIT"
+                  },
+                  "sources": [
+                    {
+                      "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+                      "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+                      "filename": "product-guide.md",
+                      "start": 3115,
+                      "end": 3184,
+                      "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT."
+                    }
+                  ]
+                }
+              ],
+              "traversed_reverse": [
+                true,
+                true
+              ]
+            }
+          ]
+        }
+      ],
+      "scores": {
+        "1": {
+          "evidence_hits": [
+            true,
+            false
+          ],
+          "hit": true,
+          "complete": false
+        },
+        "3": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "5": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        },
+        "10": {
+          "evidence_hits": [
+            true,
+            true
+          ],
+          "hit": true,
+          "complete": true
+        }
+      },
+      "retrieval_error": null,
+      "generation_error": null,
+      "retrieval_latency_ms": 0.22960000001148728,
+      "llm_calls": 0
+    }
+  ]
+}
