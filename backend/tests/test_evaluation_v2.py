@@ -77,6 +77,7 @@ def test_generation_receives_recorded_chunk_text(monkeypatch):
 
     def fake_generate(**kwargs):
         captured.update(kwargs)
+        kwargs["usage"].update(llm_calls=1, input_tokens=20, output_tokens=4)
         return (
             DraftAnswer(
                 status="answered",
@@ -88,12 +89,15 @@ def test_generation_receives_recorded_chunk_text(monkeypatch):
 
     monkeypatch.setattr(evaluation, "generate_answer", fake_generate)
 
+    usage = {"llm_calls": 0, "input_tokens": 0, "output_tokens": 0}
     result = evaluation.generate_recorded_answer(
         "When?",
         [{"chunk_id": "chunk-1", "text": "The raven arrived at dawn."}],
+        usage=usage,
     )
 
     assert captured["evidence"] == [
         {"chunk_id": "chunk-1", "text": "The raven arrived at dawn."}
     ]
     assert result["model"] == "test-model"
+    assert usage == {"llm_calls": 1, "input_tokens": 20, "output_tokens": 4}

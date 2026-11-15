@@ -166,6 +166,44 @@
       "answerable": false,
       "expected_answer": "The documents do not provide an outbound IPv6 CIDR range for SVC-MARSH.",
       "evidence": []
+    },
+    {
+      "id": "kestrel-syn-11",
+      "type": "two hops",
+      "question": "Which team owns the service that receives ordinary Harbor Import ingestion jobs?",
+      "answerable": true,
+      "expected_answer": "Harbor Import dispatches ingestion jobs to SVC-MARSH, owned by Reed Data Operations.",
+      "evidence": [
+        {
+          "document": "product-guide",
+          "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH.",
+          "start": 2603
+        },
+        {
+          "document": "service-catalog",
+          "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations.",
+          "start": 1361
+        }
+      ]
+    },
+    {
+      "id": "kestrel-syn-12",
+      "type": "two hops",
+      "question": "Which product feature sends its scheduled jobs to the service owned by Indigo Operations?",
+      "answerable": true,
+      "expected_answer": "Aurora Reports sends scheduled jobs to SVC-ORBIT, owned by Indigo Operations.",
+      "evidence": [
+        {
+          "document": "service-catalog",
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
+          "start": 438
+        },
+        {
+          "document": "product-guide",
+          "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
+          "start": 3115
+        }
+      ]
     }
   ]
 }
