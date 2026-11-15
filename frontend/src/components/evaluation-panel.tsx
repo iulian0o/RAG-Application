@@ -1,6 +1,11 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { postJson, requestJson, type Dataset, type EvaluationRun } from "@/lib/v2-api"
+import {
+  postJson,
+  requestJson,
+  type Dataset,
+  type EvaluationRun,
+} from "@/lib/v2-api"
 import { useRequest } from "@/lib/use-request"
 
 function percentage(value: number | null) {
@@ -17,6 +22,42 @@ function downloadRun(run: EvaluationRun) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
+function configurationRows(run: EvaluationRun): [string, string][] {
+  const config = { ...run, ...run.settings }
+  const weights = config.weights
+    ? Object.entries(config.weights)
+        .map(([name, weight]) => `${name}=${weight}`)
+        .join(", ")
+    : config.weights === null
+      ? "none"
+      : undefined
+  const depth =
+    config.candidate_depth === null
+      ? "default"
+      : config.candidate_depth?.toString()
+
+  const rows: [string, string | undefined][] = [
+    ["Retrievers", config.retrievers?.join(" + ")],
+    ["Fusion", config.fusion],
+    ["Weights", weights],
+    ["RRF k", config.rrf_k?.toString()],
+    ["Candidate depth", depth],
+    ["Git commit", config.git_commit ?? undefined],
+  ]
+
+  return rows.filter((row): row is [string, string] => row[1] !== undefined)
+}
+
+function hasGraphProblem(run: EvaluationRun) {
+  const mentionsGraph = (text?: string | null) =>
+    !!text && /Concept Graph/i.test(text)
+
+  return (
+    mentionsGraph(run.error) ||
+    run.results.some((item) => mentionsGraph(item.retrieval_error))
+  )
+}
+
 export function EvaluationPanel() {
   const datasets = useRequest<Dataset[]>()
   const evaluation = useRequest<EvaluationRun>()
@@ -28,6 +69,7 @@ export function EvaluationPanel() {
   const groups = run?.summary
     ? [["Overall", run.summary] as const, ...Object.entries(run.by_type ?? {})]
     : []
+  const configRows = run ? configurationRows(run) : []
 
   return (
     <section className="space-y-5" aria-label="Evaluation">
@@ -116,21 +158,49 @@ export function EvaluationPanel() {
               </p>
             )}
           </div>
+
+          {hasGraphProblem(run) && (
+            <p role="alert" className="text-sm">
+              The Concept Graph is missing or stale for this run. Rebuild it
+              with build_concept_graph (see the README), then run the
+              evaluation again.
+            </p>
+          )}
+
           <Button type="button" variant="outline" onClick={() => downloadRun(run)}>
             Download JSON
           </Button>
 
-          <details>
-            <summary className="cursor-pointer">Index settings</summary>
-            <ul>
-              {run.snapshot.indexes.map((index) => (
-                <li key={index.document_id} className="break-words">
-                  {index.document_id} · {index.chunk_size} characters · {index.overlap} overlap
-                  {" · "}{index.model_name}
-                </li>
-              ))}
-            </ul>
+          <details open>
+            <summary className="cursor-pointer">Retrieval configuration</summary>
+            {configRows.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No retrieval configuration was recorded for this run.
+              </p>
+            ) : (
+              <ul className="break-words text-sm">
+                {configRows.map(([label, value]) => (
+                  <li key={label}>
+                    {label}: {value}
+                  </li>
+                ))}
+              </ul>
+            )}
           </details>
+
+          {run.snapshot && (
+            <details>
+              <summary className="cursor-pointer">Index settings</summary>
+              <ul>
+                {run.snapshot.indexes.map((index) => (
+                  <li key={index.document_id} className="break-words">
+                    {index.document_id} · {index.chunk_size} characters · {index.overlap} overlap
+                    {" · "}{index.model_name}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
 
           {groups.length > 0 && (
             <div className="overflow-x-auto">

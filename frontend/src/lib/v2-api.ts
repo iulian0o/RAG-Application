@@ -54,13 +54,25 @@ type Summary = {
   metrics: Record<string, Metric>
 }
 
-export type EvaluationRun = {
+export type RunConfiguration = {
+  git_commit?: string | null
+  retrievers?: string[]
+  fusion?: string
+  weights?: Record<string, number> | null
+  rrf_k?: number
+  candidate_depth?: number | null
+}
+
+export type EvaluationRun = RunConfiguration & {
   run_id: string
   dataset_name: string
   status: string
   error?: string
-  settings: { generate_answers: boolean; answer_top_k: number }
-  snapshot: {
+  settings?: RunConfiguration & {
+    generate_answers?: boolean
+    answer_top_k?: number
+  }
+  snapshot?: {
     indexes: {
       document_id: string
       chunk_size: number
