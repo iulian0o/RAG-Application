@@ -12,9 +12,9 @@ const citationSchema = z.object({
   start: z.number().int().nonnegative(),
   end: z.number().int().positive(),
   text: z.string(),
-  distance: z.number().finite().nullable().optional(),
+  distance: z.number().nullable().optional(),
   fused_rank: z.number().int().min(1).default(1),
-  fused_score: z.number().finite().default(0),
+  fused_score: z.number().default(0),
   retriever_ranks: z.record(z.string(), z.number().int().min(1)).default({}),
   evidence: z.record(z.string(), z.record(z.string(), z.unknown())).default({}),
   graph_paths: z.array(z.record(z.string(), z.unknown())).default([]),
@@ -47,4 +47,64 @@ export type QuestionRequest = {
   top_k: number
   retrievers?: RetrieverName[]
   candidate_depth?: number
+}
+
+export async function askQuestion(
+  request: QuestionRequest,
+): Promise<QuestionResponse> {
+  let response: Response
+
+  try {
+    response = await fetch("/api/questions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(request),
+      signal: AbortSignal.timeout(180000),
+    })
+  } catch {
+    throw new Error(
+      "The server could not be reached or the answer timed out. " +
+        "Check the backend before retrying.",
+    )
+  }
+
+  const body: unknown = await response.json().catch(() => null)
+
+  if (!response.ok) {
+    const error = z.object({ detail: z.string() }).safeParse(body)
+
+    throw new Error(
+      error.success
+        ? error.data.detail
+        : `The question failed (HTTP ${response.status}). Check your inputs.`,
+    )
+  }
+
+  const parsed = questionResponseSchema.safeParse(body)
+
+  if (!parsed.success) {
+    throw new Error("The server returned an unexpected answer format.")
+  }
+
+  const result = parsed.data
+  const citationIds = result.citations.map((citation) => citation.chunk_id)
+
+  if (
+    result.question !== request.question ||
+    (result.status === "answered" && result.citations.length === 0) ||
+    (result.status === "insufficient_evidence" &&
+      result.citations.length !== 0) ||
+    new Set(citationIds).size !== citationIds.length ||
+    result.citations.some(
+      (citation) =>
+        !request.document_ids.includes(citation.document_id) ||
+        citation.end <= citation.start,
+    )
+  ) {
+    throw new Error("The answer or its references are inconsistent.")
+  }
+
+  return result
 }
