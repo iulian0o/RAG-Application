@@ -62,3 +62,47 @@ or questions loaded from the evaluation sets.
 Open Evaluation and load the available corpora. Select a corpus and run the
 evaluation. Enable Generate answers when you want grounded answers alongside
 retrieval results. Use the run ID to reopen saved results or download the JSON.
+
+## Using Ask with retrievers (V3)
+
+Open the Ask view, select at least one indexed document, then choose the
+retrievers: **Dense**, **BM25** and **Concept Graph**. They can be combined.
+With several retrievers, the backend fuses their rankings with reciprocal
+rank fusion (RRF) and only the fused top-k passages reach the model.
+An empty retriever selection is rejected.
+
+Each supporting passage shows:
+
+- its fused rank (`#1`) and the rank each retriever gave it
+  (for example `dense: 2 · bm25: 1`);
+- the cosine distance, only when Dense found the passage;
+- for Concept Graph results, the entity matched in the question, each edge
+  traversed (subject, relation, object) and the source quote of each edge.
+
+The line under the answer lists the retrievers, candidate depth and RRF k
+used for that answer.
+
+### Concept Graph
+
+The graph exists only for the indexed Kestrel documents. Build it from the
+`backend` directory with the backend environment active:
+
+```powershell
+python -m app.build_concept_graph kestrel
+```
+
+This calls the LLM provider and consumes tokens. Inspect ranked paths in the
+existing graph without rebuilding:
+
+```powershell
+python -m app.build_concept_graph kestrel --question "SVC-ORBIT"
+```
+
+If the Ask view reports that the graph is missing or stale (for example after
+re-indexing), rebuild it, or uncheck Concept Graph to use Dense and BM25 only.
+
+### Evaluation view
+
+Open a saved run by its ID. The **Retrieval configuration** section shows the
+retrievers, fusion mode, weights, RRF k, candidate depth and Git commit recorded
+in the run. Runs that did not record a configuration say so.
