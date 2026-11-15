@@ -37,6 +37,8 @@ Rules:
 def generate_answer(
     question: str,
     evidence: list[dict[str, str]],
+    *,
+    usage: dict[str, int | None] | None = None,
 ) -> tuple[DraftAnswer, str]:
     load_dotenv(ENV_FILE, override=False)
 
@@ -62,6 +64,8 @@ def generate_answer(
             api_key=api_key,
             http_options=types.HttpOptions(timeout=60000),
         ) as client:
+            if usage is not None:
+                usage.update(llm_calls=1, input_tokens=None, output_tokens=None)
             response = client.models.generate_content(
                 model=model_name,
                 contents=payload,
@@ -73,6 +77,11 @@ def generate_answer(
                 ),
             )
 
+        if usage is not None and response.usage_metadata is not None:
+            usage.update(
+                input_tokens=response.usage_metadata.prompt_token_count,
+                output_tokens=response.usage_metadata.candidates_token_count,
+            )
         raw_response = response.text or ""
 
     except errors.APIError as error:
