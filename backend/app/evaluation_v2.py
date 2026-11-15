@@ -5,6 +5,7 @@ import subprocess
 from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
+from time import perf_counter
 from uuid import uuid4
 
 from filelock import FileLock
@@ -133,7 +134,9 @@ def safe_error(error: Exception) -> str:
     return f"{type(error).__name__}: inspect the backend logs."
 
 
-def generate_recorded_answer(question: str, chunks: list[dict]) -> dict:
+def generate_recorded_answer(
+    question: str, chunks: list[dict], *, usage: dict[str, int | None] | None = None,
+) -> dict:
     if not chunks:
         return {
             "status": "insufficient_evidence",
@@ -148,6 +151,7 @@ def generate_recorded_answer(question: str, chunks: list[dict]) -> dict:
             {"chunk_id": chunk["chunk_id"], "text": chunk["text"]}
             for chunk in chunks
         ],
+        **({"usage": usage} if usage is not None else {}),
     )
 
     value = answer.model_dump()
@@ -219,6 +223,8 @@ def evaluate_locked(request: RunRequest) -> dict:
 
     try:
         for question in questions:
+            started = perf_counter()
+            usage: dict[str, int | None] = {"llm_calls": 0, "input_tokens": 0, "output_tokens": 0}
             result = {
                 **question,
                 "retrieved": [],
@@ -243,6 +249,7 @@ def evaluate_locked(request: RunRequest) -> dict:
                 ]
             except Exception as error:
                 result["retrieval_error"] = safe_error(error)
+            result["retrieval_latency_ms"] = (perf_counter() - started) * 1000
 
             result["scores"] = score_question(
                 result["evidence"], result["retrieved"]
@@ -253,10 +260,13 @@ def evaluate_locked(request: RunRequest) -> dict:
                     result["answer"] = generate_recorded_answer(
                         question["question"],
                         result["retrieved"][:request.answer_top_k],
+                        usage=usage,
                     )
                 except Exception as error:
                     result["generation_error"] = safe_error(error)
 
+            result["end_to_end_latency_ms"] = (perf_counter() - started) * 1000
+            result.update(usage)
             results.append(result)
             atomic_write(output_path, output)
 
