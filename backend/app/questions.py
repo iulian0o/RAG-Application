@@ -50,6 +50,7 @@ def ask_question(request: RetrievalRequest) -> QuestionResponse:
             answer=INSUFFICIENT_EVIDENCE_MESSAGE,
             citations=[],
             model=None,
+            retrieval=summary,
         )
 
     evidence = [
@@ -72,6 +73,7 @@ def ask_question(request: RetrievalRequest) -> QuestionResponse:
             answer=INSUFFICIENT_EVIDENCE_MESSAGE,
             citations=[],
             model=model_name,
+            retrieval=summary,
         )
 
     chunks_by_id = {
@@ -88,4 +90,5 @@ def ask_question(request: RetrievalRequest) -> QuestionResponse:
             for chunk_id in draft.citation_ids
         ],
         model=model_name,
+        retrieval=summary,
     )
