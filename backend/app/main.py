@@ -17,6 +17,8 @@ from app.words import router as words_router
 
 from app.evaluation import router as evaluation_router
 
+from app.traces import initialize_traces, router as traces_router, trace_operation
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     initialize_database()
@@ -38,6 +40,9 @@ app.include_router(questions_router)
 
 app.include_router(words_router)
 app.include_router(evaluation_router)
+
+app.middleware("http")(trace_operation)
+app.include_router(traces_router)
 
 class HealthResponse(BaseModel):
     status: Literal["ok"]
