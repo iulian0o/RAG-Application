@@ -23,13 +23,13 @@ function downloadRun(run: EvaluationRun) {
 }
 
 function configurationRows(run: EvaluationRun): [string, string][] {
-  const config = { ...run, ...run.settings }
+  const config = { ...run, ...run.settings, ...run.retrieval_config }
   const weights = config.weights
     ? Object.entries(config.weights)
         .map(([name, weight]) => `${name}=${weight}`)
         .join(", ")
     : config.weights === null
-      ? "none"
+      ? "none (plain RRF)"
       : undefined
   const depth =
     config.candidate_depth === null
@@ -37,12 +37,20 @@ function configurationRows(run: EvaluationRun): [string, string][] {
       : config.candidate_depth?.toString()
 
   const rows: [string, string | undefined][] = [
+    ["Configuration", config.name],
     ["Retrievers", config.retrievers?.join(" + ")],
     ["Fusion", config.fusion],
     ["Weights", weights],
     ["RRF k", config.rrf_k?.toString()],
     ["Candidate depth", depth],
+    ["Final top-k", config.final_top_k?.toString()],
     ["Git commit", config.git_commit ?? undefined],
+    [
+      "Mean retrieval latency",
+      run.latency_ms?.mean != null
+        ? `${run.latency_ms.mean.toFixed(1)} ms`
+        : undefined,
+    ],
   ]
 
   return rows.filter((row): row is [string, string] => row[1] !== undefined)
@@ -123,6 +131,11 @@ export function EvaluationPanel() {
             Run evaluation
           </Button>
         </fieldset>
+        <p className="text-xs text-muted-foreground">
+          This button runs the dense-only V2 evaluation. Compare retrieval
+          configurations with the V3 benchmark command (see the README), then
+          open the saved run below.
+        </p>
       </form>
 
       <form className="flex flex-wrap items-end gap-2" onSubmit={(event) => {
@@ -148,7 +161,7 @@ export function EvaluationPanel() {
           <div>
             <h3 className="font-semibold">{run.dataset_name}</h3>
             <p className="break-all">Run ID: {run.run_id}</p>
-            <p>Status: {run.status.replaceAll("_", " ")}</p>
+            <p>Status: {(run.status ?? "unknown").replaceAll("_", " ")}</p>
             {run.error && <p role="alert">{run.error}</p>}
             {run.summary && (
               <p>
@@ -162,8 +175,8 @@ export function EvaluationPanel() {
           {hasGraphProblem(run) && (
             <p role="alert" className="text-sm">
               The Concept Graph is missing or stale for this run. Rebuild it
-              with build_concept_graph (see the README), then run the
-              evaluation again.
+              with <code>python -m app.build_concept_graph kestrel</code> from
+              the backend directory, then run the evaluation again.
             </p>
           )}
 
@@ -238,6 +251,21 @@ export function EvaluationPanel() {
                 {item.id} · {item.type} · {item.question}
               </summary>
               <p>{item.answerable ? "Answerable" : "Unanswerable"}</p>
+              {item.first_hit_rank != null && (
+                <p className="text-sm">
+                  First chunk overlapping the evidence: rank {item.first_hit_rank}
+                </p>
+              )}
+              {item.retrieval_latency_ms != null && (
+                <p className="text-xs text-muted-foreground">
+                  Retrieval {item.retrieval_latency_ms.toFixed(0)} ms
+                  {item.end_to_end_latency_ms != null &&
+                    ` · end-to-end ${item.end_to_end_latency_ms.toFixed(0)} ms`}
+                  {item.llm_calls != null && ` · ${item.llm_calls} LLM calls`}
+                  {item.input_tokens != null &&
+                    ` · ${item.input_tokens} in / ${item.output_tokens ?? "?"} out tokens`}
+                </p>
+              )}
               {item.retrieval_error && <p>Retrieval error: {item.retrieval_error}</p>}
               {item.generation_error && <p>Generation error: {item.generation_error}</p>}
               {item.answer && (
@@ -254,8 +282,14 @@ export function EvaluationPanel() {
                 <details key={chunk.chunk_id} className="rounded-md border p-2">
                   <summary className="cursor-pointer break-all">
                     {rank + 1}. {chunk.filename} · {chunk.start}–{chunk.end} · {chunk.chunk_id}
+                    {chunk.retriever_ranks &&
+                      Object.entries(chunk.retriever_ranks).map(
+                        ([name, value]) => ` · ${name}: ${value}`,
+                      )}
                   </summary>
-                  <p className="whitespace-pre-wrap break-words">{chunk.text}</p>
+                  <p className="whitespace-pre-wrap break-words">
+                    {chunk.text ?? "Chunk text was not saved in this run."}
+                  </p>
                 </details>
               ))}
             </details>

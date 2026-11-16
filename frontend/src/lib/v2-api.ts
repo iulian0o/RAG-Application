@@ -12,6 +12,12 @@ export type Chunk = {
   text: string
 }
 
+export type RetrievedItem = Omit<Chunk, "text"> & {
+  text?: string
+  fused_rank?: number
+  retriever_ranks?: Record<string, number>
+}
+
 export type Word = {
   word: string
   occurrences: number
@@ -55,23 +61,28 @@ type Summary = {
 }
 
 export type RunConfiguration = {
+  name?: string
   git_commit?: string | null
   retrievers?: string[]
   fusion?: string
   weights?: Record<string, number> | null
   rrf_k?: number
   candidate_depth?: number | null
+  final_top_k?: number
 }
 
 export type EvaluationRun = RunConfiguration & {
   run_id: string
   dataset_name: string
   status: string
+  kind?: string
   error?: string
   settings?: RunConfiguration & {
     generate_answers?: boolean
     answer_top_k?: number
   }
+  retrieval_config?: RunConfiguration
+  latency_ms?: { mean: number | null; max: number | null }
   snapshot?: {
     indexes: {
       document_id: string
@@ -87,10 +98,16 @@ export type EvaluationRun = RunConfiguration & {
     question: string
     type: string
     answerable: boolean
-    retrieved: Chunk[]
+    retrieved: RetrievedItem[]
     retrieval_error: string | null
     generation_error: string | null
     answer: { status: string; answer: string; citation_ids: string[] } | null
+    first_hit_rank?: number | null
+    retrieval_latency_ms?: number | null
+    end_to_end_latency_ms?: number | null
+    llm_calls?: number | null
+    input_tokens?: number | null
+    output_tokens?: number | null
   }[]
 }
 
