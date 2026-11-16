@@ -170,38 +170,38 @@
     {
       "id": "kestrel-syn-11",
       "type": "two hops",
-      "question": "Which team owns the service that receives ordinary Harbor Import ingestion jobs?",
+      "question": "Which region and team handle ordinary Harbor Import ingestion jobs?",
       "answerable": true,
-      "expected_answer": "Harbor Import dispatches ingestion jobs to SVC-MARSH, owned by Reed Data Operations.",
+      "expected_answer": "Harbor Import dispatches ingestion jobs to SVC-MARSH, which processes them in EU-DE3 and is owned by Reed Data Operations.",
       "evidence": [
         {
           "document": "product-guide",
           "quote": "Harbor Import dispatches ingestion jobs to service SVC-MARSH.",
-          "start": 2603
+          "start": null
         },
         {
           "document": "service-catalog",
           "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations.",
-          "start": 1361
+          "start": null
         }
       ]
     },
     {
       "id": "kestrel-syn-12",
       "type": "two hops",
-      "question": "Which product feature sends its scheduled jobs to the service owned by Indigo Operations?",
+      "question": "Which operational queue handles scheduled Aurora Reports jobs, and what does each accepted request receive before rendering begins?",
       "answerable": true,
-      "expected_answer": "Aurora Reports sends scheduled jobs to SVC-ORBIT, owned by Indigo Operations.",
+      "expected_answer": "Aurora Reports dispatches scheduled jobs to SVC-ORBIT. Its operational queue is orbit-dispatch, and each accepted request receives a dispatch receipt before rendering begins.",
       "evidence": [
-        {
-          "document": "service-catalog",
-          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
-          "start": 438
-        },
         {
           "document": "product-guide",
           "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
-          "start": 3115
+          "start": null
+        },
+        {
+          "document": "service-catalog",
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins.",
+          "start": null
         }
       ]
     }

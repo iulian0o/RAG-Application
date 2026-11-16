@@ -1,0 +1,265 @@
+{
+  "artifact_id": "90725636e10f4649b297c99823b31913",
+  "seed": 3,
+  "build": {
+    "chunks": 53,
+    "llm_calls": 1,
+    "cached_chunks": 52,
+    "input_tokens": 12110,
+    "output_tokens": 1635,
+    "failed_chunks": 0,
+    "rejected_triples": 1,
+    "merged_entity_mentions": 9,
+    "elapsed_seconds": 0.9363246999998864
+  },
+  "entity_count": 15,
+  "relation_count": 12,
+  "triples": [
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-GLIDE"
+      },
+      "relation": "processes_in",
+      "object": {
+        "kind": "region",
+        "name": "EU-NL1"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:5",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 3327,
+          "end": 3492,
+          "quote": "SVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1.",
+          "chunk_excerpt": " counters expose aggregate accepted and rejected counts without including event bodies. Investigators needing event bodies must follow the separate approved collection process described in the security handbook.\n\n## SVC-GLIDE\n\nSVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1. The identifier resembles SVC-GLINT, but the two entries refer to different operational services. GLIDE publishes connector status events and uses the queue glide-status. Its receipt records the connector identifier, observed watermark, and event revision.\n\nA temporary consumer pause leaves events in the se"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The cited passage assigns GLIDE to EU-NL1."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-MARSH"
+      },
+      "relation": "processes_in",
+      "object": {
+        "kind": "region",
+        "name": "EU-DE3"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 1361,
+          "end": 1450,
+          "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations.",
+          "chunk_excerpt": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The passage explicitly places MARSH ingestion processing in EU-DE3."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-MARSH"
+      },
+      "relation": "owned_by",
+      "object": {
+        "kind": "team",
+        "name": "Reed Data Operations"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:2",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 1361,
+          "end": 1450,
+          "quote": "SVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations.",
+          "chunk_excerpt": "ceipt without an artifact. The receipt is retained for investigation even when no export usage is posted.\n\n## SVC-MARSH\n\nSVC-MARSH processes ingestion jobs in region EU-DE3 and is owned by Reed Data Operations. Its operational queue is marsh-ingest. A worker validates schema compatibility before accepting a batch into a destination dataset. The receipt separates validation rejection from accepted-record counts. A retry with an existing request token consults the prior receipt before creating work. Operators should preserve the source digest when investigating a suspected duplicate ingestion.\n\nThe ingestion cancellation queue is marsh-abort. Cancellation prevents publication of uncommitted ba"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The passage names Reed Data Operations as the MARSH owner."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-GLIDE"
+      },
+      "relation": "owned_by",
+      "object": {
+        "kind": "team",
+        "name": "Silver Connectors"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:5",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 3327,
+          "end": 3492,
+          "quote": "SVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1.",
+          "chunk_excerpt": " counters expose aggregate accepted and rejected counts without including event bodies. Investigators needing event bodies must follow the separate approved collection process described in the security handbook.\n\n## SVC-GLIDE\n\nSVC-GLIDE accepts at most 420 records per batch and recommends a 20-second delay after a temporary consumer pause. It is owned by Silver Connectors in region EU-NL1. The identifier resembles SVC-GLINT, but the two entries refer to different operational services. GLIDE publishes connector status events and uses the queue glide-status. Its receipt records the connector identifier, observed watermark, and event revision.\n\nA temporary consumer pause leaves events in the se"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The GLIDE passage identifies Silver Connectors as the owner."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-GLINT"
+      },
+      "relation": "processes_in",
+      "object": {
+        "kind": "region",
+        "name": "EU-FR2"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 2364,
+          "end": 2544,
+          "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration.",
+          "chunk_excerpt": "lation queue is marsh-abort. Cancellation prevents publication of uncommitted batches while preserving already accepted receipts. A cancellation acknowledgment does not imply that previously published records were removed. Dataset correction is a distinct operation requiring the appropriate editor permission. If a checkpoint mismatch interrupts cancellation, follow the exact error-code procedure in the runbook before replaying pending batches or submitting another cancellation token.\n\n## SVC-GLINT\n\nSVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration. The retry must "
+        }
+      ],
+      "grade": "correct",
+      "reason": "The second sentence gives GLINT’s region and its antecedent is explicit in the preceding sentence."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-GLINT"
+      },
+      "relation": "owned_by",
+      "object": {
+        "kind": "team",
+        "name": "Prism Integration"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:3",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 2364,
+          "end": 2544,
+          "quote": "SVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration.",
+          "chunk_excerpt": "lation queue is marsh-abort. Cancellation prevents publication of uncommitted batches while preserving already accepted receipts. A cancellation acknowledgment does not imply that previously published records were removed. Dataset correction is a distinct operation requiring the appropriate editor permission. If a checkpoint mismatch interrupts cancellation, follow the exact error-code procedure in the runbook before replaying pending batches or submitting another cancellation token.\n\n## SVC-GLINT\n\nSVC-GLINT accepts at most 240 records per batch and requires a 45-second delay before retrying a rejected batch. Its processing region is EU-FR2 and its owner is Prism Integration. The retry must "
+        }
+      ],
+      "grade": "correct",
+      "reason": "The second sentence assigns ownership to Prism Integration and refers to GLINT in the preceding sentence."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-ORBIT"
+      },
+      "relation": "processes_in",
+      "object": {
+        "kind": "region",
+        "name": "EU-FR2"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 438,
+          "end": 479,
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2",
+          "chunk_excerpt": "# Kestrel Analytics service catalog\n\nCatalog revision 2026.11 for the fictional Kestrel evaluation environment. Operational identifiers are stable routing keys. Product labels and team names can change independently. Region codes in this catalog describe the assigned processing region for the named service. They do not establish a separate contractual residency guarantee for every integration or downstream destination.\n\n## SVC-ORBIT\n\nSVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins. The service stores the published view revision with the job. Renderin"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The catalog directly places ORBIT processing in EU-FR2."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-LANTERN"
+      },
+      "relation": "owned_by",
+      "object": {
+        "kind": "team",
+        "name": "Amber Reliability"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:6",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 4227,
+          "end": 4375,
+          "quote": "SVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue.",
+          "chunk_excerpt": "termark, and event revision.\n\nA temporary consumer pause leaves events in the service's queue until the consumer resumes or the queue retention period expires. The producer should inspect the receipt before submitting duplicates. Restarting a connector is a separate action and does not acknowledge queued status events. When a status event becomes stale, the next event can supersede its display value while the original receipt remains available for tracing the sequence of observations.\n\n## SVC-LANTERN\n\nSVC-LANTERN maintains the searchable receipt directory in region EU-DE3. Amber Reliability owns the service and monitors the lantern-receipts queue. Directory entries contain operation identifi"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The second sentence names Amber Reliability as the owner of the service identified as LANTERN in the preceding sentence."
+    },
+    {
+      "subject": {
+        "kind": "feature",
+        "name": "Aurora Reports"
+      },
+      "relation": "dispatches_to",
+      "object": {
+        "kind": "service",
+        "name": "SVC-ORBIT"
+      },
+      "sources": [
+        {
+          "chunk_id": "2afaf780-da5d-4996-86cf-f376b248800c:5",
+          "document_id": "7e6a5abb-0155-4483-9bb1-148a7ca4e44c",
+          "filename": "product-guide.md",
+          "start": 3115,
+          "end": 3184,
+          "quote": "Aurora Reports dispatches scheduled report jobs to service SVC-ORBIT.",
+          "chunk_excerpt": "and schedules\n\nAurora Reports dispatches scheduled report jobs to service SVC-ORBIT. A scheduled job captures the published view revision at the instant execution begins. Editing a draft view while the job runs does not alter its result. A successful job writes a report artifact and a delivery receipt. Delivery can fail after rendering succeeds, so the two statuses are displayed separately. Re-running delivery uses the existing artifact while re-running the complete job renders a new artifact from the current published revision.\n\nSchedules use the workspace time zone and retain that zone when an editor travels. The editor sees the next execution time together with its zone. A schedule change"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The product guide explicitly routes Aurora Reports scheduled jobs to ORBIT."
+    },
+    {
+      "subject": {
+        "kind": "service",
+        "name": "SVC-ORBIT"
+      },
+      "relation": "owned_by",
+      "object": {
+        "kind": "team",
+        "name": "Indigo Operations"
+      },
+      "sources": [
+        {
+          "chunk_id": "54f7dd29-3b68-4e14-a6a8-fdf78ccea324:0",
+          "document_id": "b7bb65cc-7422-4ea0-a066-52a9b7d558e4",
+          "filename": "service-catalog.md",
+          "start": 438,
+          "end": 514,
+          "quote": "SVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations.",
+          "chunk_excerpt": "# Kestrel Analytics service catalog\n\nCatalog revision 2026.11 for the fictional Kestrel evaluation environment. Operational identifiers are stable routing keys. Product labels and team names can change independently. Region codes in this catalog describe the assigned processing region for the named service. They do not establish a separate contractual residency guarantee for every integration or downstream destination.\n\n## SVC-ORBIT\n\nSVC-ORBIT processes jobs in region EU-FR2 and is owned by Indigo Operations. Its operational queue is orbit-dispatch. Each accepted request receives a dispatch receipt before rendering begins. The service stores the published view revision with the job. Renderin"
+        }
+      ],
+      "grade": "correct",
+      "reason": "The catalog names Indigo Operations as the ORBIT owner."
+    }
+  ],
+  "grade_counts": {
+    "correct": 10,
+    "wrong": 0,
+    "unsupported": 0
+  },
+  "review": "Reviewed against the saved source excerpts. Teammate review pending."
+}

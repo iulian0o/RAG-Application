@@ -378,3 +378,20 @@ def retrieve_graph(
         for rank, (chunk_id, paths) in enumerate(matches.items(), 1)
         if rank <= limit
     ]
+
+SCHEMA_VERSION = 2
+EntityType = Literal["feature", "service", "region", "team", "queue", "receipt"]
+Relation = Literal[
+    "dispatches_to",
+    "processes_in",
+    "owned_by",
+    "uses_operational_queue",
+    "issues_dispatch_receipt",
+]
+ENDPOINTS = {
+    "dispatches_to": ("feature", "service"),
+    "processes_in": ("service", "region"),
+    "owned_by": ("service", "team"),
+    "uses_operational_queue": ("service", "queue"),
+    "issues_dispatch_receipt": ("service", "receipt"),
+}
