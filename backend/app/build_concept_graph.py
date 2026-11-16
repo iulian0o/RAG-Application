@@ -1,3 +1,4 @@
+
 """Build and inspect the Kestrel graph from the backend directory."""
 
 import argparse
@@ -10,6 +11,7 @@ from dotenv import load_dotenv
 from fastapi import HTTPException
 from google import genai
 from google.genai import types
+from torch import chunk
 
 from app.concept_graph import (
     PROMPT,
@@ -22,6 +24,8 @@ from app.generation import ENV_FILE
 from app.evaluation_datasets import read_dataset, resolve_dataset
 from app.evaluation_v2 import atomic_write, score_question, summarize
 from app.word_chunks import read_word_chunks
+
+from app.redaction import RedactionSession
 
 
 def evaluate_graph(output):
@@ -97,6 +101,7 @@ def main():
             response_json_schema=ProviderExtraction.model_json_schema(),
             temperature=0,
         )
+
         with genai.Client(api_key=api_key, http_options=types.HttpOptions(timeout=60000)) as client:
             next_call = 0.0
 
@@ -104,7 +109,16 @@ def main():
                 nonlocal next_call
                 sleep(max(0.0, next_call - monotonic()))
                 next_call = monotonic() + args.request_interval
-                response = client.models.generate_content(model=model, contents=chunk, config=config)
+
+                redaction = RedactionSession()
+                redacted_chunk = redaction.redact(chunk)
+
+                response = client.models.generate_content(
+                    model=model,
+                    contents=redacted_chunk,
+                    config=config,
+                )
+
                 usage = response.usage_metadata
                 return (
                     response.text or "",

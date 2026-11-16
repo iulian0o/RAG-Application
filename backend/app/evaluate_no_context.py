@@ -12,6 +12,7 @@ from app.evaluation_datasets import read_dataset
 from app.evaluation_v2 import RESULT_DIRECTORY, atomic_write, git_commit
 from app.generation import ENV_FILE
 
+from app.redaction import redact_personal_data
 
 BASELINE_INSTRUCTION = (
     "Answer the question using your own knowledge. "
@@ -22,7 +23,7 @@ BASELINE_INSTRUCTION = (
 def ask_without_context(client, model: str, question: str) -> str:
     response = client.models.generate_content(
         model=model,
-        contents=question,
+        contents=redact_personal_data(question),
         config=types.GenerateContentConfig(
             system_instruction=BASELINE_INSTRUCTION,
             max_output_tokens=2048,
