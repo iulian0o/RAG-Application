@@ -83,9 +83,20 @@ def create_run(request: RunRequest):
 
 @router.get("/runs/{run_id}")
 def get_run(run_id: UUID):
-    path = RESULT_DIRECTORY / f"{run_id.hex}.json"
+    path = next(
+        (
+            candidate
+            for candidate in (
+                RESULT_DIRECTORY / f"{run_id.hex}.json",
+                RESULT_DIRECTORY / f"v3-{run_id.hex}.json",
+                RESULT_DIRECTORY / f"no-context-{run_id.hex}.json",
+            )
+            if candidate.is_file()
+        ),
+        None,
+    )
 
-    if not path.is_file():
+    if path is None:
         raise HTTPException(404, "Evaluation run not found.")
 
     try:
