@@ -352,6 +352,8 @@ def retrieve_chunks(request: RetrievalRequest) -> RetrievalResponse:
     finally:
         index_write_lock.release()
 
+    index_ids: list[str] = Field(default_factory=list)
+
 
 @router.post("/search", response_model=RetrievalResponse)
 def search(request: RetrievalRequest) -> RetrievalResponse:

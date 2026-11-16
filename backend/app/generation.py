@@ -14,6 +14,13 @@ from app.answer_contract import DraftAnswer, validate_answer
 
 logger = logging.getLogger(__name__)
 
+class InvalidModelOutput(HTTPException):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=502,
+            detail="The model returned an invalid answer or citation. Try again.",
+        )
+
 ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
 
 
@@ -46,7 +53,7 @@ def generate_answer(
     model_name = os.getenv("GEMINI_MODEL", "").strip()
 
     if not api_key or not model_name:
-        raise HTTPException(
+        raise InvalidModelOutput() from error(
             503,
             "Answer generation is not configured. Set the backend API key and model.",
         )
