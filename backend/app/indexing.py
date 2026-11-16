@@ -1,14 +1,15 @@
 import logging
 from datetime import datetime, timezone
 from threading import Lock
-from uuid import uuid4
+from uuid import UUID, uuid4
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from app.chunking import ChunkSettings, split_text
 from app.database import database
 from app.embeddings import MODEL_NAME, embed_texts
+from app.traces import IndexDetails, TraceRecord
 from app.vector_store import get_collection
 
 
@@ -33,6 +34,10 @@ class IndexResponse(BaseModel):
     overlap: int
     chunk_count: int
     created_at: datetime
+
+
+class IndexBuildResponse(IndexResponse):
+    trace_id: UUID
 
 
 def read_index(document_id: str) -> IndexResponse:
@@ -63,12 +68,24 @@ def cleanup_index(index_id: str) -> None:
         logger.exception("Could not remove unused index %s", index_id)
 
 
-@router.post("/rebuild", response_model=IndexResponse)
-def rebuild_index(request: BuildIndexRequest) -> IndexResponse:
+@router.post("/rebuild", response_model=IndexBuildResponse)
+def rebuild_index(
+    request: BuildIndexRequest,
+    http_request: Request,
+) -> IndexBuildResponse:
+    trace: TraceRecord = http_request.state.trace
+    details = IndexDetails(
+        chunk_size=request.settings.chunk_size,
+        overlap=request.settings.overlap,
+    )
+    trace.indexing = details
+    trace.model = MODEL_NAME
+
     if not index_write_lock.acquire(blocking=False):
         raise HTTPException(409, "Another index operation is running. Retry shortly.")
 
     new_index_id = str(uuid4())
+    details.attempted_index_id = new_index_id
     published = False
 
     try:
@@ -88,6 +105,7 @@ def rebuild_index(request: BuildIndexRequest) -> IndexResponse:
 
         chunks = split_text(document["content"], request.settings)
 
+        details.chunk_count = len(chunks)
         if not chunks:
             raise HTTPException(422, "The document contains no usable text.")
 
@@ -119,7 +137,7 @@ def rebuild_index(request: BuildIndexRequest) -> IndexResponse:
                 ],
             )
 
-        result = IndexResponse(
+        result = IndexBuildResponse(
             document_id=document["id"],
             index_id=new_index_id,
             content_hash=document["content_hash"],
@@ -128,6 +146,7 @@ def rebuild_index(request: BuildIndexRequest) -> IndexResponse:
             overlap=request.settings.overlap,
             chunk_count=len(chunks),
             created_at=datetime.now(timezone.utc),
+            trace_id=trace.trace_id,
         )
 
         with database() as connection:
@@ -160,6 +179,8 @@ def rebuild_index(request: BuildIndexRequest) -> IndexResponse:
             )
 
         published = True
+        details.published_index_id = new_index_id
+        trace.outcome = "indexed"
 
         if old_index is not None:
             cleanup_index(old_index["index_id"])

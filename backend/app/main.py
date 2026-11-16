@@ -22,6 +22,7 @@ from app.traces import initialize_traces, router as traces_router, trace_operati
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     initialize_database()
+    initialize_traces()
     yield
 
 
