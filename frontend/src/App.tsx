@@ -10,17 +10,6 @@ export default function App() {
   const [view, setView] = useState<View>("Ask")
   const [documentMode, setDocumentMode] = useState<"ask" | "words">("ask")
 
-  if (window.location.pathname.replace(/\/+$/, "") === "/about") {
-    return (
-      <main className="mx-auto max-w-4xl px-6 py-20">
-        <p className="text-4xl leading-tight font-semibold sm:text-5xl">
-          Denis Amselemovitch is an intriguing character who likes to make
-          impromptu appearances in incongruous places.
-        </p>
-      </main>
-    )
-  }
-
   return (
     <main className="min-h-screen bg-background px-6 py-12 text-foreground">
       <div className="mx-auto max-w-4xl space-y-6">
