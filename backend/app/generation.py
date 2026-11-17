@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+from dataclasses import dataclass
 from pathlib import Path
 
 import httpx
@@ -11,9 +12,23 @@ from google import genai
 from google.genai import errors, types
 
 from app.answer_contract import DraftAnswer, validate_answer
-from app.redaction import RedactionSession
+from app.redaction import RedactionError, RedactionSession, RedactionSummary
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class GenerationMetadata:
+    redaction: RedactionSummary | None = None
+
+
+class RedactionBlocked(HTTPException):
+    def __init__(self) -> None:
+        super().__init__(
+            status_code=503,
+            detail="The request could not be prepared safely. Please retry.",
+        )
+
 
 class InvalidModelOutput(HTTPException):
     def __init__(self) -> None:
@@ -48,6 +63,7 @@ def generate_answer(
     evidence: list[dict[str, str]],
     *,
     usage: dict[str, int | None] | None = None,
+    metadata: GenerationMetadata | None = None,
 ) -> tuple[DraftAnswer, str]:
     load_dotenv(ENV_FILE, override=False)
 
@@ -65,23 +81,19 @@ def generate_answer(
 
     # Redact the question and evidence using one shared session so repeated
     # personal-data values receive consistent placeholders.
-    redaction = RedactionSession()
+    try:
+        redaction = RedactionSession()
+        redacted_question = redaction.redact(question)
+        redacted_evidence = [
+            {"chunk_id": item["chunk_id"], "text": redaction.redact(item["text"])}
+            for item in evidence
+        ]
+        summary = RedactionSummary.model_validate(redaction.summary())
+    except (RedactionError, KeyError, ValueError) as error:
+        raise RedactionBlocked() from error
 
-    redacted_question = redaction.redact(question)
-
-    redacted_evidence = []
-    for item in evidence:
-        redacted_item = item.copy()
-
-        # Only redact the evidence passage itself.
-        # Preserve chunk IDs and all other metadata.
-        if isinstance(redacted_item.get("text"), str):
-            redacted_item["text"] = redaction.redact(redacted_item["text"])
-
-        redacted_evidence.append(redacted_item)
-
-    # Safe summary only: do not log or export original spans or mappings.
-    redaction_summary = redaction.summary()
+    if metadata is not None:
+        metadata.redaction = summary
 
     payload = json.dumps(
         {
@@ -180,9 +192,6 @@ def generate_answer(
         answer = validate_answer(raw_response, allowed_ids)
     except ValueError as error:
         logger.warning("Rejected an invalid model answer")
-        raise HTTPException(
-            502,
-            "The model returned an invalid answer or citation. Try again.",
-        ) from error
+        raise InvalidModelOutput() from error
 
     return answer, model_name

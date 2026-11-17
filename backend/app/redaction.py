@@ -1,6 +1,17 @@
-
 import re
 from collections import Counter
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, NonNegativeInt
+
+
+class RedactionSummary(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    policy_version: Literal["v1"]
+    counts_by_entity_type: dict[
+        Literal["EMAIL", "PHONE", "PERSON"], NonNegativeInt
+    ]
 
 
 POLICY_VERSION = "v1"
