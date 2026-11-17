@@ -1,3 +1,4 @@
+
 import json
 import logging
 import os
@@ -10,7 +11,7 @@ from google import genai
 from google.genai import errors, types
 
 from app.answer_contract import DraftAnswer, validate_answer
-
+from app.redaction import RedactionSession
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ class InvalidModelOutput(HTTPException):
             status_code=502,
             detail="The model returned an invalid answer or citation. Try again.",
         )
+
 
 ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
 
@@ -53,15 +55,38 @@ def generate_answer(
     model_name = os.getenv("GEMINI_MODEL", "").strip()
 
     if not api_key or not model_name:
-        raise InvalidModelOutput() from error(
-            503,
-            "Answer generation is not configured. Set the backend API key and model.",
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Answer generation is not configured. "
+                "Set the backend API key and model."
+            ),
         )
+
+    # Redact the question and evidence using one shared session so repeated
+    # personal-data values receive consistent placeholders.
+    redaction = RedactionSession()
+
+    redacted_question = redaction.redact(question)
+
+    redacted_evidence = []
+    for item in evidence:
+        redacted_item = item.copy()
+
+        # Only redact the evidence passage itself.
+        # Preserve chunk IDs and all other metadata.
+        if isinstance(redacted_item.get("text"), str):
+            redacted_item["text"] = redaction.redact(redacted_item["text"])
+
+        redacted_evidence.append(redacted_item)
+
+    # Safe summary only: do not log or export original spans or mappings.
+    redaction_summary = redaction.summary()
 
     payload = json.dumps(
         {
-            "question": question,
-            "evidence": evidence,
+            "question": redacted_question,
+            "evidence": redacted_evidence,
         },
         ensure_ascii=False,
     )
@@ -72,7 +97,12 @@ def generate_answer(
             http_options=types.HttpOptions(timeout=60000),
         ) as client:
             if usage is not None:
-                usage.update(llm_calls=1, input_tokens=None, output_tokens=None)
+                usage.update(
+                    llm_calls=1,
+                    input_tokens=None,
+                    output_tokens=None,
+                )
+
             response = client.models.generate_content(
                 model=model_name,
                 contents=payload,
@@ -89,6 +119,7 @@ def generate_answer(
                 input_tokens=response.usage_metadata.prompt_token_count,
                 output_tokens=response.usage_metadata.candidates_token_count,
             )
+
         raw_response = response.text or ""
 
     except errors.APIError as error:
