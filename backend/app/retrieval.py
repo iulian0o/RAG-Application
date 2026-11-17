@@ -41,7 +41,6 @@ class RetrievalRequest(BaseModel):
 
     question: str = Field(min_length=1, max_length=2000)
     document_ids: list[str] = Field(min_length=1, max_length=50)
-    index_ids=list(snapshot.active_index_ids),
     top_k: int = Field(default=5, ge=1, le=20, strict=True)
 
     retrievers: list[RetrieverName] = Field(default_factory=lambda: ["dense"], min_length=1, max_length=3)
@@ -121,6 +120,7 @@ class CandidateRank(BaseModel):
 class RetrievalResponse(BaseModel):
     question: str
     document_ids: list[str]
+    index_ids: list[str] = Field(default_factory=list)
     top_k: int
     matches: list[RetrievedChunk]
     retrievers: list[str] = Field(default_factory=lambda: ["dense"])
@@ -310,6 +310,7 @@ def retrieve_chunks(request: RetrievalRequest) -> RetrievalResponse:
         return RetrievalResponse(
             question=request.question,
             document_ids=snapshot.document_ids,
+            index_ids=list(snapshot.active_index_ids),
             top_k=request.top_k,
             matches=matches,
             retrievers=request.retrievers,
@@ -346,9 +347,6 @@ def retrieve_chunks(request: RetrievalRequest) -> RetrievalResponse:
         ) from error
     finally:
         index_write_lock.release()
-
-    index_ids: list[str] = Field(default_factory=list)
-
 
 @router.post("/search", response_model=RetrievalResponse)
 def search(request: RetrievalRequest) -> RetrievalResponse:
