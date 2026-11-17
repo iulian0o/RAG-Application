@@ -1,4 +1,4 @@
-# RAG Project V1 Report
+# RAG Project V4 Report
 
 ## Author and contributions
 

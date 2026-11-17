@@ -31,7 +31,7 @@ const graphPathSchema = z.object({
 
 export type GraphPath = z.infer<typeof graphPathSchema>
 
-const citationSchema = z.object({
+export const citationSchema = z.object({
   chunk_id: z.string(),
   document_id: z.string(),
   index_id: z.string(),

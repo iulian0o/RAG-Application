@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from app.database import database
+from app.redaction import RedactionSummary
 
 
 logger = logging.getLogger(__name__)
@@ -76,6 +77,7 @@ class TraceRecord(BaseModel):
     llm_calls: int = 0
     input_tokens: int | None = None
     output_tokens: int | None = None
+    redaction: RedactionSummary | None = None
 
 
 def initialize_traces() -> None:

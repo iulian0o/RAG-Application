@@ -1,23 +1,24 @@
+from time import perf_counter
 from typing import Literal
+from uuid import UUID
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel
 
 from app.answer_contract import INSUFFICIENT_EVIDENCE_MESSAGE
-from app.generation import generate_answer
+from app.generation import (
+    GenerationMetadata,
+    InvalidModelOutput,
+    RedactionBlocked,
+    generate_answer,
+)
 from app.retrieval import (
     RetrievalRequest,
     RetrievedChunk,
     retrieve_chunks,
 )
-
-from time import perf_counter
-from uuid import UUID
-
-from fastapi import APIRouter, Request
-
-from app.generation import InvalidModelOutput, generate_answer
 from app.traces import RankedChunk, RetrievalDetails, TraceRecord
+
 
 router = APIRouter(prefix="/api/questions", tags=["questions"])
 
@@ -79,18 +80,25 @@ def ask_question(request: RetrievalRequest, http_request: Request) -> QuestionRe
         for chunk in retrieval.matches
     ]
     usage: dict[str, int | None] = {}
+    metadata = GenerationMetadata()
     started = perf_counter()
     try:
         draft, model_name = generate_answer(
             question=request.question,
             evidence=evidence,
             usage=usage,
+            metadata=metadata,
         )
+    except RedactionBlocked:
+        trace.outcome = "blocked"
+        trace.error_code = "redaction_failed"
+        raise
     except InvalidModelOutput:
         trace.outcome = "invalid_output"
         trace.error_code = "invalid_model_output"
         raise
     finally:
+        trace.redaction = metadata.redaction
         trace.timings_ms["generation"] = round((perf_counter() - started) * 1000, 2)
         trace.llm_calls = usage.get("llm_calls") or 0
         trace.input_tokens = usage.get("input_tokens")
