@@ -1,64 +1,55 @@
-## V2 evaluation
+## Author and contributions
 
-Run commands from the backend directory using the backend Python environment.
+- Authors: Costi-Iulian Asanache, Nam Khanh LE, Clara Nguyen
+- Work completed: RAG v1
+- Team submission arrangement
 
-Upload the corpus documents and build their indexes before evaluation.
+## Corpus
 
-Question sets are kept in evaluation/datasets. Source JSONL files follow the
-provided Kestrel format. JSON adapters identify corpus documents by their
-normalized content hashes and map reference quotes for scoring.
+- Selected chapters:
+- Why these chapters were chosen:
+- Document content hashes:
+- Corpus limitations:
 
-Run the no-context baselines:
+## Decision log
 
-    python -m app.evaluate_no_context kestrel
-    python -m app.evaluate_no_context custom
+| Decision | Alternatives considered | Choice | Reason and trade-off |
+|---|---|---|---|
+| Backend | | FastAPI | |
+| Frontend | | React and TypeScript | |
+| Chunking | | Fixed character windows | |
+| Embeddings | | all-MiniLM-L6-v2 | |
+| Vector storage | | Chroma | |
+| Generation | | Gemini | |
+| Index rebuilding | | Publish after successful build | |
+| Citation validation | | IDs checked against retrieved evidence | |
 
-Review baseline answers manually and record correct_without_context.
+## Retrieval baseline
 
-Run retrieval-only evaluation:
+- Dataset:
+- Number and categories of questions:
+- Chunk size and overlap:
+- Top-k:
+- Evidence-matching definition:
+- Result file:
+- Hit@k:
+- Evidence recall@k:
+- Complete evidence rate:
+- Operational errors:
+- Limits of this sample:
 
-    python -m app.evaluation_v2 kestrel
-    python -m app.evaluation_v2 custom
+## Unanswerable questions
 
-Generate grounded answers as part of a run:
+| Question | Expected behavior | Observed behavior |
+|---|---|---|
+| | | |
 
-    python -m app.evaluation_v2 kestrel --generate-answers --answer-top-k 5
+## Known failures
 
-Results are saved under evaluation/results using unique run IDs.
+| Reproducing question or input | Expected behavior | Observed behavior | Possible V2 improvement |
+|---|---|---|---|
+| | | | |
 
-Retrieval is measured at k = 1, 3, 5, 10, overall and by question type.
-Unanswerable questions are excluded from retrieval denominators.
-Retrieval errors count as misses and are reported separately.
+## Reproduction
 
-Do not modify documents, indexes, or question sets during an evaluation.
-Runs detecting changed inputs are invalid.
-
-A file left with status running after a forced process termination is
-incomplete. Start a fresh run and exclude the incomplete file from analysis.
-
-The API exposes:
-
-- GET /api/evaluation/datasets
-- POST /api/evaluation/runs
-- GET /api/evaluation/runs/{run_id}
-
-POST waits for completion. The request defaults to retrieval only.
-Optional answer generation increases execution time.
-
-Run the backend with one worker, matching the existing indexing lock design.
-
-Human grading rules are in evaluation/grading-rules.md.
-Grades and diagnosis notes are added to the corresponding results file.
-
-## Using Words and Evaluation
-
-Run the backend on port 8000 and the frontend with npm run dev from frontend.
-Open the URL printed by Vite.
-
-Select uploaded and indexed documents, then open Words. Corpus mode shows
-word frequencies and matching chunks. Question mode analyzes typed questions
-or questions loaded from the evaluation sets.
-
-Open Evaluation and load the available corpora. Select a corpus and run the
-evaluation. Enable Generate answers when you want grounded answers alongside
-retrieval results. Use the run ID to reopen saved results or download the JSON.
+Commands to install, run, test, and evaluate the application.
