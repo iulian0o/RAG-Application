@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react"
 
 import { Button } from "@/components/ui/button"
+import { TracePanel } from "@/components/trace-panel"
+import { ApiError } from "@/lib/api-error"
 import {
   getDocumentIndex,
   rebuildDocumentIndex,
@@ -32,6 +34,7 @@ export function IndexControls({
 
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
+  const [traceId, setTraceId] = useState<string | null>(null)
 
   useEffect(() => {
     let active = true
@@ -85,6 +88,7 @@ export function IndexControls({
 
     setError("")
     setMessage("")
+    setTraceId(null)
 
     if (
       chunkSize.trim() === "" ||
@@ -113,8 +117,10 @@ export function IndexControls({
 
       setIndex(result)
       setKnown(true)
+      setTraceId(result.trace_id ?? null)
       setMessage(`Index saved with ${result.chunk_count} chunks.`)
     } catch (reason) {
+      if (reason instanceof ApiError) setTraceId(reason.traceId)
       setError(errorMessage(reason))
     } finally {
       setBuilding(false)
@@ -221,6 +227,8 @@ export function IndexControls({
           {error}
         </p>
       )}
+
+      <TracePanel key={traceId ?? "none"} traceId={traceId} />
     </section>
   )
 }

@@ -1,10 +1,15 @@
 import { useState, type FormEvent } from "react"
+import { GraphPathPanel } from "@/components/graph-path-panel"
 
 import { Button } from "@/components/ui/button"
+import { RetrieverControls } from "@/components/retriever-controls"
+import { TracePanel } from "@/components/trace-panel"
+import { ApiError } from "@/lib/api-error"
 import { type StoredDocument } from "@/lib/documents-api"
 import {
   askQuestion,
   type QuestionResponse,
+  type RetrieverName,
 } from "@/lib/questions-api"
 
 type QuestionPanelProps = {
@@ -26,8 +31,10 @@ export function QuestionPanel({
 }: QuestionPanelProps) {
   const [question, setQuestion] = useState("")
   const [topK, setTopK] = useState("5")
+  const [retrievers, setRetrievers] = useState<RetrieverName[]>(["dense"])
   const [asking, setAsking] = useState(false)
   const [error, setError] = useState("")
+  const [errorTraceId, setErrorTraceId] = useState<string | null>(null)
   const [snapshot, setSnapshot] = useState<AnswerSnapshot | null>(null)
 
   const locked = disabled || asking
@@ -40,6 +47,7 @@ export function QuestionPanel({
     const count = Number(topK)
 
     setError("")
+    setErrorTraceId(null)
 
     if (!trimmedQuestion) {
       setError("Enter a question.")
@@ -48,6 +56,11 @@ export function QuestionPanel({
 
     if (noSelection) {
       setError("Select at least one document above.")
+      return
+    }
+
+    if (retrievers.length === 0) {
+      setError("Select at least one retriever.")
       return
     }
 
@@ -72,6 +85,7 @@ export function QuestionPanel({
         question: trimmedQuestion,
         document_ids: selectedDocuments.map((document) => document.id),
         top_k: count,
+        retrievers,
       })
 
       setSnapshot({
@@ -80,6 +94,8 @@ export function QuestionPanel({
         topK: count,
       })
     } catch (reason) {
+      if (reason instanceof ApiError) setErrorTraceId(reason.traceId)
+
       setError(
         reason instanceof Error
           ? reason.message
@@ -155,7 +171,16 @@ export function QuestionPanel({
           </p>
         </div>
 
-        <Button type="submit" disabled={locked || noSelection}>
+        <RetrieverControls
+          value={retrievers}
+          onChange={setRetrievers}
+          disabled={locked}
+        />
+
+        <Button
+          type="submit"
+          disabled={locked || noSelection || retrievers.length === 0}
+        >
           {asking ? "Finding an answer…" : "Ask question"}
         </Button>
       </form>
@@ -169,9 +194,19 @@ export function QuestionPanel({
       </p>
 
       {error && (
-        <p role="alert" className="text-sm text-destructive">
-          {error}
-        </p>
+        <div className="space-y-2">
+          <div role="alert" className="space-y-1 text-sm text-destructive">
+            <p>{error}</p>
+            {/Concept Graph/i.test(error) && (
+              <p className="text-xs">
+                The Concept Graph is built from the indexed Kestrel documents.
+                Build or rebuild it (see the README), or uncheck Concept Graph
+                to ask with Dense and BM25 only.
+              </p>
+            )}
+          </div>
+          <TracePanel key={errorTraceId ?? "none"} traceId={errorTraceId} />
+        </div>
       )}
 
       {snapshot && (
@@ -191,11 +226,35 @@ export function QuestionPanel({
               Sources selected: {snapshot.filenames.join(", ")}
               {" · "}Top-k: {snapshot.topK}
             </p>
+
+            {snapshot.response.retrieval && (
+              <p className="text-xs text-muted-foreground">
+                Retrievers: {snapshot.response.retrieval.retrievers.join(" + ")}
+                {" · "}Candidate depth:{" "}
+                {snapshot.response.retrieval.candidate_depth}
+                {" · "}RRF k: {snapshot.response.retrieval.rrf_k}
+              </p>
+            )}
           </div>
+
+          {snapshot.response.status === "insufficient_evidence" && (
+            <p className="text-sm text-muted-foreground">
+              The selected sources did not provide enough evidence.
+            </p>
+          )}
+
+          <p className="text-xs text-muted-foreground">
+            AI-generated. Verify against the passages below.
+          </p>
 
           <p className="whitespace-pre-wrap break-words text-sm leading-7">
             {snapshot.response.answer}
           </p>
+
+          <TracePanel
+            key={snapshot.response.trace_id ?? "none"}
+            traceId={snapshot.response.trace_id ?? null}
+          />
 
           {snapshot.response.citations.length > 0 && (
             <div className="space-y-3">
@@ -228,6 +287,17 @@ export function QuestionPanel({
                   <p className="mt-1 text-xs text-muted-foreground">
                     Source character range: [{citation.start}, {citation.end})
                   </p>
+
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Fused rank: #{citation.fused_rank}
+                    {Object.entries(citation.retriever_ranks).map(
+                      ([name, rank]) => ` · ${name}: ${rank}`,
+                    )}
+                    {citation.distance != null &&
+                      ` · distance ${citation.distance.toFixed(3)}`}
+                  </p>
+
+                  <GraphPathPanel paths={citation.graph_paths} />
                 </details>
               ))}
             </div>

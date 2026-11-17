@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { ApiError, traceIdFrom } from "@/lib/api-error"
 
 const indexSchema = z.object({
   document_id: z.string(),
@@ -9,6 +10,7 @@ const indexSchema = z.object({
   overlap: z.number().int().nonnegative(),
   chunk_count: z.number().int().positive(),
   created_at: z.string(),
+  trace_id: z.string().nullable().optional(),
 })
 
 export type DocumentIndex = z.infer<typeof indexSchema>
@@ -30,35 +32,40 @@ async function sendRequest(
       signal: AbortSignal.timeout(timeout),
     })
   } catch {
-    throw new Error(
+    throw new ApiError(
       "The server could not be reached or the request timed out. " +
         "An index build may still be running. Refresh status before retrying.",
     )
   }
 }
 
-async function readIndexResponse(
-  response: Response,
-): Promise<DocumentIndex> {
+async function readIndexResponse(response: Response): Promise<DocumentIndex> {
+  const headerTraceId = traceIdFrom(response)
   const body: unknown = await response.json().catch(() => null)
 
   if (!response.ok) {
     const error = z.object({ detail: z.string() }).safeParse(body)
 
-    throw new Error(
+    throw new ApiError(
       error.success
         ? error.data.detail
         : `Index request failed (HTTP ${response.status}). Check your settings.`,
+      response.status,
+      headerTraceId,
     )
   }
 
   const parsed = indexSchema.safeParse(body)
 
   if (!parsed.success) {
-    throw new Error("Unexpected index response. Refresh status to check the result.")
+    throw new ApiError(
+      "Unexpected index response. Refresh status to check the result.",
+      response.status,
+      headerTraceId,
+    )
   }
 
-  return parsed.data
+  return { ...parsed.data, trace_id: parsed.data.trace_id ?? headerTraceId }
 }
 
 export async function getDocumentIndex(
@@ -68,7 +75,6 @@ export async function getDocumentIndex(
     `/api/indexes/${encodeURIComponent(documentId)}`,
   )
 
-  // This GET endpoint uses 409 specifically for an unindexed document.
   if (response.status === 409) {
     return null
   }
