@@ -104,11 +104,15 @@ export async function fetchTrace(
 
   if (version !== SUPPORTED_SCHEMA) return { kind: "unsupported", version }
 
-  const parsed = traceSchema.safeParse(body)
+  if (traceId.startsWith(FIXTURE_PREFIX)) {
+    const parsed = traceSchema.safeParse(body)
+    if (!parsed.success) throw new Error("The trace has an unexpected shape.")
+    return { kind: "trace", trace: parsed.data }
+  }
 
+  const parsed = apiTraceSchema.safeParse(body)
   if (!parsed.success) throw new Error("The trace has an unexpected shape.")
-
-  return { kind: "trace", trace: parsed.data }
+  return { kind: "trace", trace: toPanelTrace(parsed.data) }
 }
 
 const apiTraceSchema = z.object({

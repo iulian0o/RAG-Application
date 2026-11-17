@@ -11,6 +11,7 @@ import {
   type QuestionResponse,
   type RetrieverName,
 } from "@/lib/questions-api"
+import { compareRetrieval, type RetrievalComparison } from "@/lib/retrieval-api"
 
 type QuestionPanelProps = {
   documents: StoredDocument[]
@@ -22,6 +23,11 @@ type AnswerSnapshot = {
   response: QuestionResponse
   filenames: string[]
   topK: number
+}
+
+type ComparisonSnapshot = {
+  requestKey: string
+  result: RetrievalComparison
 }
 
 export function QuestionPanel({
@@ -36,12 +42,53 @@ export function QuestionPanel({
   const [error, setError] = useState("")
   const [errorTraceId, setErrorTraceId] = useState<string | null>(null)
   const [snapshot, setSnapshot] = useState<AnswerSnapshot | null>(null)
+  const [comparing, setComparing] = useState(false)
+  const [comparison, setComparison] = useState<ComparisonSnapshot | null>(null)
+  const [comparisonError, setComparisonError] = useState("")
 
-  const locked = disabled || asking
+  const locked = disabled || asking || comparing
   const noSelection = documents.length === 0
+  const comparisonRequest = {
+    question: question.trim(),
+    document_ids: documents.map((document) => document.id),
+    top_k: Number(topK),
+  }
+  const comparisonKey = JSON.stringify(comparisonRequest)
+  const canCompare =
+    !locked &&
+    !noSelection &&
+    comparisonRequest.question.length > 0 &&
+    Number.isInteger(comparisonRequest.top_k) &&
+    comparisonRequest.top_k >= 1 &&
+    comparisonRequest.top_k <= 20
+  const visibleComparison =
+    comparison?.requestKey === comparisonKey ? comparison.result : null
+
+  async function handleCompare() {
+    if (!canCompare) return
+
+    setComparison(null)
+    setComparisonError("")
+    setComparing(true)
+    onBusyChange(true)
+    try {
+      const result = await compareRetrieval(comparisonRequest)
+      setComparison({ requestKey: comparisonKey, result })
+    } catch (reason) {
+      setComparisonError(
+        reason instanceof Error
+          ? reason.message
+          : "The retrieval comparison could not be completed.",
+      )
+    } finally {
+      setComparing(false)
+      onBusyChange(false)
+    }
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (locked) return
 
     const trimmedQuestion = question.trim()
     const count = Number(topK)
@@ -177,13 +224,29 @@ export function QuestionPanel({
           disabled={locked}
         />
 
-        <Button
-          type="submit"
-          disabled={locked || noSelection || retrievers.length === 0}
-        >
-          {asking ? "Finding an answer…" : "Ask question"}
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            type="submit"
+            disabled={locked || noSelection || retrievers.length === 0}
+          >
+            {asking ? "Finding an answer…" : "Ask question"}
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            disabled={!canCompare}
+            onClick={() => void handleCompare()}
+          >
+            {comparing ? "Comparing…" : "Compare retrieval"}
+          </Button>
+        </div>
       </form>
+
+      {comparing && <p role="status">Comparing Dense and Dense + BM25…</p>}
+      {comparisonError && (
+        <p role="alert" className="text-sm text-destructive">{comparisonError}</p>
+      )}
+      {visibleComparison && <ComparisonResults result={visibleComparison} />}
 
       <p role="status" aria-live="polite" className="text-sm">
         {asking
@@ -304,6 +367,59 @@ export function QuestionPanel({
           )}
         </article>
       )}
+    </section>
+  )
+}
+
+function ComparisonResults({ result }: { result: RetrievalComparison }) {
+  const columns = [
+    { label: "Dense", search: result.dense, other: result.hybrid },
+    { label: "Dense + BM25", search: result.hybrid, other: result.dense },
+  ]
+
+  return (
+    <section aria-labelledby="comparison-heading" className="space-y-3">
+      <h3 id="comparison-heading" className="font-semibold">Retrieval comparison</h3>
+      <div className="grid gap-4 md:grid-cols-2">
+        {columns.map(({ label, search, other }) => {
+          const otherRanks = new Map(
+            other.matches.map((chunk) => [chunk.chunk_id, chunk.fused_rank]),
+          )
+          return (
+            <section key={label} className="min-w-0 space-y-2 rounded-md border p-3">
+              <h4 className="text-sm font-semibold">{label}</h4>
+              <p className="text-xs text-muted-foreground">
+                {Math.round(search.timings_ms.total)} ms
+              </p>
+              {search.matches.length === 0 && <p className="text-sm">No passages retrieved.</p>}
+              {search.matches.map((chunk) => {
+                const otherRank = otherRanks.get(chunk.chunk_id)
+                return (
+                  <details key={chunk.chunk_id} className="rounded-md border p-2">
+                    <summary className="cursor-pointer break-words text-sm">
+                      #{chunk.fused_rank} {chunk.filename}
+                    </summary>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      {otherRank === undefined
+                        ? "Outside the other configuration’s top results"
+                        : `Rank in the other configuration: #${otherRank}`}
+                      {Object.entries(chunk.retriever_ranks).map(
+                        ([name, rank]) => ` · ${name}: #${rank}`,
+                      )}
+                    </p>
+                    <p className="mt-1 break-all text-xs text-muted-foreground">
+                      Chunk {chunk.chunk_id} · characters [{chunk.start}, {chunk.end})
+                    </p>
+                    <blockquote className="mt-2 whitespace-pre-wrap break-words text-sm">
+                      {chunk.text}
+                    </blockquote>
+                  </details>
+                )
+              })}
+            </section>
+          )
+        })}
+      </div>
     </section>
   )
 }
