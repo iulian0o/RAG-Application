@@ -110,3 +110,63 @@ export async function fetchTrace(
 
   return { kind: "trace", trace: parsed.data }
 }
+
+const apiTraceSchema = z.object({
+  schema_version: z.literal(SUPPORTED_SCHEMA),
+  trace_id: z.string(),
+  operation: z.enum(["question", "index_rebuild"]),
+  outcome: z.enum([
+    "running", "answered", "abstained", "indexed",
+    "invalid_output", "blocked", "error", "interrupted",
+  ]),
+  started_at: z.string(),
+  finished_at: z.string().nullable(),
+  timings_ms: z.record(z.string(), z.number().nonnegative()),
+  retrieval: z.object({
+    ranked_chunks: z.array(z.object({
+      chunk_id: z.string(),
+      fused_rank: z.number().int().positive(),
+      retriever_ranks: z.record(z.string(), z.number()),
+    })),
+  }).nullable(),
+  indexing: z.object({
+    chunk_size: z.number(),
+    overlap: z.number(),
+    chunk_count: z.number().nullable(),
+    attempted_index_id: z.string().nullable(),
+    published_index_id: z.string().nullable(),
+  }).nullable(),
+  llm_calls: z.number().int().nonnegative(),
+  input_tokens: z.number().int().nonnegative().nullable(),
+  output_tokens: z.number().int().nonnegative().nullable(),
+})
+
+function toPanelTrace(record: z.infer<typeof apiTraceSchema>): Trace {
+  const { total, ...stages } = record.timings_ms
+  return {
+    schema_version: record.schema_version,
+    trace_id: record.trace_id,
+    operation: record.operation,
+    status: record.outcome,
+    started_at: record.started_at,
+    finished_at: record.finished_at,
+    duration_ms: total ?? null,
+    stages: Object.entries(stages).map(([name, duration_ms]) => ({
+      name,
+      duration_ms,
+    })),
+    ranked_chunks: record.retrieval?.ranked_chunks.map((chunk) => ({
+      chunk_id: chunk.chunk_id,
+      rank: chunk.fused_rank,
+      retriever_ranks: chunk.retriever_ranks,
+    })),
+    usage: {
+      llm_calls: record.llm_calls,
+      input_tokens: record.input_tokens,
+      output_tokens: record.output_tokens,
+    },
+    index: record.indexing
+      ? { ...record.indexing, chunk_count: record.indexing.chunk_count ?? undefined }
+      : undefined,
+  }
+}
