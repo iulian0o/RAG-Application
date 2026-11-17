@@ -134,6 +134,7 @@ def test_dense_only_is_the_default_and_keeps_v2_behaviour(world):
     world.set_distances(QUESTION, DISTANCES)
     response = retrieve_chunks(request(top_k=3))
 
+    assert response.index_ids == ["idx-doc-a-1", "idx-doc-b-1"]
     assert response.retrievers == ["dense"]
     assert response.candidate_depth == 3
     assert [m.text[:7] for m in response.matches] == ["Descale", "The wat", "Error E"]

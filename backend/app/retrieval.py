@@ -30,7 +30,6 @@ logger = logging.getLogger(__name__)
 
 RetrieverName = Literal["dense", "bm25", "graph"]
 
-# Candidate depth used when several retrievers are fused and the request does not choose one.
 DEFAULT_CANDIDATE_DEPTH = 50
 
 
@@ -42,17 +41,13 @@ class RetrievalRequest(BaseModel):
 
     question: str = Field(min_length=1, max_length=2000)
     document_ids: list[str] = Field(min_length=1, max_length=50)
+    index_ids=list(snapshot.active_index_ids),
     top_k: int = Field(default=5, ge=1, le=20, strict=True)
 
-    # V3. Omitting all of these keeps the V2 behaviour (dense only).
     retrievers: list[RetrieverName] = Field(default_factory=lambda: ["dense"], min_length=1, max_length=3)
-    # How many candidates each retriever contributes to the fusion. Default: top_k for a single retriever,
-    # otherwise DEFAULT_CANDIDATE_DEPTH (never below top_k).
     candidate_depth: int | None = Field(default=None, ge=1, le=200, strict=True)
     rrf_k: int = Field(default=60, ge=1, le=1000, strict=True)
-    # Weighted RRF. Retrievers without a weight use 1.0; omitted = plain RRF.
     weights: dict[RetrieverName, float] | None = None
-    # Also return every retriever's own candidate list (used by the benchmark to compare candidate and fused ranks).
     include_candidates: bool = False
 
     @field_validator("document_ids")
